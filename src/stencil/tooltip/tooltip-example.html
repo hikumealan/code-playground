@@ -1,0 +1,63 @@
+<script>
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+  tag: 'my-tooltip',
+  shadow: true
+})
+export class Tooltip {
+  @Prop() content: string;
+  @Prop() position: string;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { content, position } = this;
+    return (
+      <div class="tooltip">
+        <div class="tooltip-content">
+          {content}
+        </div>
+        <div class="tooltip-arrow" style={position}></div>
+      </div>
+    );
+  }
+}
+</script>
+
+<style>
+.tooltip {
+  position: relative;
+  z-index: 1000;
+}
+
+.tooltip-content {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid #fff;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+</style>
+
+/*
+This component can be used like this:
+
+<my-tooltip content="This is a tooltip" position="bottom"></my-tooltip>
+The content prop is used to specify the content of the tooltip. The position prop is used to specify the position of the tooltip relative to the parent element. The possible values for the position prop are top, bottom, left, and right.
+*/
