@@ -1,0 +1,147 @@
+import { Component, Prop, h } from '@stencil/core';
+
+import { mdIcons } from '@material-ui/icons';
+
+@Component({
+  tag: 'my-icon',
+  shadow: true,
+})
+export class MyIcon {
+  @Prop() icon: string;
+  @Prop() color: string;
+  @Prop() size: number;
+
+  constructor() {
+    super();
+    this.iconCache = new Map();
+  }
+
+  render() {
+    const { icon, color, size } = this;
+    const iconUrl = this.iconCache.get(icon) || (this.iconCache.set(icon, mdIcons[icon].svgIcon));
+    const iconSvg = `<svg viewBox="0 0 100 100">
+      <use xlink:href="${iconUrl}"></use>
+    </svg>`;
+    return (
+      <div class="my-icon" role="img" aria-label={icon} style={{ color, fontSize: size + 'px' }}>
+        {iconSvg}
+      </div>
+    );
+  }
+
+  onIconChange(event) {
+    this.icon = event.target.value;
+  }
+
+  onColorChange(event) {
+    this.color = event.target.value;
+  }
+
+  onSizeChange(event) {
+    this.size = event.target.value;
+  }
+}
+
+@Component({
+  tag: 'my-button',
+  shadow: true,
+})
+export class MyButton {
+  @Prop() label: string;
+  @Prop() color: string;
+  @Prop() size: number;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { label, color, size } = this;
+    return (
+      <button class="my-button" style={{ color, fontSize: size + 'px' }}>
+        {label}
+      </button>
+    );
+  }
+}
+
+@Component({
+  tag: 'my-input',
+  shadow: true,
+})
+export class MyInput {
+  @Prop() label: string;
+  @Prop() placeholder: string;
+  @Prop() size: number;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { label, placeholder, size } = this;
+    return (
+      <input class="my-input" style={{ fontSize: size + 'px' }} placeholder={placeholder} />
+    );
+  }
+}
+
+@Component({
+  tag: 'my-list',
+  shadow: true,
+})
+export class MyList {
+  @Prop() items: any[];
+  @Prop() renderItem: (item: any) => JSX.Element;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { items, renderItem } = this;
+    const listItems = items.map((item) => (
+      renderItem(item)
+    ));
+
+    return (
+      <ul>
+        {listItems}
+      </ul>
+    );
+  }
+}
+
+@Component({
+  tag: 'my-pagination',
+  shadow: true,
+})
+export class MyPagination {
+  @Prop() totalPages: number;
+  @Prop() currentPage: number;
+  @Prop() onPageChange: (page: number) => void;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { totalPages, currentPage, onPageChange } = this;
+    const pages = Array(totalPages).fill(0).map((_, page) => (
+      <li key={page}>
+        {page + 1}
+        <input
+          type="radio"
+          name="page"
+          value={page}
+          checked={page === currentPage}
+          onChange={() => onPageChange(page)}
+        />
+      </li>
+    ));
+
+    return (
+      <div class="my-pagination">
+        <ul>
+          {pages}
+        </ul>
