@@ -1,0 +1,73 @@
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+  tag: 'my-table',
+  shadow: true,
+})
+export class Table {
+  @Prop() data: any[];
+  @Prop() columns: any[];
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { data, columns } = this;
+    return (
+      <table>
+        <thead>
+          <tr>
+            {columns.map((column, index) => (
+              <th key={index}>{column.title}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row, index) => (
+            <tr key={index}>
+              {row.map((cell, columnIndex) => (
+                <td key={columnIndex}>
+                  {cell}
+                  <slot name="cell" param={cell} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  }
+}
+
+/*
+This component has two properties: data and columns. The data property is an array of objects that represent the rows of the table, and the columns property is an array of objects that represent the columns of the table. Each column object has a title property that specifies the title of the column.
+
+To use this component, you would simply add it to your HTML like this:
+
+<my-table data={data} columns={columns} />
+This would render a table with the rows and columns specified in the data and columns properties.
+
+You can also use the slot attribute to add custom markup to the cells of the table. For example, you could use the following code to add a button to each cell of the table:
+
+<my-table data={data} columns={columns}>
+  <slot name="cell" param={cell}>
+    <button>{cell}</button>
+  </slot>
+</my-table>
+This would render a table with a button in each cell. The text of the button would be the same as the text of the cell.
+
+The cell slot parameter is an object that contains the following properties:
+
+cell: The text or HTML of the cell.
+column: The column object for the cell.
+row: The row object for the cell.
+You can use these properties to customize the rendering of the cell. For example, you could use the following code to change the color of the cell text:
+
+<my-table data={data} columns={columns}>
+  <slot name="cell" param={cell}>
+    <span style="color: red">{cell}</span>
+  </slot>
+</my-table>
+This would render a table with all of the cell text in red.
+*/
