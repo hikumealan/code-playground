@@ -1,0 +1,133 @@
+import { Component, Host, h } from '@stencil/core';
+
+@Component({
+  tag: 'my-input',
+  shadow: true,
+})
+export class MyInput {
+  @Prop() type: string;
+  @Prop() value: string;
+
+  constructor() {
+    super();
+    this.inputElement = document.createElement('input');
+    this.inputElement.type = this.type;
+    this.inputElement.value = this.value;
+  }
+
+  render() {
+    return (
+      <div>
+        <input
+          ref={(el) => this.inputElement = el}
+          type={this.type}
+          value={this.value}
+          onInput={(event) => this.handleInput(event)}
+        />
+      </div>
+    );
+  }
+
+  handleInput(event) {
+    this.value = event.target.value;
+  }
+}
+
+@Component({
+  tag: 'my-button',
+  shadow: true,
+})
+export class MyButton {
+  @Prop() text: string;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
+      <button>{this.text}</button>
+    );
+  }
+}
+
+@Component({
+  tag: 'my-card',
+  shadow: true,
+})
+export class MyCard {
+  @Prop() title: string;
+  @Prop() content: string;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
+      <div class="card">
+        <h3>{this.title}</h3>
+        <p>{this.content}</p>
+      </div>
+    );
+  }
+}
+
+@Component({
+  tag: 'my-list',
+  shadow: true,
+})
+export class MyList {
+  @Prop() items: string[];
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
+      <ul>
+        {this.items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    );
+  }
+}
+
+// Unit tests
+
+describe('MyInput', () => {
+  it('should render an input element', () => {
+    const { html } = shallow(<MyInput type="text" value="Hello, world!"></MyInput>);
+    expect(html).toContain('<input type="text" value="Hello, world!">');
+  });
+
+  it('should call the handleInput() method when the input element is changed', () => {
+    const handleInput = jest.fn();
+    const { html } = shallow(<MyInput type="text" value="Hello, world!" onInput={handleInput}></MyInput>);
+    const inputElement = html.querySelector('input');
+    inputElement.value = 'Goodbye, world!';
+    expect(handleInput).toHaveBeenCalledWith('Goodbye, world!');
+  });
+});
+
+describe('MyButton', () => {
+  it('should render a button element', () => {
+    const { html } = shallow(<MyButton text="Click me"></MyButton>);
+    expect(html).toContain('<button>Click me</button>');
+  });
+});
+
+describe('MyCard', () => {
+  it('should render a card element', () => {
+    const { html } = shallow(<MyCard title="My Card" content="This is my card."></MyCard>);
+    expect(html).toContain('<div class="card">');
+    expect(html).toContain('<h3>My Card</h3>');
+    expect(html).toContain('<p>This is my card.</p>');
+  });
+});
+
+describe('MyList', () => {
+  it('should render a list element', () => {
+    const { html } = shallow(<MyList items={['Item 1', 'Item 2
