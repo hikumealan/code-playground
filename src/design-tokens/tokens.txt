@@ -1,0 +1,91 @@
+Here is a full list of design tokens and values needed for supporting a design system:
+
+Colors: The colors that are used in the design system. This may include primary colors, secondary colors, tertiary colors, accent colors, and neutral colors.
+Typography: The fonts that are used in the design system. This may include the body font, the heading font, and the code font.
+Spacing: The spacing that is used in the design system. This may include the margins, paddings, gutters, and line heights.
+Grid: The grid used in the design system, such as column widths and gutters.
+Border radius: The border radius that is used in the design system.
+Shadows: The shadows that are used in the design system.
+Elevation: The elevation that is used in the design system.
+Buttons: The styles for buttons in the design system, such as size, shape, and color.
+Inputs: The styles for inputs in the design system, such as size, shape, and color.
+Dropdowns: The styles for dropdowns in the design system, such as size, shape, and color.
+Modals: The styles for modals in the design system, such as size, shape, and color.
+Tables: The styles for tables in the design system, such as size, shape, and color.
+Forms: The styles for forms in the design system, such as size, shape, and color.
+Icons: The icons used in the design system.
+Images: The styles for images in the design system, such as size, shape, and color.
+Animations: The animations that are used in the design system.
+States: The states that are used in the design system. This may include active, hover, focus, and disabled.
+Variants: The variants that are used in the design system. This may include light, dark, and high contrast.
+Other: Any other tokens that are needed to support the design system.
+
+
+Colors:
+
+Primary
+Secondary
+Tertiary
+Neutral
+Accent
+Error
+Success
+Warning
+
+
+Typography:
+
+Font family
+Font weight
+Font size
+Line height
+Letter spacing
+
+
+Spacing:
+
+Margin
+Padding
+Border
+Radius
+
+
+Shadow:
+
+X offset
+Y offset
+Blur radius
+Spread radius
+
+
+Elevation:
+
+Level 1
+Level 2
+Level 3
+Level 4
+Level 5
+
+
+Other:
+
+Button styles
+Input styles
+Dropdown styles
+Modal styles
+Tooltip styles
+Progress bar styles
+Spinner styles
+Alert styles
+Error styles
+Success styles
+Warning styles
+
+It is important to note that design tokens are not just for designers. They are also for developers. By using design tokens, developers can ensure that their code is consistent with the design system. This makes it easier to maintain and update the code, and it also makes it easier for designers and developers to collaborate.
+
+Here are some additional tips for using design tokens effectively:
+
+Use a consistent naming convention for your design tokens. This will make it easier to find and use the tokens.
+Document your design tokens. This will help designers and developers understand how to use the tokens.
+Use a version control system to track changes to your design tokens. This will help you to keep track of changes and to revert to previous versions if necessary.
+Test your design tokens in different browsers and devices. This will help you to ensure that the tokens look and behave the same way across different platforms.
