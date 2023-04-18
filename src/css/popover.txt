@@ -1,0 +1,87 @@
+Here is a CSS popover:
+
+.popover {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.popover .popover-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.popover:hover .popover-content {
+  display: block;
+}
+
+.popover .popover-arrow {
+  position: absolute;
+  display: none;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #ccc;
+}
+
+.popover:hover .popover-arrow {
+  display: block;
+}
+
+.popover:hover .popover-arrow {
+  margin-top: -7px;
+  margin-left: 20px;
+}
+This CSS will create a popover that appears when you hover over an element. The popover will have a white background, 10px padding, and a 7px arrow.
+
+For example, if you have the following HTML:
+
+<div class="popover">
+  <div class="popover-content">This is the popover content.</div>
+  <div class="popover-arrow"></div>
+</div>
+And the following CSS:
+
+.popover {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.popover .popover-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.popover:hover .popover-content {
+  display: block;
+}
+
+.popover .popover-arrow {
+  position: absolute;
+  display: none;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid #ccc;
+}
+
+.popover:hover .popover-arrow {
+  display: block;
+}
+
+.popover:hover .popover-arrow {
+  margin-top: -7px;
+  margin-left: 20px;
+}
+The popover will be displayed when you hover over the .popover element. The popover content will be "This is the popover content." The popover arrow will be positioned to the left of the popover content.
