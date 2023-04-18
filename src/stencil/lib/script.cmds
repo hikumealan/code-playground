@@ -1,0 +1,42 @@
+Create a new project using the Stencil CLI:
+npx stencil init my-design-system
+Install the necessary dependencies:
+npm install
+Create a new component:
+stencil g component button
+Write the code for the component:
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+  tag: 'my-button',
+  shadow: true,
+})
+export class MyButton {
+  @Prop() text: string;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { text } = this;
+    return (
+      <button>{text}</button>
+    );
+  }
+}
+Write the unit test for the component:
+import { Component, h } from '@stencil/core';
+import { MyButton } from './my-button';
+
+describe('MyButton', () => {
+  it('should render the correct text', () => {
+    const component = new MyButton({ text: 'Hello World' });
+    const rendered = h(component);
+    expect(rendered).toHaveText('Hello World');
+  });
+});
+Run the unit tests:
+npm test
+Repeat steps 3-6 for all of the components in your design system.
+Once you have written all of the components and unit tests, you can publish your library to npm. This will make it available to other developers who want to use your design system.
