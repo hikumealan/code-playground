@@ -1,0 +1,25 @@
+CSS to float an HTML element relative to another HTML element:
+
+.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/*
+This CSS will float the .child element relative to the .parent element. The .child element will be positioned absolutely, and it will be positioned at the top, left, right, and bottom of the .parent element. The z-index property will be set to 1, which will ensure that the .child element is displayed above any other elements that are on the same layer.
+
+For example, if you have the following HTML:
+
+<div class="parent">
+  <div class="child">This is the child element.</div>
+</div>
+The .child element will be displayed next to the .parent element. However, if you add the CSS above, the .child element will be floated relative to the .parent element and it will be displayed on top of the .parent element.
+*/
