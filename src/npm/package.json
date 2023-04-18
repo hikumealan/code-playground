@@ -1,0 +1,5 @@
+{
+  script:{
+    "prompt": "echo \"Enter some text: \" && read input && npm run other-script \"$input\""
+  }
+}
