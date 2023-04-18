@@ -1,0 +1,48 @@
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+  tag: 'my-tooltip',
+  shadow: true,
+})
+export class Tooltip {
+  @Prop() content: string;
+  @Prop() position: string;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { content, position } = this;
+    return (
+      <div class="tooltip">
+        <div class="tooltip-content">
+          {content}
+        </div>
+        <div class="tooltip-arrow" />
+      </div>
+    );
+  }
+}
+
+/*
+This component has two properties: content and position. The content property is the text that will be displayed in the tooltip, and the position property is a string that specifies the position of the tooltip relative to the parent element. The possible values for the position property are:
+
+top: The tooltip will be displayed above the parent element.
+bottom: The tooltip will be displayed below the parent element.
+left: The tooltip will be displayed to the left of the parent element.
+right: The tooltip will be displayed to the right of the parent element.
+To use this component, you would simply add it to your HTML like this:
+
+<my-tooltip content="This is the tooltip content" position="top"></my-tooltip>
+This would render a tooltip that displays the text "This is the tooltip content" above the element that the tooltip is attached to.
+
+You can also use the slot attribute to add custom markup to the tooltip. For example, you could use the following code to add a close button to the tooltip:
+
+<my-tooltip content="This is the tooltip content" position="top">
+  <slot name="close">
+    <button class="close-button">Close</button>
+  </slot>
+</my-tooltip>
+This would render a tooltip that displays the text "This is the tooltip content" above the element that the tooltip is attached to. It would also have a close button that you can click to close the tooltip.
+*/
