@@ -1,0 +1,130 @@
+import { Component, Prop, h } from '@stencil/core';
+
+import { mdIcons } from '@material-ui/icons';
+
+@Component({
+  tag: 'my-icon',
+  shadow: true,
+})
+export class MyIcon {
+  @Prop() icon: string;
+  @Prop() color: string;
+  @Prop() size: number;
+
+  constructor() {
+    super();
+    this.iconCache = new Map();
+  }
+
+  render() {
+    const { icon, color, size } = this;
+    const iconUrl = this.iconCache.get(icon) || (this.iconCache.set(icon, mdIcons[icon].svgIcon));
+    const iconSvg = `<svg viewBox="0 0 100 100">
+      <use xlink:href="${iconUrl}"></use>
+    </svg>`;
+    return (
+      <div class="my-icon" role="img" aria-label={icon} style={{ color, fontSize: size + 'px' }}>
+        {iconSvg}
+      </div>
+    );
+  }
+
+  onIconChange(event) {
+    this.icon = event.target.value;
+  }
+
+  onColorChange(event) {
+    this.color = event.target.value;
+  }
+
+  onSizeChange(event) {
+    this.size = event.target.value;
+  }
+}
+
+@Component({
+  tag: 'my-button',
+  shadow: true,
+})
+export class MyButton {
+  @Prop() label: string;
+  @Prop() color: string;
+  @Prop() size: number;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { label, color, size } = this;
+    return (
+      <button class="my-button" style={{ color, fontSize: size + 'px' }}>
+        {label}
+      </button>
+    );
+  }
+}
+
+@Component({
+  tag: 'my-input',
+  shadow: true,
+})
+export class MyInput {
+  @Prop() label: string;
+  @Prop() type: string;
+  @Prop() value: string;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { label, type, value } = this;
+    return (
+      <input class="my-input" type={type} value={value} placeholder={label} />
+    );
+  }
+}
+
+@Component({
+  tag: 'my-card',
+  shadow: true,
+})
+export class MyCard {
+  @Prop() title: string;
+  @Prop() content: string;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { title, content } = this;
+    return (
+      <div class="my-card">
+        <h2>{title}</h2>
+        <p>{content}</p>
+      </div>
+    );
+  }
+}
+
+// Unit tests
+
+import { expect } from 'chai';
+import { h } from 'stencil/core';
+
+describe('MyIcon', () => {
+  it('should render an icon', () => {
+    const component = h(MyIcon, { icon: 'home', color: 'red', size: 20 });
+    expect(component).to.have.css('color', 'red');
+    expect(component).to.have.css('fontSize', '20px');
+    expect(component).to.have.text('home');
+  });
+});
+
+describe('MyButton', () => {
+  it('should render a button', () => {
+    const component = h(MyButton, { label: 'Click me!', color: 'blue', size: 30 });
+    expect(component).to.have.css('color', 'blue');
+    expect(component).to.have.css('fontSize', '
