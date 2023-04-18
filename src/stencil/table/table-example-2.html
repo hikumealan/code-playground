@@ -1,0 +1,68 @@
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+  tag: 'my-table',
+  shadow: true,
+})
+export class Table {
+  @Prop() data: any[];
+  @Prop() columns: any[];
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { data, columns } = this;
+    return (
+      <table>
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <th>{column.header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row) => (
+            <tr>
+              {row.map((cell, index) => (
+                <td key={index}>
+                  {columns[index].slot ? (
+                    <slot name={columns[index].slot}>
+                      {cell}
+                    </slot>
+                  ) : (
+                    cell
+                  )}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  }
+}
+/*
+This component has two properties: data and columns. The data property is an array of objects that represent the rows in the table, and the columns property is an array of objects that represent the columns in the table. Each column object has a header property that specifies the header text for the column, and a slot property that specifies the name of the slot that will be used to render the cell content.
+
+To use this component, you would simply add it to your HTML like this:
+
+<my-table data={data} columns={columns}></my-table>
+This would render a table with the rows and columns specified in the data and columns properties. The cells in the table would be rendered using the markup passed to the slot property for each column.
+
+For example, if you had a table with two columns, one for the name and one for the age, you could use the following code to render the cells:
+
+<my-table data={[
+  { name: 'John Doe', age: 25 },
+  { name: 'Jane Doe', age: 27 },
+]} columns={[
+  { header: 'Name' },
+  { header: 'Age' },
+]}></my-table>
+This would render a table with two rows and two columns. The first column would display the name of the person, and the second column would display the person's age. The cells in the table would be rendered using the following markup:
+
+<td>{name}</td>
+<td>{age}</td>
+*/
