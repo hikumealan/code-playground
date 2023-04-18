@@ -1,0 +1,55 @@
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+  tag: 'my-table',
+  shadow: true,
+})
+export class Table {
+  @Prop() data: any[];
+  @Prop() columns: any[];
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    const { data, columns } = this;
+    return (
+      <table>
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <th>{column.label}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row) => (
+            <tr>
+              {row.map((cell, index) => (
+                <td>
+                  {columns[index].cellRenderer ? columns[index].cellRenderer(cell) : cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  }
+}
+/*
+This component has two properties: data and columns. The data property is an array of data objects, and the columns property is an array of column objects. Each column object has a label property that specifies the label for the column, and a cellRenderer property that specifies a function that will be used to render the cell content.
+
+To use this component, you would simply add it to your HTML like this:
+
+<my-table data={data} columns={columns} />
+This would render a table with the data and columns that you specified. You can also use the slot attribute to add custom markup to the cells of the table. For example, you could use the following code to add a close button to each cell:
+
+<my-table data={data} columns={columns}>
+  <slot name="cell">
+    <button class="close-button">Close</button>
+  </slot>
+</my-table>
+This would render a table with a close button in each cell. When you click the close button, the cell will be removed from the table.
+*/
