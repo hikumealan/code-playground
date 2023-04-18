@@ -312,3 +312,46 @@ If the user has 2FA enabled, the 2FA code is validated.
 If the 2FA code is valid, the user is authenticated.
 If the 2FA code is invalid, the user is denied access.
 */
+
+// #######################################################################################################################
+
+const express = require('express');
+
+// Create a 2FA middleware.
+const twoFactorMiddleware = (req, res, next) => {
+  // Check if the user is authenticated.
+  if (!req.isAuthenticated()) {
+    return next();
+  }
+
+  // Get the user from the request.
+  const user = req.user;
+
+  // Check if the user has 2FA enabled.
+  if (!user.twoFactorEnabled) {
+    return next();
+  }
+
+  // Get the 2FA code from the request body.
+  const code = req.body.code;
+
+  // Validate the 2FA code.
+  if (!User.validateTwoFactorCode(user.id, code)) {
+    return res.send('Invalid 2FA code.');
+  }
+
+  // Next middleware.
+  next();
+};
+
+// Export the middleware.
+module.exports = twoFactorMiddleware;
+
+/*
+This middleware can be used to protect any route in your Express.js application that requires 2FA. To use the middleware, simply add it to the use() method of the route handler:
+
+app.post('/login', twoFactorMiddleware, (req, res) => {
+  // Do something with the request and response.
+});
+When a user tries to access the /login route, they will be prompted to enter a 2FA code. If the code is valid, the user will be authenticated and allowed to access the route. If the code is invalid, the user will be denied access.
+*/
