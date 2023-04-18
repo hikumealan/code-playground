@@ -1,0 +1,59 @@
+<!--CSS popover:-->
+
+<button class="popover-trigger">Popover</button>
+<div class="popover">
+  <div class="popover-content">
+    This is the popover content.
+  </div>
+</div>
+
+<style>
+.popover-trigger {
+  cursor: pointer;
+}
+
+.popover {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  padding: 10px;
+  background-color: lightgray;
+  border: 1px solid gray;
+  z-index: 1000;
+}
+
+.popover-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 10px;
+  z-index: 1001;
+}
+</style>
+<!--
+This popover will be displayed when you click on the button with the class popover-trigger. The popover content will be displayed below the button.
+
+You can customize the popover by changing the CSS properties. For example, you can change the color of the popover by changing the background-color property. You can also change the size of the popover by changing the width and height properties.
+
+You can also add a close button to the popover by adding the following code to the CSS:
+
+.popover-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 10px;
+  z-index: 1001;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popover-content .close-button {
+  cursor: pointer;
+  color: red;
+}
+This will add a close button to the popover content. The close button will be displayed at the top right corner of the popover content. When you click on the close button, the popover will be closed.
+-->
