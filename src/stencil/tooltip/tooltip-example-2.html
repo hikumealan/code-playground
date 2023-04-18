@@ -1,0 +1,51 @@
+<script>
+import { Component, h } from '@stencil/core';
+
+@Component({
+  tag: 'my-tooltip',
+  shadow: true
+})
+export class MyTooltip {
+  constructor() {
+    this.open = false;
+  }
+
+  openTooltip(event) {
+    this.open = true;
+    this.tooltipTarget = event.target;
+  }
+
+  closeTooltip() {
+    this.open = false;
+    this.tooltipTarget = null;
+  }
+
+  render() {
+    const { open, tooltipTarget } = this;
+
+    if (!open) {
+      return null;
+    }
+
+    const tooltipContent = h('slot', {}, {
+      // This will render the custom slot markup.
+    });
+
+    const tooltipElement = h('div', {
+      class: 'tooltip',
+      style: {
+        position: 'absolute',
+        top: tooltipTarget.offsetTop + 'px',
+        left: tooltipTarget.offsetLeft + 'px'
+      }
+    }, tooltipContent);
+
+    return tooltipElement;
+  }
+}
+</script>
+
+<my-tooltip (openTooltip)="openTooltip()">
+  <button>Click me to open the tooltip</button>
+  <slot></slot>
+</my-tooltip>
