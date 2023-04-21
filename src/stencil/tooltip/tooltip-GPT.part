@@ -1,0 +1,102 @@
+import { Component, h, Prop, State, Watch } from '@stencil/core';
+
+@Component({
+  tag: 'my-tooltip',
+  styleUrl: 'my-tooltip.scss',
+  shadow: true
+})
+export class MyTooltip {
+  @Prop({ reflect: true }) text: string;
+  @Prop({ reflect: true }) position: string = 'top';
+  @Prop({ reflect: true }) trigger: string = 'hover';
+  @Prop({ reflect: true }) delay: number = 0;
+  @Prop({ reflect: true }) disabled: boolean = false;
+
+  @State() isVisible: boolean = false;
+  @State() tooltipStyle: any = {};
+
+  private triggerEl: HTMLElement;
+  private tooltipEl: HTMLElement;
+  private tooltipWidth: number = 0;
+  private tooltipHeight: number = 0;
+
+  @Watch('position')
+  handlePositionChange() {
+    this.setTooltipPosition();
+  }
+
+  componentDidLoad() {
+    // Get the tooltip element and measure its dimensions
+    this.tooltipEl = this.el.shadowRoot.querySelector('.tooltip');
+    this.tooltipWidth = this.tooltipEl.offsetWidth;
+    this.tooltipHeight = this.tooltipEl.offsetHeight;
+
+    // Set the initial position of the tooltip
+    this.setTooltipPosition();
+  }
+
+  handleTrigger() {
+    // If the tooltip is disabled, don't show it
+    if (this.disabled) {
+      return;
+    }
+
+    // If the trigger is "click", toggle the visibility of the tooltip
+    if (this.trigger === 'click') {
+      this.isVisible = !this.isVisible;
+    }
+
+    // If the trigger is "hover", show the tooltip after a delay
+    if (this.trigger === 'hover') {
+      setTimeout(() => {
+        this.isVisible = true;
+      }, this.delay);
+    }
+  }
+
+  hideTooltip() {
+    // Hide the tooltip when the mouse leaves the trigger element
+    if (this.trigger === 'hover') {
+      this.isVisible = false;
+    }
+  }
+
+  setTooltipPosition() {
+    // If the tooltip is not visible, don't try to set its position
+    if (!this.isVisible) {
+      return;
+    }
+
+    // Get the position and dimensions of the trigger element
+    const triggerRect = this.triggerEl.getBoundingClientRect();
+    const triggerWidth = this.triggerEl.offsetWidth;
+    const triggerHeight = this.triggerEl.offsetHeight;
+
+    // Set the position of the tooltip based on the selected position
+    switch (this.position) {
+      case 'top':
+        this.tooltipStyle.top = `${triggerRect.top - this.tooltipHeight}px`;
+        this.tooltipStyle.left = `${triggerRect.left + (triggerWidth / 2) - (this.tooltipWidth / 2)}px`;
+        break;
+      case 'right':
+        this.tooltipStyle.top = `${triggerRect.top + (triggerHeight / 2) - (this.tooltipHeight / 2)}px`;
+        this.tooltipStyle.left = `${triggerRect.right}px`;
+        break;
+      case 'bottom':
+        this.tooltipStyle.top = `${triggerRect.bottom}px`;
+        this.tooltipStyle.left = `${triggerRect.left + (triggerWidth / 2) - (this.tooltipWidth / 2)}px`;
+        break;
+      case 'left':
+        this.tooltipStyle.top = `${triggerRect.top + (triggerHeight / 2) - (this.tooltipHeight / 2)}px`;
+        this.tooltipStyle.left = `${triggerRect.left - this.tooltipWidth}px`;
+        break;
+      default:
+        break;
+    }
+  }
+
+  render() {
+    return (
+      <div class="tooltip-container">
+        <slot />
+        {
