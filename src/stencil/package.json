@@ -1,0 +1,68 @@
+{
+  "name": "stencil",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "config": {
+    "prompt_session": ".npmrc-prompt-session",
+    "project": "xxx-lib",
+    "component": "xxx-component",
+    "component_name": {
+      "req": "Component name: ",
+      "res": "stencil_component_name",
+      "next": "res:generate:stencil"
+    }
+  },
+  "scripts": {
+    "setup": "npm run setup:stencil && npm run setup:storybook && cd $npm_package_config_project",
+    "presetup:stencil": "node -e \"require('fs').rmSync(require('path').join(process.cwd(), process.env.npm_package_config_project), { recursive: true, force: true });\" && npx -y rimraf $npm_package_config_project",
+    "setup:stencil": "npx -y create-stencil component $npm_package_config_project",
+    "setup-stencil": "npx -y create-stencil component $npm_package_config_project && npm --prefix $npm_package_config_project i @stencil/sass @stencil/store",
+    "postsetup:stencil": "cd $npm_package_config_project && npx -y @stencil/core generate $npm_package_config_component",
+    "presetup:storybook": "",
+    "setup:storybook": "cd $npm_package_config_project && npx -y sb init --type html",
+    "postsetup:storybook": "",
+
+    "req:generate:stencil": "npm run ask -- component_name",
+    "res:generate:stencil": "cd $npm_package_config_project && npx -y @stencil/core generate",
+
+    "session:clear": "npx -y rimraf $npm_package_config_prompt_session",
+    "preask": "npm run session:clear",
+    "ask": "node ask.js",
+    "postask": "npm run $npm_config_ask_next",
+    "post-ask": "npm run $npm_config_ask_next && npm run session:clear",
+
+
+    "prompt": "npm run prompt:stencil:generate:component",
+    "preprompt:stencil:generate:component": "npx -y rimraf $npm_package_config_prompt_session && node -e \"require('fs').openSync(process.env.npm_package_config_prompt_session, 'w')\"",
+    "prompt:stencil:generate:component": "node ask.js prompt_stencil_component_name",
+    "-prompt:stencil:generate:component": "node -e \"require('readline').createInterface({input:process.stdin,output:process.stdout,historySize:0}).question(process.env.npm_package_config_stencil_component_name_prompt, (res) => { child_process.execSync('npm --userconfig='+process.env.npm_package_config_prompt_session+' set stencil_component_name=\\x27'+res+'\\x27', { stdio: 'inherit' }); setTimeout(() => process.exit(), 0); })\"",
+    "postprompt:stencil:generate:component": "npm --userconfig=$npm_package_config_prompt_session run generate:stencil",
+
+
+    "pregenerate:stencil": "node -e \"console.log(process.env)\"",
+    "generate:stencil": "cd $npm_package_config_project && npx -y @stencil/core generate $npm_config_stencil_component_name",
+    "postgenerate:stencil": "echo \"TODO: css > scss\" && npm run generate:storybook",
+
+    "pregenerate:storybook": "",
+    "generate:storybook": "echo \"TODO: add component name stories\"",
+    "postgenerate:storybook": "",
+    "test": "echo \"Error: no test specified\" && exit 1",
+
+
+    "-prompt": "npm --userconfig=.npmrc-cli-session run runner --req=question_1",
+    "-ask": "node -e \"const req = process.env['npm_package_config_'+process.env.npm_config_ask] || '?'; require('readline').createInterface({input:process.stdin,output:process.stdout,historySize:0}).question(req+' > ', (res) => { child_process.execSync('npm --userconfig='+process.env.npm_config_userconfig.split('/').pop()+' set '+process.env.npm_config_ask+'_req=\\x27'+req+'\\x27 '+process.env.npm_config_ask+'_res=\\x27'+res+'\\x27', { stdio: 'inherit' }); process.exit(); })\"",
+    "session:clean": "node -e \"try{ require('fs').unlinkSync(process.env.npm_config_userconfig.split('/').pop()); } catch(e){ console.error(e); }\"",
+    "prerunner": "node -e \"try{ const seq = process.env.npm_config_next ? true : false; if(!seq){ child_process.execSync('npm --userconfig='+process.env.npm_config_userconfig.split('/').pop()+' run session:clean', { stdio: 'inherit' }); } }catch(e){ console.error(e); }\"",
+    "runner": "node -e \"child_process.execSync('npm --userconfig='+process.env.npm_config_userconfig.split('/').pop()+' run '+process.env.npm_config_req, { stdio: 'inherit' });\"",
+    "postrunner": "node -e \"const next = process.env['npm_package_config_'+process.env.npm_config_req+'_next']; if(next){ child_process.execSync('npm --userconfig='+process.env.npm_config_userconfig.split('/').pop()+' run runner --req='+next+' --next', { stdio: 'inherit' }); }else{ child_process.execSync('npm --userconfig='+process.env.npm_config_userconfig.split('/').pop()+' run session:clean', { stdio: 'inherit' }); }\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  }
+}

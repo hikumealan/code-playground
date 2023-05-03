@@ -42,6 +42,7 @@ const cli = async () => {
 };
 
 cli();
+/*
 Use code with caution. Learn more
 copy
 This CLI takes one argument, the name of the component to generate. For example, to generate a component called my-component, you would run the following command:
@@ -56,3 +57,4 @@ index.html: The component's HTML file.
 index.scss: The component's SCSS file.
 index.stories.js: The component's Storybook story file.
 You can then use the component in your HTML and Storybook.
+*/
