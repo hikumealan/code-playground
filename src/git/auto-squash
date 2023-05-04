@@ -1,0 +1,23 @@
+To automatically pick all the commits in a feature branch and squash them before creating a pull request (PR) into the main branch, you can use the following Git command:
+
+```
+git rebase -i --autosquash master
+```
+
+This command will automatically mark all the commits in the feature branch for squash and reorder them based on their commit time. Here are the steps:
+
+1. Run the `git rebase -i --autosquash master` command. This will open the interactive rebase window, where `master` is the name of the branch that you want to merge your feature branch into.
+
+2. Git will automatically mark all the commits in the feature branch for squash and reorder them based on their commit time.
+
+3. Save the changes and exit the editor.
+
+4. Git will prompt you to edit the commit message for the squashed commit. Edit the message as desired.
+
+5. Save the changes and exit the editor.
+
+6. Git will now have combined all the commits in the feature branch into a single commit with the edited commit message.
+
+7. Push the changes to the remote branch and create the pull request with the squashed commit.
+
+By using the `--autosquash` option, you can automate the process of picking and squashing all the commits in the feature branch, saving you time and effort. This is a convenient way to keep your Git history clean and easier to read, making it easier for reviewers to understand your changes.
