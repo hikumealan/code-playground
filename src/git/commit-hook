@@ -1,0 +1,45 @@
+You can create a Git commit message hook that enforces the Conventional Commits specification by following these steps:
+
+1. Open your terminal and navigate to the Git repository where you want to add the hook.
+
+2. Create a new file called "commit-msg" in the ".git/hooks" directory. You can use the following command to create the file:
+
+   ```
+   touch .git/hooks/commit-msg
+   ```
+
+3. Make the file executable by running the following command:
+
+   ```
+   chmod +x .git/hooks/commit-msg
+   ```
+
+4. Open the "commit-msg" file in your preferred text editor.
+
+5. Add the following code to the "commit-msg" file:
+
+   ```
+   #!/bin/sh
+
+   commit_msg_file=$1
+   commit_msg=$(cat $commit_msg_file)
+
+   if ! echo "$commit_msg" | grep -qE '^(feat|fix|docs|style|refactor|test|chore)(\(.+\))?: .{1,72}$'; then
+       echo >&2 "error: Commit message does not adhere to Conventional Commits specification"
+       exit 1
+   fi
+   ```
+
+   This code checks if the commit message starts with one of the allowed prefixes (feat, fix, docs, style, refactor, test, chore), followed by an optional scope in parentheses, and a colon. The message body must then follow, up to a maximum of 72 characters. If the commit message does not adhere to this format, the hook will exit with an error message.
+
+6. Save the changes to the "commit-msg" file and exit the text editor.
+
+7. Test the hook by making a commit with a message that does not adhere to the Conventional Commits specification. For example:
+
+   ```
+   git commit -m "Fixing bug"
+   ```
+
+   This should trigger the hook and display an error message.
+
+That's it! Now any commits with messages that do not adhere to the Conventional Commits specification will be rejected.
