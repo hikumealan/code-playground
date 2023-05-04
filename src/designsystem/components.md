@@ -32,3 +32,28 @@ Design systems can vary depending on the needs and requirements of a specific pr
 30. Date pickers and calendar widgets.
 
 Of course, this is not an exhaustive list, and some design systems may include additional components that are specific to their needs. However, this should give you an idea of the types of UI components that are typically included in a complete design system.
+
+Here are 20 more common additional components that can be included in a design system:
+
+1. Progress bars
+2. Badges and labels
+3. Toolbars
+4. Breadcrumbs
+5. Steppers
+6. Popovers
+7. Ratings and reviews
+8. User avatars and profile pictures
+9. Comment sections
+10. Sharing buttons
+11. Form validation messages
+12. Search result listings
+13. Product cards and listings
+14. Image carousels
+15. Video thumbnails
+16. Testimonials
+17. Callout boxes
+18. Pricing tables
+19. Team member profiles
+20. FAQ sections
+
+Again, this is not an exhaustive list, and the components included in a design system may vary depending on the specific needs and requirements of a product or brand. However, these additional components are commonly used in UI design and can help ensure consistency and usability across a product or brand.
