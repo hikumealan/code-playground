@@ -1,0 +1,13 @@
+There are several Git hooks that can be helpful in improving the quality of your Git workflow. Here are some examples:
+
+pre-commit: This hook runs before a commit is created and can be used to perform tests, linting, or other checks to ensure that the code is ready to be committed.
+
+post-commit: This hook runs after a commit is created and can be used to trigger additional tasks or notifications, such as sending an email or updating a database.
+
+pre-push: This hook runs before a push is executed and can be used to run tests or other checks to ensure that the code being pushed is ready to be shared with others.
+
+post-merge: This hook runs after a merge is completed and can be used to trigger additional tasks or notifications, such as updating dependencies or sending a Slack message.
+
+pre-rebase: This hook runs before a rebase is executed and can be used to perform checks to ensure that the rebase will not cause conflicts or other issues.
+
+post-rewrite: This hook runs after a commit has been rewritten (e.g., through a rebase or amend) and can be used to update related metadata or perform other cleanup tasks.
