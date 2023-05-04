@@ -1,0 +1,22 @@
+It is not recommended to squash commit history in a `pre-push` hook because it modifies the Git history and could cause conflicts for other developers. However, if you still want to squash commits before pushing them, you can use the following `pre-push` hook command:
+
+```
+#!/bin/sh
+
+git stash -q --keep-index
+
+if git log --pretty=oneline origin.. | grep -q "squash!"; then
+    echo "Error: Squash commit found in the commit range. Please squash before pushing."
+    git stash pop -q
+    exit 1
+fi
+
+git reset $(git merge-base origin HEAD)
+git commit -m "Squashed commit"
+
+git stash pop -q
+```
+
+This hook stashes any changes that are not yet committed and checks if there are any commits with the string "squash!" in their message between the current branch and the remote branch. If such commits are found, the hook exits with an error message and the changes are restored from the stash. If there are no squash commits, the hook resets the branch to the common ancestor of the local and remote branches, squashes the commits into a single commit with the message "Squashed commit", and restores the changes from the stash. Finally, the push proceeds as usual.
+
+Again, keep in mind that this
