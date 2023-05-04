@@ -11,3 +11,20 @@ post-merge: This hook runs after a merge is completed and can be used to trigger
 pre-rebase: This hook runs before a rebase is executed and can be used to perform checks to ensure that the rebase will not cause conflicts or other issues.
 
 post-rewrite: This hook runs after a commit has been rewritten (e.g., through a rebase or amend) and can be used to update related metadata or perform other cleanup tasks.
+
+
+
+
+Git hooks can be very helpful when following Git flow practices. Here are some common Git hooks for supporting Git flow:
+
+1. `pre-commit` hook: This hook is used to validate the code changes before committing them. It can be used to run linters, code formatters, and other checks to ensure that the code adheres to the project's style guide and best practices.
+
+2. `prepare-commit-msg` hook: This hook is used to automatically prepend the commit message with a prefix such as the branch name or type (feature, bugfix, hotfix, etc.) as part of Git flow practices.
+
+3. `pre-push` hook: This hook is used to validate the code changes before pushing them to a remote repository. It can be used to run tests, security checks, and other quality assurance measures to ensure that the changes are ready to be merged into the main branch.
+
+4. `post-merge` hook: This hook is used to automatically perform tasks after a merge operation. It can be used to run build scripts, dependency installations, or any other task that needs to be executed after the merge.
+
+5. `post-checkout` hook: This hook is used to automatically perform tasks after a checkout operation. It can be used to run script to ensure that the working directory is set up correctly for the current branch, or to update dependencies, etc.
+
+By using these Git hooks, you can automate many of the repetitive and error-prone tasks associated with Git flow, which can help you and your team to work more efficiently and with less errors.
