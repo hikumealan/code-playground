@@ -23,3 +23,30 @@ This command will open an interactive rebase window where you can edit the commi
 7. Push the changes to the remote branch and create the pull request with the squashed commit.
 
 By squashing the commits before creating a pull request, you can keep your Git history clean and easier to read, making it easier for reviewers to understand your changes.
+
+
+
+
+To squash all the commits in a feature branch before creating a pull request (PR), you can use the following Git command:
+
+```
+git rebase -i master
+```
+
+This command will open an interactive rebase window where you can edit the commit messages and squash multiple commits into a single commit. Here are the steps:
+
+1. Run the `git rebase -i master` command. This will open the interactive rebase window, where `master` is the name of the branch that you want to merge your feature branch into.
+
+2. In the interactive rebase window, change the word "pick" to "squash" for all the commits except the first one, which you want to keep as is.
+
+3. Save the changes and exit the editor.
+
+4. Git will prompt you to edit the commit message for the squashed commit. Edit the message as desired.
+
+5. Save the changes and exit the editor.
+
+6. Git will now have combined all the commits in the feature branch into a single commit with the edited commit message.
+
+7. Push the changes to the remote branch and create the pull request with the squashed commit.
+
+By squashing all the commits in the feature branch before creating a pull request, you can keep your Git history clean and easier to read, making it easier for reviewers to understand your changes.
