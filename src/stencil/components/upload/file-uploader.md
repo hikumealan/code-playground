@@ -113,3 +113,85 @@ export class CustomFileInput {
 ```
 
 Note that I've added a `custom-file-input-label-text` class to the label text, a `custom-file-input-selected-files` class to the span displaying the selected file names, and a `custom-file-input-error` class to the div displaying error messages. You can add styles to these classes in the `custom-file-input.css` file to customize the appearance of the component.
+
+Sure, here are some additional improvements you can make to the code:
+
+1. Use ES6 arrow functions for class methods to avoid having to bind `this`:
+
+```
+handleFileInputChange = (event) => {
+  this.files = event.target.files;
+  this.fileNames = Array.from(this.files).map((file) => file.name);
+  this.errorMessage = '';
+};
+
+handleDragOver = (event) => {
+  event.preventDefault();
+};
+
+handleDrop = (event) => {
+  event.preventDefault();
+  this.files = event.dataTransfer.files;
+  this.fileNames = Array.from(this.files).map((file) => file.name);
+  this.errorMessage = '';
+};
+```
+
+2. Add a `disabled` property to the component to disable the file input:
+
+```
+@Prop() disabled: boolean = false;
+```
+
+Then add the `disabled` attribute to the input element when the property is set to true:
+
+```
+<input type="file" multiple onChange={this.handleFileInputChange} accept="image/*,.pdf" disabled={this.disabled} />
+```
+
+3. Use a `Slot` to allow for customizing the label text:
+
+```
+<slot name="label-text">Choose files</slot>
+```
+
+Then use the `slot` attribute on the slot element in the component's template:
+
+```
+<span class="custom-file-input-label-text"><slot name="label-text" /></span>
+```
+
+4. Use a `Prop` to allow for setting the accepted file types:
+
+```
+@Prop() acceptedTypes: string = 'image/*,.pdf';
+```
+
+Then use the `acceptedTypes` property in the input element:
+
+```
+<input type="file" multiple onChange={this.handleFileInputChange} accept={this.acceptedTypes} disabled={this.disabled} />
+```
+
+5. Use a `Prop` to allow for setting the maximum number of files:
+
+```
+@Prop() maxFiles: number = Infinity;
+```
+
+Then use this property to validate the number of files in the `handleFileInputChange` method:
+
+```
+handleFileInputChange(event) {
+  this.files = event.target.files;
+  this.fileNames = Array.from(this.files).map((file) => file.name);
+  
+  if (this.files.length > this.maxFiles) {
+    this.errorMessage = `You can only upload up to ${this.maxFiles} files`;
+  } else {
+    this.errorMessage = '';
+  }
+}
+```
+
+These are just a few suggestions, but there are many other improvements you could make depending on your specific use case.
