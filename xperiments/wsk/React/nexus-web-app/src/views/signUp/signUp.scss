@@ -1,0 +1,146 @@
+@import '~@nexus/core/dist/styles/variables';
+@import '~@nexus/core/dist/styles/mixins';
+
+$building: url('~@nexus-ui-starter-kit/core/assets/images/lance-anderson-QdAAasrZhdk-unsplash.jpg');
+
+.add-account-text,
+.signup-header,
+.signup-terms,
+.terms-link {
+    color: $white;
+}
+
+.add-account-text {
+    max-width: 70%;
+}
+.form-field-wrapper {
+    margin-top: $rhythm;
+    margin-bottom: $rhythm;
+}
+
+.form-type {
+    margin: $rhythm;
+    margin-bottom: $rhythm * 4;
+    margin-left: 0;
+    .signup-link-text {
+        position: relative;
+        color: white;
+        &:after {
+            position: absolute;
+            content: '';
+            height: $rhythm / 2;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            background: $white;
+        }
+    }
+}
+
+.form-type-link {
+    margin: $rhythm;
+    margin-bottom: $rhythm * 4;
+    margin-left: 0;
+    .signup-link-text {
+        position: relative;
+        color: white;
+        border-bottom: 1px solid $white;
+
+        &:hover {
+            &:after {
+                position: absolute;
+                content: '';
+                height: $rhythm / 2;
+                bottom: -4px;
+                left: 0;
+                width: 100%;
+                background: $white;
+            }
+        }
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.footer-wrapper {
+    display: flex;
+    margin-bottom: $rhythm * 2;
+}
+
+.page-wrapper {
+    background: linear-gradient($blue-300, $blue-600);
+    min-height: 100vh;
+    display: flex;
+}
+
+.signup-content-wrapper {
+    margin: 0 auto;
+}
+
+.signup-height-wrapper {
+    min-height: 100%;
+}
+
+.signup-links {
+    color: $white;
+    padding-left: $rhythm;
+}
+
+.signup-terms-wrapper {
+    align-self: flex-end;
+    text-align: center;
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+.submit-button {
+    margin: 0 auto;
+    margin-top: $rhythm * 2;
+    width: 100%;
+    color: $white;
+    border-color: $white;
+}
+
+@include mq(large) {
+    .add-account-text {
+        max-width: 70%;
+    }
+
+    .page-wrapper {
+        background: none;
+        position: relative;
+        &:after {
+            content: '';
+            background: $building;
+            opacity: 0.2;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+    }
+
+    .signup-content-wrapper {
+        background: linear-gradient($blue-400, $blue-600);
+        border-radius: $rhythm;
+        width: $rhythm * 100;
+        padding: $rhythm * 15;
+    }
+
+    .signup-header,
+    .signup-links,
+    .signup-terms,
+    .terms-link {
+        color: $black;
+    }
+
+    .signup-terms-wrapper {
+        max-width: 75%;
+    }
+}

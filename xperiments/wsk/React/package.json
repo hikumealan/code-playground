@@ -1,0 +1,23 @@
+{
+  "name": "React",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "CRA": "npx create-react-app cra-ts-app --template typescript",
+    "CRA-git-init": "cd cra-ts-app && git init && git add -A && git commit -m \"initial commit\"",
+    "CRA-scss": "node useSCSS dir=cra-ts-app/src && npm i --prefix cra-ts-app sass",
+    "CRA-git-complete": "cd cra-ts-app && git add -A && git commit -m \"project setup\"",
+    "postCRA": "npm run CRA-scss && npm --prefix cra-ts-app start",
+    "CRA-Redux": "npx create-react-app cra-ts-redux-app --template redux-typescript",
+    "postCRA-Redux": "node useSCSS dir=cra-ts-redux-app/src && npm i --prefix cra-ts-redux-app sass",
+    "RSK": "mkdir rsk-app",
+    "postRSK": "cd rsk-app && git clone -o seed -b main --single-branch https://github.com/kriasoft/react-starter-kit.git",
+    "NX": "npx create-nx-workspace nx-react-apps --preset=react --name=react-starter-app",
+    "WSK": "mkdir nexus-web-app && cp .npmrc-wsk ./nexus-web-app/.npmrc && cd nexus-web-app && npx --userconfig .npmrc @nexus-ui-starter-kit/init",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

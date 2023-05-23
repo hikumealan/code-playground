@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        class Calendar {
+            constructor(year, month) {
+                this.today = new Date();
+                this.year = year;
+                this.month = month;
+                this.date = new Date(year, month, 1);
+                this.start = this.getStartDate();
+                this.end = this.getEndDate();
+            }
+            getStartDate() {
+                return new Date(this.date.getFullYear(), this.date.getMonth(), 1);
+            }
+            getEndDate() {
+                return new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0);
+            }
+            toString() {
+                return `Shape at ${this.x}, ${this.y}`;
+            }
+        }
+        const today = new Date();
+        const cal = new Calendar(today.getFullYear(), today.getMonth());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

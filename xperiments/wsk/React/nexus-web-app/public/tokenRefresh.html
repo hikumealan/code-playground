@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>Active Directory Auth Token Callback</title>
+        <script>
+            function init() {
+                window.sessionStorage.setItem('tokenRenewalString', window.location.hash);
+            }
+        </script>
+    </head>
+    <body onLoad="init();"></body>
+</html>

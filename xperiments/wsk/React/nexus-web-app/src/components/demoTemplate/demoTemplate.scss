@@ -1,0 +1,23 @@
+@import '~@nexus/core/dist/styles/variables';
+
+.demo-container {
+    border: 1px solid $grey-200;
+    border-radius: $rhythm;
+    box-shadow: 10px 10px 10px $grey-200;
+    min-height: $rhythm * 70;
+    padding: $rhythm * 4;
+    width: auto;
+}
+
+.demo-template {
+    min-height: 50vh;
+}
+
+.demo-temp-header {
+    color: $blue-300;
+    font-size: $rhythm * 4;
+}
+
+.demo-temp-des {
+    font-size: $rhythm * 3;
+}

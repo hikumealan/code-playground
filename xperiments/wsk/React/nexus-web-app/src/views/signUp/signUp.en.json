@@ -1,0 +1,22 @@
+{
+    "addAccount": "Please add an account to get started",
+    "create": "CREATE ACCOUNT",
+    "createLow": "Create Account",
+    "email": "Email",
+    "footerText": [
+        "By signing up you agree to the ",
+        "User Agreement",
+        "Privacy Policy",
+        "and ",
+        "Cookie Policy"
+    ],
+    "link": "LINK ACCOUNT",
+    "linkLow": "Link Account",
+    "login": "Login",
+    "name": "Name",
+    "nexus": "Nexus",
+    "selectLabel": "Select Account Type",
+    "selectOptions": ["foo", "bar", "baz"],
+    "signup": "Sign Up",
+    "skip": "Skip for now"
+}

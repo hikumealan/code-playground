@@ -1,0 +1,83 @@
+@import '~@nexus/core/dist/styles/variables';
+@import '~@nexus/core/dist/styles/mixins';
+@import '~@nexus/core/dist/styles/typography';
+
+.hero {
+    padding-top: $rhythm * 4;
+    padding-bottom: $rhythm * 4;
+    flex-wrap: wrap;
+    background-image:  url('../../assets/images/hero-background.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    &:first-child {
+        background-color: none;
+    }
+}
+
+.hero-form {
+    padding: 1rem;
+    margin: $rhythm * 2 0 0 auto;
+}
+
+.hero-form-field {
+    max-width: 390px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.hero-form-submit-button, .hero-form-existing-account-text {
+    margin-bottom: 2rem;
+}
+
+.hero-form-existing-account-text {
+    display: inline-block;
+}
+
+.hero-form-forgot-link {
+    color: var(--primary-accent);
+    &:hover {
+        color: var(--primary-accent);
+   }
+}
+
+.hero-text {
+    @include nexus-h2;
+
+    margin-top: 0;
+    margin-bottom: $rhythm * 3;
+}
+
+@include mq('medium') {
+}
+
+
+@include mq('large') {
+
+    .hero {
+        padding: $rhythm * 4;
+    }
+
+    .hero-text {
+        @include nexus-h1;
+        margin-bottom: $rhythm * 8;
+    }
+
+    .hero-form {
+        padding: $rhythm * 4;
+        max-width: 472px;
+        margin-top: 0;
+    }
+}
+
+@include mq('extra-large') {
+    .hero-text {
+        max-width: 36rem;
+    }
+    .hero {
+        padding:  $rhythm * 10 $rhythm * 15 $rhythm * 21;
+    }
+}

@@ -1,0 +1,27 @@
+@import '~@nexus/core/dist/styles/variables';
+
+.data-card {
+    background: #35a4e8;
+    background: linear-gradient(131deg, rgba(53, 164, 232, 1) 0%, rgba(23, 119, 207, 1) 100%);
+    border: 2px solid $white;
+    border-radius: $rhythm;
+    box-shadow: 5px 5px 10px $grey-100;
+    min-height: $rhythm * 20;
+    padding: $rhythm;
+}
+
+.data-card-wrapper {
+    margin: 0 auto;
+}
+
+.form-data-ex {
+    color: $white;
+}
+
+.form-submit-ex {
+    margin-bottom: $rhythm * 2;
+}
+
+.form-ex-icon > svg {
+    fill: $white;
+}

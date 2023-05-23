@@ -1,0 +1,206 @@
+@import '~@nexus/core/dist/styles/variables';
+@import '~@nexus/core/dist/styles/mixins';
+@import '~@nexus/core/dist/styles/typography';
+
+.list-heading {
+    color: var(--primary-accent);
+    max-width: 240px;
+    min-width: 240px;
+}
+
+.template-list {
+    list-style: none;
+    padding-top: 6px;
+}
+
+.banner-image {
+    left: -($rhythm * 3);
+    position: relative;
+    width: calc(100% + (#{$rhythm} * 6));
+    max-width: none;
+}
+
+.card-subheading {
+    @include nexus-h3;
+}
+
+.custom-components {
+    background-image:  url('../../assets/images/bg-1.jpg');
+    background-position: 50% 100%;
+    padding-top: $rhythm * 7;
+    padding-bottom: $rhythm * 7;
+
+    .nexus-card {
+        padding: 0;
+
+        .nexus-theme-dark {
+            padding: $rhythm * 3;
+        }
+    }
+
+    .card-subheading {
+        border-bottom: 1px solid $white;
+        display: inline-block;
+        padding-bottom: 14px;
+    }
+
+    .nexus-card-footer {
+        padding: $rhythm * 3;
+    }
+
+    .nexus-accordion-trigger {
+        border-top: none;
+    }
+}
+
+.custom-components-description {
+    color: var(--dark-bg-text-color);
+}
+
+.custom-components-table-wrap {
+    overflow: auto;
+}
+
+.custom-components-list {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+
+    .nexus-caption-copy {
+        color: var(--primary-accent);
+    }
+
+    .card-description {
+        margin: 0;
+    }
+}
+
+.custom-components-list-item {
+    padding: $rhythm;
+    width: 50%;
+}
+
+.design-principles-heading {
+    padding: 0;
+}
+
+.design-principles-heading-text {
+    @include nexus-h2;
+
+    margin-top: 0;
+    margin-bottom: $rhythm * 3;
+}
+
+.design-principles-list {
+    list-style: none;
+    counter-reset: list-counter;
+    padding: 0;
+    margin: 0;
+
+    .design-principles-list-item {
+        @include nexus-h4;
+
+        display: flex;
+        margin-bottom: $rhythm * 2;        
+    }
+
+    .design-principles-list-item::before {
+        @include nexus-h5;
+        
+        counter-increment: list-counter;
+        content: "0" counter(list-counter);
+        color: var(--primary-accent);
+        margin-right: $rhythm * 2;
+    }       
+}
+
+.multi-column-heading {
+    @include nexus-h2;
+
+    margin: 0;
+}
+
+.multi-column-item {
+    margin-bottom: $rhythm * 3;
+}
+
+.multi-column-subtitle {
+    font-size: var(--subtitle-sm-size);
+}
+
+@include mq('medium') {
+    .banner-image {
+        position: relative;
+        max-width: 100%;
+        left: auto;
+        right: -($rhythm * 3);
+    }
+
+    .card-subheading {
+        @include nexus-h2;
+    }
+}
+
+@include mq('large') {
+    .banner-wrap {
+        position: relative;
+        margin-bottom: -60px;
+        bottom: 30px;
+    }
+
+    .design-principles-heading-text {
+        @include nexus-h1;
+    }
+
+    .design-principles-list-item {
+        @include nexus-h3;
+    }
+
+    .design-principles-list-item::before {
+        @include nexus-h4;
+        
+        margin-right: $rhythm * 5;
+    }
+
+}
+
+@media screen and (min-width: 1180px) {
+    .custom-components-heading {
+        position: relative;
+
+        &:after {
+            content: '';
+            width: 114px;
+            height: 1px;
+            display: block;
+            background-color: $white;
+            position: absolute;
+            right: -$rhythm * 3;
+            top: 50%;
+        }
+    }
+
+    .custom-components-description {
+        .nexus-h4 {
+            max-width: 442px;
+        }
+    }
+
+    .custom-components-list {
+        justify-content: space-between;
+    }
+
+    .custom-components-list-item {
+        width: auto;
+    }
+}
+
+
+@include mq('extra-large') {
+    .banner-wrap {
+        margin-top: -140px;
+        margin-bottom: -120px;
+    }
+}

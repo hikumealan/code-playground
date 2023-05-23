@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "react-starter-app": "apps/react-starter-app",
+    "react-starter-app-e2e": "apps/react-starter-app-e2e"
+  }
+}

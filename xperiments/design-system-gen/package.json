@@ -1,0 +1,27 @@
+{
+  "name": "archive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -e \"require('readline').createInterface({input:process.stdin,output:process.stdout,historySize:0}).question('Please provide a project name: ', (p) => { name=Buffer.from(p.trim()).toString();SET $npm_project_name=name;console.log(name);process.exit(); })\"",
+    "premk-ds:backup": "SET $npm_project_type='app'",
+    "premk-ds": "",
+    "mk-ds": "npm init stencil $npm_project_type $npm_project_name",
+    "postmk-ds": "npm --prefix /design-system-template install @stencil/sass --save-dev",
+    "mk-dt-advanced": "cd design-token && mkdir advanced && cd advanced && style-dictionary init advanced",
+    "mk-dt-basic": "cd design-token && mkdir basic && cd basic && style-dictionary init basic",
+    "mk-dt-complete": "cd design-token && mkdir complete && cd complete && style-dictionary init complete",
+    "stencil": "npm init stencil",
+    "stencil:init": "npx create-stencil",
+    "stencil:generate": "npx @stencil/core generate",
+    "stencil:help": "npx @stencil/core --help",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "style-dictionary": "^3.7.0"
+  }
+}
