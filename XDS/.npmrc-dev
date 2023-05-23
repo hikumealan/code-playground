@@ -1,0 +1,14 @@
+registry=https://registry.npmjs.org/
+@nexus:registry=https://fso-to.pkgs.visualstudio.com/7bc545d8-bf8c-477e-bb91-17a982c30c2e/_packaging/Nexus-dev/npm/registry/                     
+always-auth=true
+save-exact=true
+cacert=C:\Users\Varadarajan.G\id\ZscalerRootCertificate.pem
+
+; begin auth token
+//fso-to.pkgs.visualstudio.com/7bc545d8-bf8c-477e-bb91-17a982c30c2e/_packaging/Nexus-dev/npm/registry/:username=fso-to
+//fso-to.pkgs.visualstudio.com/7bc545d8-bf8c-477e-bb91-17a982c30c2e/_packaging/Nexus-dev/npm/registry/:_password=[dWNmbHozNXVqN2k3aWdwdnJld2R0NHF6bndrNGZ6Zmc3cXRrcTVrYzRtcHF6ZGZiZ2dnYQ=]
+//fso-to.pkgs.visualstudio.com/7bc545d8-bf8c-477e-bb91-17a982c30c2e/_packaging/Nexus-dev/npm/registry/:email=npm requires email to be set but doesn't use the value
+//fso-to.pkgs.visualstudio.com/7bc545d8-bf8c-477e-bb91-17a982c30c2e/_packaging/Nexus-dev/npm/:username=fso-to
+//fso-to.pkgs.visualstudio.com/7bc545d8-bf8c-477e-bb91-17a982c30c2e/_packaging/Nexus-dev/npm/:_password=[dWNmbHozNXVqN2k3aWdwdnJld2R0NHF6bndrNGZ6Zmc3cXRrcTVrYzRtcHF6ZGZiZ2dnYQ=]
+//fso-to.pkgs.visualstudio.com/7bc545d8-bf8c-477e-bb91-17a982c30c2e/_packaging/Nexus-dev/npm/:email=npm requires email to be set but doesn't use the value
+; end auth token

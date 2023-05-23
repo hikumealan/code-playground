@@ -1,0 +1,52 @@
+{
+  "name": "xds",
+  "version": "1.0.0",
+  "description": "Experience Design System",
+  "_main": "index.js",
+  "config": {
+    "var": "value"
+  },
+  "scripts": {
+    "start": "node .",
+    "serve": "node ./src/server.js",
+    "precreate:html": "rm -rf ./src/.www",
+    "create:html": "cd ./src && npx --yes create-html5-boilerplate .www",
+    "postcreate:html": "cd ./src/.www && npm i && npm run build",
+    "CMD": "node -e \"require('readline').createInterface({input:process.stdin, output:process.stdout, historySize:0}).question('> Project Name: ', (p) => {const cmd='npm run CRA:CMD -- ' + process.argv.join(' '); require('child_process').execSync(cmd, { env: {...process.env,  npm_config_project: p}, stdio: 'inherit' }); process.exit();})\"",
+    "pre:CMD": "node -e \"console.log(process.env); process.exit();\"",
+    "post:CMD": "node -e 'console.log(process.env)' | grep npm",
+    "post::CMD": "node -e 'console.log(process.env)'",
+    "CRA_CMD": "node -e \"const{exec}=require('child_process');require('readline').createInterface({input:process.stdin, output:process.stdout, historySize:0}).question('> Project Name: ', (p) => {const cmd = 'CRA_PROJECT=' + p + ' && npm run CRA'; console.log(cmd); exec(cmd); process.exit(); })\"",
+    "cli": "node bin/questionnaire",
+    "CFG": "npm --userconfig=.npmrc-dev run NODE -- --test=value --token dWNmbHozNXVqN2k3aWdwdnJld2R0NHF6bndrNGZ6Zmc3cXRrcTVrYzRtcHF6ZGZiZ2dnYQ=",
+    "pre:CRA": "node -e \"require('readline').createInterface({input:process.stdin, output:process.stdout, historySize:0}).question('> Project Name: ', (p) => { process.env.npm_config_project=p; console.log(process.env); process.exit(); })\"",
+    "code": "/*require('child_process').exec(`CRA_PROJECT=${p} && npm run CRA`);*/",
+    "preCRA": "node bin/inputCMD.js",
+    "CRA:CMD": "npm config list && npx --yes create-react-app $npm_config_project --template typescript",
+    "CRA": "npx --yes create-react-app $npm_package_config_project --template typescript",
+    "postCRA": "cd $npm_package_config_project && npm install sass",
+    "CRA_CLI": "npx --yes create-react-app --name cra-spa --template typescript",
+    "NODE": "node -e \"require('readline').createInterface({input:process.stdin, output:process.stdout, historySize:0}).question('PAT> \\n > option 1 \\n > option 2', (p) => { b64=Buffer.from(p.trim()).toString('base64'); console.log(b64); process.exit(); })\"",
+    "storybook": "npx --yes storybook init",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "prettier": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/US015945600_EYGS/XDS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/US015945600_EYGS/XDS/issues"
+  },
+  "homepage": "https://github.com/US015945600_EYGS/XDS#readme",
+  "devDependencies": {
+    "prettier": "2.7.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
