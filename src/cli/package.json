@@ -4,12 +4,14 @@
   "description": "",
   "main": "generate.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node generate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@stencil/core": "^3.2.1"
+    "@stencil/core": "^3.2.1",
+    "ejs": "^3.1.9"
   }
 }

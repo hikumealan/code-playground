@@ -1,10 +1,23 @@
-const stencil = require('@stencil/cli');
-const { join } = require('path');
-const { mkdir } = require('fs');
+#!/usr/bin/env node
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+
+const ejs = require('ejs');
+// const stencil = require('@stencil/cli');
+
+// remove the first two arguments
+process.env.args = [...process.argv.slice(2)];
+process.env.argv = process.argv;
+
+console.log(process.env);
+console.log(process.argv);
+
 
 const cli = async () => {
   const componentName = process.argv[2];
-  const componentDir = join(`./components/${componentName}`);
+  const componentDir = path.join(`./components/${componentName}`);
   console.log(stencil);
 
   // Create the component directory
