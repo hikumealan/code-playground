@@ -1,0 +1,51 @@
+:host {
+  display: block;
+
+  input {
+    appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  input.material {
+    border-bottom: 1px solid gray;
+    background-color: #cfcfcf;
+  }
+
+  input.material:hover {
+    border-bottom: 1px solid lightblue;
+    background-color: #eee;
+  }
+
+  input.material:focus {
+    border-bottom: 1px solid blue;
+    background-color: #dfdfdf;
+  }
+
+
+  input.ios {
+    appearance: auto;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #cfcfcf;
+  }
+
+  input.ios:hover {
+    appearance: auto;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    background-color: #eee;
+  }
+
+  input.ios:focus {
+    appearance: auto;
+    border: 1px solid blue;
+    border-radius: 5px;
+    background-color: #dfdfdf;
+  }
+}

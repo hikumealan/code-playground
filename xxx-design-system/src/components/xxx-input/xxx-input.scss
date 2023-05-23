@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  background-color: #eee;
+}
+
+input.xxx-input {
+  //background-color: #ccc;
+
+  &.xxx-input-appearance-md {
+    //margin-top: 2px;
+    //margin-bottom: 2px;
+    //margin-left: 2px;
+    //margin-right: 2px;
+    border: 2px solid transparent;
+    //border: none;
+    //background: none;
+    border-radius: 0;
+    border-bottom: 1px solid lightslategray;
+  }
+  &.xxx-input-appearance-md:hover {
+    //background-color: #ccc;
+    border-bottom: 1px solid darkslategray;
+  }
+  &.xxx-input-appearance-md:focus {
+    outline: none;
+    //background-color: #eee;
+    border-bottom: 1px solid royalblue;
+  }
+  &.xxx-input-appearance-none {
+    //user-select: none;
+    //-o-user-select: none;
+    //-ms-user-select: none;
+    //-moz-user-select: none;
+    //-webkit-user-select: none;
+    appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+}
+
