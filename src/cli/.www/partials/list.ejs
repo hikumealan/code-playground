@@ -1,0 +1,13 @@
+<% if (list.length) { %>
+<ul>
+    <% list.forEach(function(item) { %>
+    <li><%= item %></li>
+    <% }); %>
+</ul>
+<br/>
+<ol>
+    <% for(let i = 0; i < list.length; i++) { %>
+    <li><%= list[i] %></li>
+    <% } %>
+</ol>
+<% } %>

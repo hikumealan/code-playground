@@ -1,1 +1,37 @@
-<script src="https://unpkg.com/ejs@3.1.9/ejs.min.js"></script>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.9/ejs.min.js"></script>
+  <script src="https://unpkg.com/ejs@3.1.9/ejs.min.js"></script>
+</head>
+<body>
+  <p>Hello World</p>
+  <template id="template">
+    <% for (let name of names) { %>
+      <div><%= name%></div>
+    <% } %>
+    <% for(var i = 1; i <= 10; i++) { %>
+        <%= i %>  <%# this will output the numbers from 1 - 10 %>
+     <%  } %>
+    <ul>
+      <% for(let i = 0; i < list.length; i++) { %>
+        <li><%=list[i].name%></li>
+      <% } %>
+    </ul>
+    <%- include('partials/list', {list: people}); %>
+  </template>
+  <div id="render"></div>
+  <div id="people"></div>
+  <script>
+    const people = ["corey", "noah", "alex", "dan"];
+    const result = document.getElementById("people");
+    const html = ejs.render('<%= people.join(", "); %>', {people: people});
+    result.innerHTML = html;
+    const tmp = document.getElementById("template").innerHTML.replace(/\&lt;/g, "<").replace(/\&gt;/g, ">");
+    console.log(tmp);
+    document.getElementById("render").innerHTML = ejs.render(tmp, {names: ["corey", "noah", "alex", "dan"], people: people, list: [{name:"corey"},{name:"noah"},{name:"alex"},{name:"dan"}]});
+  </script>
+</body>
+</html>
