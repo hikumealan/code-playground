@@ -1,0 +1,27 @@
+<nexus-accordion id="accordion-file-upload">
+    <nexus-accordion-trigger>
+        <h1 class="nexus-body">With File Upload</h1>
+    </nexus-accordion-trigger>
+    <nexus-accordion-content>
+        <form id="acc-frmUpload" onsubmit="handleSubmit(event)">
+            <nexus-form-field>
+              <nexus-file-upload multiple onchange="handleChange(event)" id="acc-fileupldId">
+                <p>Drop File here or click to upload</p>
+                <p>Max file size is 25MB</p>
+              </nexus-file-upload>
+            </nexus-form-field>
+            <div class="nexus-rhythm-4">
+              <section id="queue"></section>
+              <section id="uploaded"></section>
+            </div>
+            <button type="submit" class="nexus-btn-primary">Upload</button>
+            <nexus-tooltip allowClick='false' attrId='nexus-tooltip' placement='right'>
+              <nexus-tooltip-trigger>
+                  <nexus-icon src='./assets/icons/action/ic_help_outline_24px.svg'></nexus-icon>
+                  <span class="nexus-visually-hidden"></span>
+              </nexus-tooltip-trigger>
+              <nexus-tooltip-content>Tooltip Content</nexus-tooltip-content>
+          </nexus-tooltip>
+          </form>
+    </nexus-accordion-content>
+</nexus-accordion>

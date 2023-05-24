@@ -1,0 +1,28 @@
+<nexus-accordion [open]="open" (toggleEvent)="open = !open" size="md">
+    <nexus-accordion-trigger>
+        <h1 class="nexus-body">{{data.show}}</h1>
+    </nexus-accordion-trigger>
+    <nexus-accordion-content>
+        <nexus-card bgColor="bgColor" height="height">
+            <nexus-card-avatar>
+                <img [src]="data.avatar" [alt]="data.name" />
+            </nexus-card-avatar>
+            <nexus-card-header>
+                <nexus-card-header-title>{{data.name}}</nexus-card-header-title>
+                <nexus-card-header-subtitle>{{data.profession}}</nexus-card-header-subtitle>
+                <nexus-card-header-subtitle>{{data.education}}</nexus-card-header-subtitle>
+                <nexus-card-header-details>{{data.lastLogin}}</nexus-card-header-details>
+                <nexus-card-header-button style="display:block">
+                    <div class="nexus-row" style="margin-bottom:5px">
+                        <button class=" nexus-btn-primary nexus-btn-medium">{{data.viewProfile}}</button>
+                    </div>
+                    <div class="nexus-row">
+                        <button class="nexus-btn nexus-btn-medium">{{data.contactUser}}</button>
+                    </div>
+                </nexus-card-header-button>
+            </nexus-card-header>
+            <nexus-card-footer>
+            </nexus-card-footer>
+        </nexus-card>
+    </nexus-accordion-content>
+</nexus-accordion>

@@ -1,0 +1,167 @@
+.sb-show-main.sb-main-fullscreen {
+  .sb-introduction-container {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: 0;
+    overflow: hidden;
+
+    .sb-introduction-text-header,
+    .sb-introduction-text-description {
+      color: #fff;
+      padding: 5px 5px;
+    }
+
+    .nexus-h2 {
+      font-size: 48px;
+      font-weight: 300;
+    }
+
+    .nexus-h4 {
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    .nexus-h6 {
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .sb-introduction-text-header {
+      padding: 10px 10px 10px 5px;
+      justify-content: left;
+      margin: 0;
+    }
+
+    .sb-introduction-footer-container {
+      bottom: 0;
+      border-top: 1px solid #c4c4cd;
+      position: absolute;
+      width: 100%;
+      margin-bottom: -10px;
+    }
+
+    .sb-introduction-footer-text {
+      color: #fff;
+    }
+
+    .sbdocs-a {
+      color: #ff8733;
+    }
+
+    .sb-introduction-block-link {
+      color: #ff8733;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+.sb-show-main.sb-main-fullscreen {
+  .sb-introduction-container {
+    background-image: url('./assets/bgstorybook.jpg');
+    background-size: cover;
+
+    .sb-introduction-text {
+      position: absolute;
+      margin-left: 40px;
+      max-width: 500px;
+    }
+
+    .sb-introduction-footer-text {
+      padding: 5px 0;
+      margin: 0 auto;
+    }
+
+    .disp {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .zoom {
+      transform: scale(0.8);
+    }
+
+    .alignright {
+      text-align: right;
+    }
+
+    .copyright-font {
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+
+    .css-1p8ieni > img {
+      margin: 0px;
+    }
+  }
+
+  .sb-content-block {
+    color: #fff;
+    font-size: 12px;
+    font-weight: --var(--weight-light);
+    margin-top: 7%;
+  }
+
+  .cls-bgimg {
+    position: absolute;
+  }
+
+  .sb-content-row {
+    padding: 60px;
+    text-align: center;
+  }
+
+  .fw-class {
+    padding-bottom: 20px;
+  }
+
+  .sb-content-link {
+    margin: 20px;
+  }
+
+  .sb-introduction-blocks {
+    position: absolute;
+    visibility: visible;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    .nexus-icon {
+      position: absolute;
+      bottom: -200px;
+      right: -100px;
+      width: 1200px;
+      height: 1200px;
+    }
+  }
+
+  .sb-introduction-blocks-design {
+    position: absolute;
+    bottom: 618px;
+    right: 168px;
+    width: 160px;
+  }
+
+  .sb-introduction-blocks-collab {
+    position: absolute;
+    bottom: 448px;
+    right: 275px;
+    width: 160px;
+  }
+
+  .sb-introduction-blocks-dev {
+    position: absolute;
+    bottom: 245px;
+    right: 180px;
+    width: 135px;
+  }
+}
+
+.sbdocs-top {
+  padding-left: 108px !important;
+}

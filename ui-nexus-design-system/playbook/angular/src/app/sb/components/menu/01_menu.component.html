@@ -1,0 +1,15 @@
+<button class="nexus-btn-primary" (click)="open = true">Open Menu</button>
+
+<nexus-menu [open]="open" [position]="position" (closeEvent)="open = false">
+  <nexus-menu-item>
+    <a href="javascript:void(0)">Item 1</a>
+  </nexus-menu-item>
+
+  <nexus-menu-item>
+    <a href="javascript:void(0)">Item 2</a>
+  </nexus-menu-item>
+
+  <nexus-menu-item>
+    <a href="javascript:void(0)">Item 3</a>
+  </nexus-menu-item>
+</nexus-menu>

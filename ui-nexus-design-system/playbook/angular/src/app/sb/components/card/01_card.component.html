@@ -1,0 +1,23 @@
+<div class="nexus-row nexus-center-xs nexus-mt-2">
+    <div class="nexus-col-xs-6">
+      <nexus-card [bgColor]="bgColor" [clickable]="clickable" [height]="height">
+        <nexus-card-avatar>
+          <img [src]="bgImage === '' ? './assets/images/card-header-image.png':bgImage" [alt]="defaultCard.name" />
+        </nexus-card-avatar>
+        <nexus-card-header>
+          <nexus-card-header-title>{{defaultCard.name}}</nexus-card-header-title>
+          <nexus-card-header-subtitle>{{defaultCard.cardTitle}}</nexus-card-header-subtitle>
+          <nexus-card-header-details>{{defaultCard.lastLogin}}</nexus-card-header-details>
+          <nexus-card-header-button>
+            <button class="nexus-btn-icon" id="btn" title="btn">
+              <nexus-icon [src]="defaultCard.src"></nexus-icon>
+            </button>
+          </nexus-card-header-button>
+        </nexus-card-header>
+        <nexus-card-footer>
+          <button class="nexus-btn-primary nexus-btn-medium">{{defaultCard.viewProfile}}</button>
+          <button class="nexus-btn nexus-btn-medium">{{defaultCard.userProfile}}</button>
+        </nexus-card-footer>
+      </nexus-card>
+    </div>
+  </div>

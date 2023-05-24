@@ -1,0 +1,13 @@
+<div class="nexus-center-xs nexus-mt-5">
+    <div class="nexus-row">
+        <div class="nexus-col-xs-2 nexus-pl-5">
+            <nexus-checkbox (click)="triggerCheckBoxSelection($event)" [checked]="show">{{data.text}}</nexus-checkbox>
+        </div>
+        <ng-container *ngIf="show">
+            <div class="nexus-col-xs-2 nexus-pl-5">
+                <nexus-chip data-testid="Item-1" id="Item-1" removable="true"
+                    (triggerRemovableClick)="triggerRemovableClickCall($event)">{{data.checkboxText}}</nexus-chip>
+            </div>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<nexus-search data-testid="search-bar">
+    <nexus-input (keyup)="performFilter($event)" autocomplete="off" placeholder="Search">
+      <nexus-icon (click)="refreshTable($event)"  data-testid="search-icon" src="./assets/icons/action/ic_search_24px.svg"></nexus-icon>
+    </nexus-input>
+    <nexus-search-list (click)="refreshTable($event)">
+      <nexus-search-list-item  *ngFor="let item of filteredItem">
+        <button>{{ item }}</button>
+      </nexus-search-list-item>
+    </nexus-search-list>
+  </nexus-search>
+  <br/>
+  <nexus-table id="tblNexus"
+    [rows]="rowData"
+    [columns]="columnDefs"
+    [pagination]="pagination"
+    [pageSize]="pageSize"
+    [pageSizeLabel]="pageSizeLabel"
+  >
+  </nexus-table>
+  

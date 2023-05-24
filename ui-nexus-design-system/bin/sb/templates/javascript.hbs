@@ -1,0 +1,95 @@
+import React from 'react';
+import { Meta } from '@storybook/react';
+{{#if isArgsJsonPresent}}
+import args from './args.json'
+{{/if}}
+{{#if isControlsJson}}
+import controls from './controls.json'
+{{/if}}
+{{#if isEventPresent}}
+import notes from '!!raw-loader!./event.mdx';
+{{/if}}
+import { Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import BasePageLayout from '../../../common/component/layout/layout';
+import ContentSwitcher from '../../../common/component/contentSwitcher/contentSwitcher';
+{{#each docs}}
+import {{docsImportName}} from '{{docsImportPath}}';
+{{/each}}
+{{#each exampleImports}}
+import {{importName}} from '{{importPath}}';
+{{/each}}
+{{#each htmlSrcImport}}
+import {{importName}} from '{{importPath}}';
+{{/each}}
+{{#each jsSrcImport}}
+import {{importName}} from '{{importPath}}';
+{{/each}}
+
+
+export default {
+  title: 'Component/{{category}}/{{pageName}}',
+{{#if isControlsJson}}
+  argTypes: { ...controls },
+{{/if}}
+  parameters: {
+    docs: {
+      page: () => (
+        <BasePageLayout bannerHeader='{{pageName}}'>
+          <Subtitle />
+          <ContentSwitcher
+            category='{{category}}'
+            component='{{component}}'
+            primaryFW='stencil'/>
+          <div className='nexus-pt-4 nexus-body-sm' {{{showPrimaryComponentDoc}}} />
+          <div style=\{{"zoom":0.90}}>
+              <Primary />
+          </div>
+          <ArgsTable story={PRIMARY_STORY} />
+{{#if isEventPresent}}
+          <Description markdown={notes} />
+{{/if}}
+          <div style=\{{"zoom":0.90}}>
+              <Stories title="{{pageName}} Usages"/>
+          </div>
+        </BasePageLayout>
+      ),
+    },
+    jest: 'nexus-{{component}}.spec.ts',
+    
+  },
+} as Meta;
+
+{{#each binderName}}
+
+{{#if showArgs }}
+  export const {{templateName}} = (({...args}) => {{functionName}}({...args})).bind({});
+  {{templateName}}.args = { ...args }
+{{else}}
+  export const {{templateName}} = (({...args}) => {{functionName}}()).bind({});
+{{/if}}
+{{templateName}}.parameters = {
+    design: {
+      type: 'figma',
+      url: ''
+    },
+    docs: {
+      {{docsImportName}}
+      source: {
+        code:`
+
+/* Javascript */
+
+{{jsSrc}}
+
+
+/* HTML */
+
+{{htmlSrc}}
+        `,
+        language: 'typescript',
+        type: 'auto'
+      }
+    }      
+}
+{{templateName}}.storyName = ' {{name}}'
+{{/each}}

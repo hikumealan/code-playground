@@ -1,0 +1,14 @@
+{
+  "name": "stencil-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "sb": "cross-env STORYBOOK_FRAMEWORK=wc STORYBOOK_BASE_HREF=/ start-storybook -p 6002 --no-manager-cache",
+    "build-sb": "cross-env STORYBOOK_FRAMEWORK=wc STORYBOOK_BASE_HREF=web-components cross-env build-storybook"
+  },
+  "devDependencies": {
+    "@storybook/web-components": "6.5.16",
+    "css-loader": "5.2.7",
+    "cross-env": "7.0.3"
+  }
+}

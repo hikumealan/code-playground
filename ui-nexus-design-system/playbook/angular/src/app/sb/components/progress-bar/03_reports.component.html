@@ -1,0 +1,45 @@
+<nexus-card [clickable]="false">
+    <nexus-card-header>
+        <nexus-card-header-title>{{progressBarReport.cardHeader}}</nexus-card-header-title>
+    </nexus-card-header>
+    <nexus-card-body>
+        <div class="nexus-row">
+            <div class="nexus-col-md-2">
+                <h3 class="nexus-h5">{{progressBarReport.processor}}</h3>
+            </div>
+            <div class="nexus-col-md-1">
+                <nexus-progress-bar [value]="progressBarReport.processorvalue" circle="true">
+                <div class="nexus-pl-3 nexus-pt-4">{{progressBarReport.processorvalue}}%</div>
+                </nexus-progress-bar>
+            </div>
+
+            <div class="nexus-col-md-2 nexus-pl-4">
+                <h3 class="nexus-h5">{{progressBarReport.memory}}</h3>
+            </div>
+            <div class="nexus-col-md-1">
+                <nexus-progress-bar [value]="progressBarReport.memoryValue" circle="true">
+                    <div class="nexus-pl-3 nexus-pt-4">{{progressBarReport.memoryValue}}%</div>
+                </nexus-progress-bar>
+            </div>
+        </div>
+
+        <div class="nexus-row nexus-mt-4">
+            <div class="nexus-col-md-2">
+                <h3 class="nexus-h5">{{progressBarReport.graphics}}</h3>
+            </div>
+            <div class="nexus-col-md-1">
+                <nexus-progress-bar [value]="progressBarReport.graphicsValue" circle="true">
+                    <div class="nexus-pl-3 nexus-pt-4">{{progressBarReport.graphicsValue}}%</div></nexus-progress-bar>
+            </div>
+
+            <div class="nexus-col-md-2 nexus-pl-4">
+                <h3 class="nexus-h5">{{progressBarReport.primaryHDD}}</h3>
+            </div>
+            <div class="nexus-col-md-1">
+                <nexus-progress-bar [value]="progressBarReport.primaryHDDValue" circle="true">
+                    <div class="nexus-pl-3 nexus-pt-4">{{progressBarReport.primaryHDDValue}}%</div>
+                </nexus-progress-bar>
+            </div>
+        </div>
+    </nexus-card-body>
+</nexus-card>

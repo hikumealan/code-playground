@@ -1,0 +1,11 @@
+<svg width="183px" height="188px" viewBox="0 0 183 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="EY-OnWhite" transform="translate(-91.000000, -29.000000)" fill-rule="nonzero">
+            <g id="EY_Logo" transform="translate(90.000000, 29.000000)">
+                <polygon id="Beam" fill="#FEE600" points="183.73 0.81 0.84 67.56 183.73 35.25"></polygon>
+                <polygon id="Y" fill="#2E2E38" points="109.84 125.42 94.19 95.27 63.55 95.27 95.83 151.16 95.83 187.65 123.45 187.65 123.45 151.16 155.78 95.27 125.53 95.27"></polygon>
+                <polygon id="E" fill="#2E2E38" points="30.18 151.13 63.62 151.13 63.62 131.71 30.18 131.71 30.18 116.45 67.17 116.45 54.89 95.18 2.44 95.18 2.44 187.65 76.42 187.65 76.42 166.38 30.18 166.38"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

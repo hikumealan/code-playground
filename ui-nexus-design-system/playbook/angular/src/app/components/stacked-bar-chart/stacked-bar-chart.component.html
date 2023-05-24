@@ -1,0 +1,301 @@
+<div id="wrapper" class="nexus-row">
+    <div id="control-container" class="nexus-col-xs-4 nexus-col-lg-3">
+      <!-- X axis -->
+      <div class="control-category">X-axis</div>
+      <div class="control-item">
+        <nexus-checkbox name="x-label" id="xLabel" checked (change)="toggleShowHideXLabel('nexus-stacked-bar-chart')"
+          >Show Label</nexus-checkbox
+        >
+      </div>
+      <div class="control-item">
+        <nexus-checkbox name="x-ticks" id="xTicks" checked (change)="toggleShowHideXTicks('nexus-stacked-bar-chart')"
+          >Show Tick Values</nexus-checkbox
+        >
+      </div>
+      <div class="control-item">
+        <nexus-checkbox name="hide-x" id="hideX" (change)="toggleShowHideXAxis('nexus-stacked-bar-chart')"
+          >Hide Entire X-axis</nexus-checkbox
+        >
+      </div>
+      <div class="control-item">
+        <nexus-label for="xTickSize" class="select">Tick Size / Length</nexus-label>
+        <select name="x-tick-size" id="xTickSize" (input)="selectXTickSize('nexus-stacked-bar-chart')">
+          <option value="2" selected>2</option>
+          <option value="4">4</option>
+          <option value="10">10</option>
+          <option value="12">12</option>
+          <option value="16">16</option>
+        </select>
+      </div>
+      <div class="control-item">
+        <nexus-label for="xLabelInput" class="select">Label</nexus-label>
+        <nexus-input type="text" placeholder="Enter text" id="xLabelInput"></nexus-input>
+      </div>
+
+      <!-- Y axis -->
+      <div class="control-category">Y-axis</div>
+      <div class="control-item">
+        <nexus-checkbox name="y-label" id="yLabel" checked (change)="toggleShowHideYLabel('nexus-stacked-bar-chart')"
+          >Show Label</nexus-checkbox
+        >
+      </div>
+      <div class="control-item">
+        <nexus-checkbox name="y-ticks" id="yTicks" checked (change)="toggleShowHideYTicks('nexus-stacked-bar-chart')"
+          >Show Tick Values</nexus-checkbox
+        >
+      </div>
+      <div class="control-item">
+        <nexus-checkbox name="hide-y" id="hideY" (change)="toggleShowHideYAxis('nexus-stacked-bar-chart')"
+          >Hide Entire Y-axis</nexus-checkbox
+        >
+      </div>
+      <div class="control-item">
+        <nexus-label for="yTickSize" class="select">Tick Size / Length</nexus-label>
+        <select name="y-tick-size" id="yTickSize" (input)="selectYTickSize('nexus-stacked-bar-chart')">
+          <option value="2" selected>2</option>
+          <option value="4">4</option>
+          <option value="10">10</option>
+          <option value="12">12</option>
+          <option value="16">16</option>
+        </select>
+      </div>
+      <div class="control-item">
+        <nexus-label for="yLabelInput" class="select">Label</nexus-label>
+        <nexus-input type="text" placeholder="Enter text" id="yLabelInput"></nexus-input>
+      </div>
+
+      <!-- miscellaneous options -->
+      <div class="control-category">Options</div>
+
+      <div class="control-item">
+        <nexus-checkbox name="show-gridlines" id="showGridlines" (change)="toggleGridlines('nexus-stacked-bar-chart')"
+          >Gridlines</nexus-checkbox
+        >
+      </div>
+
+      <div class="control-item">
+        <nexus-checkbox name="inverse" id="inverse" (change)="toggleInverse('nexus-stacked-bar-chart')"
+          >Inverse</nexus-checkbox
+        >
+      </div>
+
+      <div class="control-item">
+        <nexus-checkbox name="show-legend" id="showLegend" (change)="toggleLegend('nexus-stacked-bar-chart')"
+          >Legend</nexus-checkbox
+        >
+      </div>
+
+      <!-- axis other -->
+      <div class="control-item">
+        <nexus-label for="axisLabelFontSize" class="select">Axis Label Font Size</nexus-label>
+        <select
+          name="axis-label-font-size"
+          id="axisLabelFontSize"
+          (input)="selectAxisLabelFontSize('nexus-stacked-bar-chart')"
+        >
+          <option value="9">9px</option>
+          <option value="12">12px</option>
+          <option value="14" selected>14px</option>
+          <option value="16">16px</option>
+          <option value="20">20px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="axisTickFontFamily" class="select">Axis Tick Font Family</nexus-label>
+        <select
+          name="axis-tick-font-family"
+          id="axisTickFontFamily"
+          (input)="selectAxisTickFontFamily('nexus-stacked-bar-chart')"
+        >
+          <option value="sans" selected>sans-serif</option>
+          <option value="serif">serif</option>
+          <option value="monospace">monospace</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="axisTickFontSize" class="select">Axis Tick Font Size</nexus-label>
+        <select
+          name="axis-tick-font-size"
+          id="axisTickFontSize"
+          (input)="selectAxisTickFontSize('nexus-stacked-bar-chart')"
+        >
+          <option value="8">8px</option>
+          <option value="9">9px</option>
+          <option value="10" selected>10px</option>
+          <option value="12">12px</option>
+        </select>
+      </div>
+
+      <!-- bar stuff -->
+      <div class="control-item">
+        <nexus-label for="barStroke" class="select">Bar Stroke</nexus-label>
+        <select name="bar_stroke" id="barStroke" (input)="selectBarStroke('nexus-stacked-bar-chart')">
+          <option value="transparent" selected>transparent</option>
+          <option value="#000000">black</option>
+          <option value="#ffffff">white</option>
+          <option value="#999999">gray</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="barStrokeWidth" class="select">Bar Stroke Width</nexus-label>
+        <select name="bar_stroke_width" id="barStrokeWidth" (input)="selectBarStrokeWidth('nexus-stacked-bar-chart')">
+          <option value="0">none</option>
+          <option value="1" selected>1px</option>
+          <option value="2">2px</option>
+          <option value="5">5px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="maxBarWidth" class="select">Bar Width, Max</nexus-label>
+        <select name="max_bar_width" id="maxBarWidth" (input)="selectMaxBarWidth('nexus-stacked-bar-chart')">
+          <option value="5">5px</option>
+          <option value="25">25px</option>
+          <option value="50">50px</option>
+          <option value="75" selected>75px</option>
+          <option value="2000">fill space</option>
+        </select>
+      </div>
+
+      <!-- color scheme --->
+      <div class="control-item">
+        <nexus-label for="colorScheme" class="select">Color Scheme</nexus-label>
+        <select name="color-scheme" id="colorScheme" (input)="selectColorScheme('nexus-stacked-bar-chart')">
+          <option value="category10" selected>Category 10</option>
+          <option value="accent">Accent</option>
+          <option value="paired">Paired</option>
+          <option value="set1">Set 1</option>
+          <option value="set2">Set 2</option>
+          <option value="set3">Set 3</option>
+          <option value="black">Black</option>
+          <option value="gray">Gray</option>
+        </select>
+      </div>
+
+      <!-- legend font size -->
+      <div class="control-item">
+        <nexus-label for="legendFontSize" class="select">Legend Font Size</nexus-label>
+        <select name="legend_font_size" id="legendFontSize" (input)="selectLegendFontSize('nexus-stacked-bar-chart')">
+          <option value="10">10px</option>
+          <option value="12" selected>12px</option>
+          <option value="14">14px</option>
+        </select>
+      </div>
+
+      <!-- orientation -->
+      <div class="control-item">
+        <nexus-label for="orientation" class="select">Orientation</nexus-label>
+        <select name="orient" id="orientation" (input)="toggleOrientation('nexus-stacked-bar-chart')">
+          <option value="vertical" selected>vertical</option>
+          <option value="horizontal">horizontal</option>
+        </select>
+      </div>
+
+      <!-- top, right, bottom, left margins -->
+      <div class="control-item">
+        <nexus-label for="marginBottom" class="select">Margin Bottom</nexus-label>
+        <select name="margin-bottom" id="marginBottom" (input)="selectMargin('marginBottom', 'nexus-stacked-bar-chart')">
+          <option value="25" selected>25px</option>
+          <option value="50">50px</option>
+          <option value="75">75px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="marginRight" class="select">Margin Right</nexus-label>
+        <select name="margin_right" id="marginRight" (input)="selectMargin('marginRight', 'nexus-stacked-bar-chart')">
+          <option value="25" selected>25px</option>
+          <option value="50">50px</option>
+          <option value="75">75px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="marginLeft" class="select">Margin Left</nexus-label>
+        <select name="margin_left" id="marginLeft" (input)="selectMargin('marginLeft', 'nexus-stacked-bar-chart')">
+          <option value="25" selected>25px</option>
+          <option value="50">50px</option>
+          <option value="75">75px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="marginTop" class="select">Margin Top</nexus-label>
+        <select name="margin_top" id="marginTop" (input)="selectMargin('marginTop', 'nexus-stacked-bar-chart')">
+          <option value="25" selected>25px</option>
+          <option value="50">50px</option>
+          <option value="75">75px</option>
+        </select>
+      </div>
+
+      <!-- absolute or percentage value view -->
+      <div class="control-item">
+        <nexus-label for="linearDomain" class="select">Values</nexus-label>
+        <select name="linear_domain" id="linearDomain" (input)="selectLinearDomain('nexus-stacked-bar-chart')">
+          <option value="absolute" selected>absolute</option>
+          <option value="percent">percentages</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- chart container -->
+    <div id="chart-container" class="nexus-col-xs-4 nexus-col-lg-9 position">
+      <div class="page-title">&lt;nexus-stacked-bar-chart&gt;</div>
+
+      <div class="hoz-group">
+        <div class="select-item">
+          <nexus-label for="armament">Category:</nexus-label>
+          <select name="tank-category" id="tankCategory" (input)="selectTankCategory()">
+            <option selected value="Light Tank">Light Tanks</option>
+            <option value="Medium Tank">Medium Tanks</option>
+            <option value="Heavy Tank">Heavy Tanks</option>
+          </select>
+        </div>
+
+        <div class="select-item">
+          <nexus-label for="armament">Group By:</nexus-label>
+          <select name="group-by" id="groupBy" (input)="selectGroupBy()">
+            <option selected value="year">Year</option>
+            <option value="country">Country</option>
+          </select>
+        </div>
+        <div class="cbx-item">Production Year(s):</div>
+        <div class="cbx-item">
+          <nexus-checkbox id="year1941" value="1941" (change)="yearCheck('1941')">1941</nexus-checkbox>
+        </div>
+        <div class="cbx-item">
+          <nexus-checkbox id="year1942" value="1942" checked (change)="yearCheck('1942')">1942</nexus-checkbox>
+        </div>
+
+        <div class="cbx-item">
+          <nexus-checkbox id="year1943" value="1943" checked (change)="yearCheck('1943')">1943</nexus-checkbox>
+        </div>
+
+        <div class="cbx-item">
+          <nexus-checkbox id="year1944" value="1944" checked (change)="yearCheck('1944')">1944</nexus-checkbox>
+        </div>
+
+        <div class="cbx-item">
+          <nexus-checkbox id="year1945" value="1945" (change)="yearCheck('1945')">1945</nexus-checkbox>
+        </div>
+      </div>
+
+      <div class="chart">
+        <nexus-stacked-bar-chart
+          chart-id="mynexusStackedBarChart"
+          linear-metric="produced"
+          linear-tick-format="localestring"
+          margin-left="50"
+          ordinal-metric="year"
+          responsive
+          series-metric="combatant"
+          x-label="Year"
+          y-label="Production"
+          [chartData]="tankProductionData"
+        ></nexus-stacked-bar-chart>
+      </div>
+    </div>
+  </div>

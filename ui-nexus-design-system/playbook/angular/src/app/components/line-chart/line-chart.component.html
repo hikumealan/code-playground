@@ -1,0 +1,227 @@
+<div id="wrapper" class="nexus-row">
+    <div id="control-container" class="nexus-col-xs-4 nexus-col-lg-3">
+        <div class="control-category">X-axis</div>
+        <div class="control-item">
+            <nexus-checkbox name="x-label" id="xLabel" checked (change)="toggleShowHideXLabel('nexus-line-chart')">Show
+                Label</nexus-checkbox>
+        </div>
+        <div class="control-item">
+            <nexus-checkbox name="x-ticks" id="xTicks" checked (change)="toggleShowHideXTicks('nexus-line-chart')">Show
+                Tick Values</nexus-checkbox>
+        </div>
+        <div class="control-item">
+            <nexus-checkbox name="hide-x" id="hideX" (change)="toggleShowHideXAxis('nexus-line-chart')">Hide Entire
+                X-axis</nexus-checkbox>
+        </div>
+        <div class="control-item">
+            <nexus-label for="xTickSize" class="select">Tick Size / Length</nexus-label>
+            <select name="x-tick-size" id="xTickSize" (input)="selectXTickSize('nexus-line-chart')">
+                <option value="2" selected>2</option>
+                <option value="4">4</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="16">16</option>
+            </select>
+        </div>
+        <div class="control-item">
+            <nexus-label for="xLabelInput" class="select">Label</nexus-label>
+            <nexus-input type="text" placeholder="Enter text" id="xLabelInput"></nexus-input>
+        </div>
+
+        <div class="control-category">Y-axis</div>
+        <div class="control-item">
+            <nexus-checkbox name="y-label" id="yLabel" checked (change)="toggleShowHideYLabel('nexus-line-chart')">Show
+                Label</nexus-checkbox>
+        </div>
+        <div class="control-item">
+            <nexus-checkbox name="y-ticks" id="yTicks" checked (change)="toggleShowHideYTicks('nexus-line-chart')">Show
+                Tick Values</nexus-checkbox>
+        </div>
+        <div class="control-item">
+            <nexus-checkbox name="hide-y" id="hideY" (change)="toggleShowHideYAxis('nexus-line-chart')">Hide Entire
+                Y-axis</nexus-checkbox>
+        </div>
+        <div class="control-item">
+            <nexus-label for="yTickSize" class="select">Tick Size / Length</nexus-label>
+            <select name="y-tick-size" id="yTickSize" (input)="selectYTickSize('nexus-line-chart')">
+                <option value="2" selected>2</option>
+                <option value="4">4</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="16">16</option>
+            </select>
+        </div>
+        <div class="control-item">
+            <nexus-label for="yLabelInput" class="select">Label</nexus-label>
+            <nexus-input type="text" placeholder="Enter text" id="yLabelInput"></nexus-input>
+        </div>
+
+        <!-- miscellaneous options -->
+        <div class="control-category">Options</div>
+
+        <div class="control-item">
+            <nexus-checkbox name="show-gridlines" id="showGridlines"
+                (change)="toggleGridlines('nexus-line-chart')">Gridlines</nexus-checkbox>
+        </div>
+
+        <div class="control-item">
+            <nexus-checkbox name="inverse" id="inverse"
+                (change)="toggleInverse('nexus-line-chart')">Inverse</nexus-checkbox>
+        </div>
+
+        <div class="control-item">
+            <nexus-checkbox name="show-legend" id="showLegend"
+                (change)="toggleLegend('nexus-line-chart')">Legend</nexus-checkbox>
+        </div>
+
+        <div class="control-item">
+            <nexus-checkbox type="checkbox" name="show-vertices" id="showVertices" checked
+                (change)="toggleVertices('nexus-line-chart')">Vertices</nexus-checkbox>
+        </div>
+
+        <!-- axis stuff -->
+        <div class="control-item">
+            <nexus-label for="axisLabelFontSize" class="select">Axis Label Font Size</nexus-label>
+            <select name="axis-label-font-size" id="axisLabelFontSize"
+                (input)="selectAxisLabelFontSize('nexus-line-chart')">
+                <option value="9">9px</option>
+                <option value="12">12px</option>
+                <option value="14" selected>14px</option>
+                <option value="16">16px</option>
+                <option value="20">20px</option>
+            </select>
+        </div>
+
+        <div class="control-item">
+            <nexus-label for="axisTickFontFamily" class="select">Axis Tick Font Family</nexus-label>
+            <select name="axis-tick-font-family" id="axisTickFontFamily"
+                (input)="selectAxisTickFontFamily('nexus-line-chart')">
+                <option value="sans" selected>sans-serif</option>
+                <option value="serif">serif</option>
+                <option value="monospace">monospace</option>
+            </select>
+        </div>
+
+        <div class="control-item">
+            <nexus-label for="axisTickFontSize" class="select">Axis Tick Font Size</nexus-label>
+            <select name="axis-tick-font-size" id="axisTickFontSize"
+                (input)="selectAxisTickFontSize('nexus-line-chart')">
+                <option value="8">8px</option>
+                <option value="9">9px</option>
+                <option value="10" selected>10px</option>
+                <option value="12">12px</option>
+            </select>
+        </div>
+
+        <!-- color scheme --->
+        <div class="control-item">
+            <nexus-label for="colorScheme" class="select">Color Scheme</nexus-label>
+            <select name="color-scheme" id="colorScheme" (input)="selectColorScheme('nexus-line-chart')">
+                <option value="category10" selected>Category 10</option>
+                <option value="accent">Accent</option>
+                <option value="paired">Paired</option>
+                <option value="set1">Set 1</option>
+                <option value="set2">Set 2</option>
+                <option value="set3">Set 3</option>
+                <option value="black">Black</option>
+                <option value="gray">Gray</option>
+            </select>
+        </div>
+
+        <div class="control-item">
+            <nexus-label for="legendFontSize" class="select">Legend Font Size</nexus-label>
+            <select name="legend_font_size" id="legendFontSize" (input)="selectLegendFontSize('nexus-line-chart')">
+                <option value="10">10px</option>
+                <option value="12" selected>12px</option>
+                <option value="14">14px</option>
+            </select>
+        </div>
+
+        <div class="control-item">
+            <nexus-label for="interpolation" class="select">Line Interpolation</nexus-label>
+            <select name="interp" id="interpolation" (input)="selectInterpolation('nexus-line-chart')">
+                <option value="linear" selected>linear</option>
+                <option value="basis">basis</option>
+                <option value="monotone">monotone</option>
+                <option value="step">step</option>
+                <option value="step-before">step before</option>
+                <option value="step-after">step-after</option>
+            </select>
+        </div>
+
+        <div class="control-item">
+            <nexus-label for="lineStroke" class="select">Line Stroke</nexus-label>
+            <select name="line_stroke" id="lineStroke" (input)="selectLineStroke('nexus-line-chart')">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+
+        <!-- top, right, bottom, left margins -->
+        <div class="control-item">
+            <nexus-label for="marginBottom" class="select">Margin Bottom</nexus-label>
+            <select name="margin-bottom" id="marginBottom" (input)="selectMargin('marginBottom', 'nexus-line-chart')">
+                <option value="25" selected>25px</option>
+                <option value="50">50px</option>
+                <option value="75">75px</option>
+            </select>
+        </div>
+
+        <div class="control-item">
+            <nexus-label for="marginLeft" class="select">Margin Left</nexus-label>
+            <select name="margin_left" id="marginLeft" (input)="selectMargin('marginLeft', 'nexus-line-chart')">
+                <option value="25" selected>25px</option>
+                <option value="50">50px</option>
+                <option value="75">75px</option>
+            </select>
+        </div>
+
+        <div class="control-item">
+            <nexus-label for="marginRight" class="select">Margin Right</nexus-label>
+            <select name="margin_right" id="marginRight" (input)="selectMargin('marginRight', 'nexus-line-chart')">
+                <option value="25" selected>25px</option>
+                <option value="50">50px</option>
+                <option value="75">75px</option>
+            </select>
+        </div>
+
+        <div class="control-item">
+            <nexus-label for="marginTop" class="select">Margin Top</nexus-label>
+            <select name="margin_top" id="marginTop" (input)="selectMargin('marginTop', 'nexus-line-chart')">
+                <option value="25" selected>25px</option>
+                <option value="50">50px</option>
+                <option value="75">75px</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- chart container -->
+    <div id="chart-container" class="nexus-col-xs-4 nexus-col-lg-9 position">
+        <div class="page-title">&lt;nexus-line-chart&gt;</div>
+
+        <div class="hoz-group">
+            <span class="btn-item">
+                <button type="button" class="nexus-btn" (click)="selectNumLines(1)">1 Line</button>
+            </span>
+            <span class="btn-item">
+                <button type="button" class="nexus-btn" (click)="selectNumLines(2)">2 Lines</button>
+            </span>
+            <span class="btn-item">
+                <button type="button" class="nexus-btn" (click)="selectNumLines(3)">3 Lines</button>
+            </span>
+            <span class="btn-item">
+                <button type="button" class="nexus-btn" (click)="selectNumLines(4)">4 Lines</button>
+            </span>
+            <span class="btn-item">
+                <button type="button" class="nexus-btn" (click)="generateRandomData()">Random</button>
+            </span>
+        </div>
+
+        <div class="chart">
+            <nexus-line-chart chart-id="NexusLineChart" margin-left="50" margin-right="50" responsive vertices
+                x-label="Date" x-tick-format="M/D/YY" y-label="Score" y-tick-format="localestring"
+                [chartData]="data"></nexus-line-chart>
+        </div>
+    </div>
+</div>

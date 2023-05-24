@@ -1,0 +1,12 @@
+<div class="nexus-center-xs nexus-mt-5">
+    <div *ngIf="timeLeft <= 1; else elseBlock">
+        <button class="nexus-mt-1 nexus-btn nexus-btn-primary" (click)="restartTimer($event)">Reset</button>
+      </div>
+      <ng-template #elseBlock>
+        <nexus-toast
+        data-testid='toast-with-auto-close'
+        show
+        [autoClose]="timeLeft * 1000"
+        variant="info">The toast will diappear after {{timeLeft}}s.</nexus-toast>
+      </ng-template>
+</div>

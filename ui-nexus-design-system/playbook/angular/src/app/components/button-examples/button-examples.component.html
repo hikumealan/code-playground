@@ -1,0 +1,56 @@
+<p>
+  <span class="nexus-h5">NOTE:</span>
+  <span>
+    The absence of the <strong>type</strong> attribute on a <strong>&lt;button&gt;</strong> defaults to
+    <strong>submit</strong> (which will auto-submit a form on click).
+  </span>
+  <span>
+    [Instead use <strong>type=&quot;button&quot;</strong> if you want to control the submit of the <strong>form</strong>.]
+  </span>
+</p>
+<br/>
+<br/>
+
+<p class="nexus-h5">Variants</p>
+
+<button data-testid="btnVariantDefault" class="nexus-btn">Default</button>
+<button data-testid="btnVariantPrimary" class="nexus-btn-primary" style="margin: 0 4px;">Primary</button>
+<button data-testid="btnVariantWarn" class="nexus-btn-warn">Warn</button>
+<a href="?buttonExamples#" class="nexus-link" style="margin: 0 4px;">Link</a>
+
+<p class="nexus-h5">Size</p>
+
+<button data-testid="btnSzMed" class="nexus-btn nexus-btn-medium">Medium</button>
+<br/>
+<br/>
+<button data-testid="btnSzLar" class="nexus-btn nexus-btn-large">Large</button>
+<br/>
+<br/>
+<button data-testid="btnSzFlu" class="nexus-btn nexus-btn-fluid">Fluid</button>
+
+<p data-testid="btnDisabled" class="nexus-h5">Disabled</p>
+
+<button class="nexus-btn nexus-btn-large" disabled>Disabled</button>
+
+<p class="nexus-h5">Icon Button</p>
+
+<button data-testid="btnGear" class="nexus-btn-icon">
+  <nexus-icon src="./assets/icons/action/ic_settings_24px.svg"></nexus-icon>
+  <span class="nexus-visually-hidden">Settings</span>
+</button>
+
+
+<p class="nexus-h5">Floating Action Button</p>
+
+<button data-testid="btnFloatingAct" class="nexus-fab">
+  <nexus-icon src="./assets/icons/action/ic_settings_24px.svg"></nexus-icon>
+  <span class="nexus-visually-hidden">Settings</span>
+</button>
+
+<p class="nexus-h5">Dark Theme</p>
+
+<div data-testid="divDT" class="nexus-theme-dark" style="padding: 1em">
+  <button data-testid="btnDTdefault" class="nexus-btn">Default</button>
+  <button data-testid="btnDTprimary" class="nexus-btn-primary" style="margin: 0 4px;">Primary</button>
+  <a href="?buttonExamples#" data-testid="btnDTlink" class="nexus-link">Link</a>
+</div>

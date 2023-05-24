@@ -1,0 +1,10 @@
+<nexus-form-field>
+  <nexus-label data-testid="label-first-name">{{ maxLengthText }}</nexus-label>
+  <nexus-input
+    data-testid="input-textbox-maxlen"
+    [maxLength]="maxLength"
+    [placeholder]="maxLengthPlaceholder"
+    (input)="onInput($event.target.value)"
+  ></nexus-input>
+  <nexus-error-message *ngIf="showErrorMessage">{{ maxLengthWarning }}</nexus-error-message>
+</nexus-form-field>

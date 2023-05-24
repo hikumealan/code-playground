@@ -1,0 +1,44 @@
+<nexus-form-field>
+  <nexus-label data-testid="label-first-name">Input Field Example (max-length="20")</nexus-label>
+  <nexus-input
+    data-testid="input-textbox-maxlen"
+    [formControl]="reactiveValue"
+    [value]="reactiveValue.value"
+    max-length="20"
+    placeholder="Value..."
+  ></nexus-input>
+
+  <nexus-label data-testid="label-pwd-field">Password Field Example</nexus-label>
+  <nexus-input data-testid="input-textbox-pwd" type="password" placeholder="Value..."></nexus-input>
+
+  <nexus-label data-testid="label-num-field">Number Field Example</nexus-label>
+  <nexus-input data-testid="input-textbox-num" type="number" min="100" max="1000" placeholder="Value..."></nexus-input>
+
+  <nexus-label data-testid="label-date-field">Date Field Example (Min 2022-01-01 and Max 2023-01-01)</nexus-label>
+  <nexus-input
+    data-testid="input-textbox-date"
+    type="date"
+    min="2022-01-01"
+    max="2023-01-01"
+    placeholder="Value..."
+  ></nexus-input>
+
+  <nexus-label data-testid="label-readonly-field">Readonly Field Example</nexus-label>
+  <nexus-input
+    data-testid="input-textbox-readonly"
+    readonly="true"
+    value="This is readyonly field"
+    placeholder="Value..."
+  ></nexus-input>
+
+  <nexus-label data-testid="label-disabled-field">Disabled Field Example</nexus-label>
+  <nexus-input
+    data-testid="input-textbox-disabled"
+    disabled="true"
+    value="The field is Disabled"
+    minLength="3"
+    maxlength="20"
+    placeholder="Value..."
+  >
+  </nexus-input>
+</nexus-form-field>

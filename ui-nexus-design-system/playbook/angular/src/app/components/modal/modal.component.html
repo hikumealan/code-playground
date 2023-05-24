@@ -1,0 +1,24 @@
+<div class="nexus-center-xs nexus-pt-6">
+  <button class="nexus-btn-primary nexus-btn-large" (click)="show = true">Show modal!</button>
+</div>
+
+<nexus-modal id="modal" [show]="show" [size]="size" [fullscreen]="fullscreen" (closeEvent)="handleCloseEvent()">
+  <nexus-modal-header (closeEvent)="show = false">
+    Header Content
+    <nexus-modal-header-subtitle>Placeholder</nexus-modal-header-subtitle>
+  </nexus-modal-header>
+  <nexus-modal-body>
+    <p>
+      From mobility to health care to future cities, traditional industry boundaries are being disrupted, as sectors
+      converge to adapt to technological and societal changes.
+    </p>
+    <p>
+      Navigating this fast-changing environment requires agility and fresh thinking. As we reinvent how we work, live
+      and play, EY is helping clients embrace industry disruption as an opportunity.
+    </p>
+  </nexus-modal-body>
+  <nexus-modal-footer>
+    <button (click)="show = false" class="nexus-btn-primary">Confirm</button>
+    <button (click)="show = false" class="nexus-btn">Cancel</button>
+  </nexus-modal-footer>
+</nexus-modal>

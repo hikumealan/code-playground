@@ -1,0 +1,14 @@
+<nexus-card [bgColor]="bgColor" [clickable]="clickable" [height]="height">
+  <nexus-card-avatar>
+    <img [src]="notificationOverlay.srcImg" [alt]="notificationOverlay.username" />
+  </nexus-card-avatar>
+  <nexus-card-header>
+    <nexus-card-header-title>{{notificationOverlay.username}}</nexus-card-header-title>
+    <nexus-notification data-testid="notification-info" [variant]="notificationOverlay.variant">{{notificationOverlay.text}}</nexus-notification>
+    <nexus-card-header-button>
+      <button class="nexus-btn-icon" id="btn" title="btn">
+        <nexus-icon [src]="notificationOverlay.iconSrc"></nexus-icon>
+      </button>
+    </nexus-card-header-button>
+  </nexus-card-header>
+</nexus-card>

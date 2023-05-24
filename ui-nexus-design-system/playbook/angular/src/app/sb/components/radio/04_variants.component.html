@@ -1,0 +1,22 @@
+<div class="nexus-col-xs ">
+    <nexus-label>{{variants.first}}</nexus-label>
+
+    <div class="nexus-col-xs-1">
+        <nexus-radio data-testid="radio-btn-opt1" name="variants">
+            {{variants.default}}</nexus-radio>
+    </div>
+    <div class="nexus-col-xs-1">
+        <nexus-radio data-testid="radio-btn-opt1" name="variants" checked="true">
+            {{variants.checked}}</nexus-radio>
+    </div>
+
+    <nexus-label>{{variants.second}}</nexus-label>
+    <div class="nexus-col-xs-1">
+        <nexus-radio data-testid="radio-btn-opt1" name="variantDisabled" [disabled]="true">
+            {{variants.disabled}}</nexus-radio>
+    </div>
+    <div class="nexus-col-xs-1">
+        <nexus-radio data-testid="radio-btn-opt1" name="variantDisabled" checked [disabled]="true">
+            {{variants.both}}</nexus-radio>
+    </div>
+</div>

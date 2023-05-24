@@ -1,0 +1,30 @@
+<div class="nexus-center-xs nexus-pt-6">
+  <button class="nexus-btn-primary nexus-btn-large" (click)="show = true">{{defaultModal.buttonText}}</button>
+</div>
+
+<nexus-modal id="modal" [show]="show" [size]="size" [fullscreen]="fullscreen" (closeEvent)="handleCloseEvent()">
+  <nexus-modal-header (closeEvent)="show = false">
+    Nexus
+    <nexus-modal-header-subtitle>{{defaultModal.header}}</nexus-modal-header-subtitle>
+  </nexus-modal-header>
+  <nexus-modal-body>
+    <div className="nexus-row">
+      <div className="nexus-col-md-4 nexus-col-lg-6 nexus-col-xl-6">
+        <nexus-form-field>
+          <nexus-label>{{defaultModal.usernameText}}</nexus-label>
+          <nexus-input [placeholder]="userName" required (input)="updateUserName($event)"></nexus-input>
+
+          <nexus-label>{{defaultModal.emailText}}</nexus-label>
+          <nexus-input [placeholder]="email" required (input)="updateEmailAddress($event)"></nexus-input>
+
+          <nexus-label>{{defaultModal.passwordText}}</nexus-label>
+          <nexus-input required type="password"></nexus-input>
+        </nexus-form-field>
+      </div>
+    </div>
+  </nexus-modal-body>
+  <nexus-modal-footer>
+    <button (click)="show = false" class="nexus-btn-primary">{{defaultModal.confirm}}</button>
+    <button (click)="show = false" class="nexus-btn">{{defaultModal.cancel}}</button>
+  </nexus-modal-footer>
+</nexus-modal>

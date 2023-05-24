@@ -1,0 +1,8 @@
+<nexus-form-field [showErrors]="showErrors" [showMessages]="showMessages">
+  <nexus-label data-testid="label-first-name">First name</nexus-label>
+  <nexus-input
+    data-testid="form-field-textbox"
+    [formControl]="reactiveValue"
+    [value]="reactiveValue.value"
+  ></nexus-input>
+</nexus-form-field>

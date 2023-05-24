@@ -1,0 +1,14 @@
+{
+  "storybook": {
+    "versions": {
+      "availableVersions": [
+        "1.2.3",
+        "1.2.2",
+        "1.2.1"
+      ],
+      "hostname": "apsdfsoom5wap0a.azurewebsites.net",
+      "localhost": "localhost:5000",
+      "regex": "\/([^\/]+?)\/?$"
+    }
+  }
+}

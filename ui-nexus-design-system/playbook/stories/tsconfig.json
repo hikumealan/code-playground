@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "paths": {
+      "@nexus/angular": [
+        "../../packages/nexus-angular/dist/nexus-angular"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "./typings.d.ts"
+    ],
+    "lib": [
+      "ES2021.String"
+    ]
+  },
+  "include": [
+    "./**/stencil.stories.tsx",
+    "./**/react.stories.tsx",
+    "./**/angular.stories.tsx",
+    "./common/**/*.tsx"
+  ],
+  "files": [
+    "./typings.d.ts",
+  ]
+}

@@ -1,0 +1,401 @@
+<div id="wrapper" class="nexus-row">
+    <!-- interaction controls -->
+    <div id="control-container" class="nexus-col-xs-4 nexus-col-lg-3">
+      <div class="control-category">Options</div>
+
+      <div class="control-item">
+        <nexus-checkbox name="inverse" id="inverse" onchange="toggleInverse('nexus-pie-chart')">Inverse</nexus-checkbox>
+      </div>
+
+      <div class="control-item">
+        <nexus-checkbox checked name="show-legend" id="showLegend" onchange="toggleLegend('nexus-pie-chart')"
+          >Legend</nexus-checkbox
+        >
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="colorScheme">Color Scheme</nexus-label>
+        <select class="control" name="color-scheme" id="colorScheme" onChange="selectColorScheme('nexus-pie-chart')">
+          <option value="category10" selected>Category 10</option>
+          <option value="accent">Accent</option>
+          <option value="paired">Paired</option>
+          <option value="set1">Set 1</option>
+          <option value="set2">Set 2</option>
+          <option value="set3">Set 3</option>
+          <option value="black">Black</option>
+          <option value="gray">Gray</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="legendFontSize">Legend Font Size</nexus-label>
+        <select
+          class="control"
+          name="legend_font_size"
+          id="legendFontSize"
+          onChange="selectLegendFontSize('nexus-pie-chart')"
+        >
+          <option value="10">10px</option>
+          <option value="12" selected>12px</option>
+          <option value="14">14px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="innerRadius">Inner Radius</nexus-label>
+        <select class="control" name="inner_radius" id="innerRadius" onChange="selectInnerRadius('nexus-pie-chart')">
+          <option value="0" selected>0%</option>
+          <option value=".25">25%</option>
+          <option value=".50">50%</option>
+          <option value=".75">75%</option>
+          <option value=".95">95%</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="marginBottom">Margin Bottom</nexus-label>
+        <select
+          class="control"
+          name="margin-bottom"
+          id="marginBottom"
+          onChange="selectMargin('marginBottom', 'nexus-pie-chart')"
+        >
+          <option value="0" selected>0px</option>
+          <option value="25">25px</option>
+          <option value="50">50px</option>
+          <option value="100">100px</option>
+          <option value="150">150px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="marginLeft">Margin Left</nexus-label>
+        <select
+          class="control"
+          name="margin_left"
+          id="marginLeft"
+          onChange="selectMargin('marginLeft', 'nexus-pie-chart')"
+        >
+          <option value="0" selected>0px</option>
+          <option value="25">25px</option>
+          <option value="50">50px</option>
+          <option value="100">100px</option>
+          <option value="150">150px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="marginRight">Margin Right</nexus-label>
+        <select
+          class="control"
+          name="margin_right"
+          id="marginRight"
+          onChange="selectMargin('marginRight', 'nexus-pie-chart')"
+        >
+          <option value="0" selected>0px</option>
+          <option value="25">25px</option>
+          <option value="50">50px</option>
+          <option value="100">100px</option>
+          <option value="150">150px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="marginTop">Margin Top</nexus-label>
+        <select class="control" name="margin_top" id="marginTop" onChange="selectMargin('marginTop', 'nexus-pie-chart')">
+          <option value="0" selected>0px</option>
+          <option value="25">25px</option>
+          <option value="50">50px</option>
+          <option value="100">100px</option>
+          <option value="150">150px</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="arcStroke">Wedge Stroke</nexus-label>
+        <select class="control" name="arc-stroke" id="arcStroke" onChange="selectArcStroke('nexus-pie-chart')">
+          <option value="transparent">transparent</option>
+          <option value="#ffffff" selected>white</option>
+          <option value="#000000">black</option>
+          <option value="#999999">gray</option>
+        </select>
+      </div>
+
+      <div class="control-item">
+        <nexus-label for="lineStroke">Wedge Stroke Width</nexus-label>
+        <select class="control" name="line_stroke" id="lineStroke" onChange="selectLineStroke('nexus-pie-chart')">
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- chart container -->
+    <div id="chart-container" class="nexus-col-xs-4 nexus-col-lg-9 position">
+      <div class="page-title">&lt;nexus-pie-chart&gt;</div>
+      <div class="hoz-group">
+        <div class="btn-item">
+          <button type="button" class="nexus-btn" onClick="selectTopN(5)">Top 5</button>
+        </div>
+        <div class="btn-item">
+          <button type="button" class="nexus-btn" onClick="selectTopN(10)">Top 10</button>
+        </div>
+        <div class="btn-item">
+          <button type="button" class="nexus-btn" onClick="selectTopN(15)">Top 15</button>
+        </div>
+      </div>
+
+      <div class="chart">
+        <nexus-pie-chart
+          legend
+          legend-width="125"
+          legend-metric="artist"
+          responsive
+          stroke="#ffffff"
+          tooltips
+          value-format="localestring1d"
+          value-metric="units"
+        ></nexus-pie-chart>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    h1,
+    h2,
+    h3 {
+      color: #888;
+    }
+
+    a {
+      color: #336699;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #000099;
+      text-decoration: none;
+    }
+
+    pre.code {
+      white-space: pre-wrap;
+      background: hsl(30, 80%, 90%);
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      border: solid 1px #ccc;
+      color: #333;
+    }
+
+    /*********************************************
+   * IDs
+   *********************************************/
+    #chart-container {
+      /* margin-left: 28%;
+    padding: 0px 20px; */
+    }
+
+    #chart-cointainer.inverse {
+      background: black;
+    }
+
+    #control-container {
+      width: 25%;
+      float: left;
+      border-right: solid 1px #ccc;
+      padding: 0px 20px;
+    }
+
+    #header {
+      height: 5em;
+      border-bottom: solid 1px #333;
+      background: #193366;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding-left: 20px;
+      position: fixed;
+    }
+
+    #header-subnav {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    #header-subnav span.message {
+      color: #fc3;
+    }
+
+    #header-main {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    #logo {
+      margin-right: 15px;
+    }
+
+    #logo img {
+      height: 20px;
+    }
+
+    #stv {
+      font-weight: 600;
+      font-size: 24px;
+      color: #eee;
+      margin-right: 25px;
+    }
+
+    #toc {
+      margin-top: 6.5em;
+      display: flex;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    #toc > div.intro {
+      flex: 0 0 20em;
+      margin-right: 30px;
+      min-height: 400px;
+    }
+
+    #toc > div.intro > div.intro-logo {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #toc > div.intro > div.intro-logo img {
+      height: 30px;
+    }
+
+    #toc > div.intro > div.intro-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    #toc > div.menu {
+      flex: 1;
+    }
+
+    #toc > div.menu > div.menuLink {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    #wrapper {
+      width: 100%;
+      min-height: 400px;
+      /* margin-top: 6.5em; */
+    }
+
+    .control {
+      padding: 8px 16px 8px 8px;
+      display: inline-block;
+      line-height: 24px;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    /*********************************************
+   * Classes
+   *********************************************/
+    button.action {
+      background: #585a58;
+      font-size: 14px;
+      color: white;
+      height: 28px;
+      border-radius: 4px;
+      padding: 0px 10px;
+      cursor: pointer;
+    }
+
+    button.action:hover {
+      background: #303030;
+    }
+
+    div.btn-item,
+    div.cbx-item,
+    div.select-item {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    div.chart {
+      min-height: 450px;
+    }
+
+    div.inverse {
+      background: #333;
+    }
+
+    div.control-category {
+      border-bottom: solid 1px #ccc;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    div.control-item {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    div.header-link {
+      margin-right: 15px;
+    }
+
+    div.header-link a {
+      color: #eee;
+    }
+
+    div.header-link a:hover {
+      color: #ffcc33;
+    }
+
+    div.hoz-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.1em;
+    }
+
+    div.page-title {
+      /* font-family: "Courier", serif; */
+      font-size: 18px;
+      color: #333;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #eee;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    div.select-el {
+      margin-top: 5px;
+    }
+
+    div.select-group {
+      font-size: 12px;
+      font-style: italic;
+      color: #336699;
+    }
+
+    div.select-item > label {
+      font-size: 0.8em;
+    }
+
+    div.select-item > label,
+    div.select-item > select {
+      display: inline;
+    }
+
+    .position {
+      position: inherit;
+    }
+  </style>

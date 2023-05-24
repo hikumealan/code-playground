@@ -1,0 +1,25 @@
+<div class="nexus-center-xs nexus-pt-6">
+  <button class="nexus-btn-primary nexus-btn-large"
+    (click)="show = true">{{termsOfUse.acceptTermsAndConditions}}</button>
+</div>
+<div class="nexus-center-xs nexus-mt-4">
+  <nexus-notification [variant]="notificationType">{{notificationMessage}}</nexus-notification>
+</div>
+
+<nexus-modal id="modal" [show]="show" size="md" [fullscreen]="fullscreen" (closeEvent)="handleCloseEvent()">
+  <nexus-modal-header (closeEvent)="show = false">
+    {{termsOfUse.title}}
+    <nexus-modal-header-subtitle>{{termsOfUse.subTitle}}</nexus-modal-header-subtitle>
+  </nexus-modal-header>
+  <nexus-modal-body>
+    <h4 className='nexus-h4'>{{termsOfUse.agreement}}</h4>
+    <p [innerHTML]="termsOfUse.details"></p>
+
+    <nexus-checkbox [checked]="isChecked"
+      (input)="updateIsChecked(!this.isChecked)">{{termsOfUse.checkBoxText}}</nexus-checkbox>
+  </nexus-modal-body>
+  <nexus-modal-footer>
+    <button (click)="show = false" class="nexus-btn-primary">{{termsOfUse.submit}}</button>
+    <button (click)="show = false" class="nexus-btn">{{termsOfUse.cancel}}</button>
+  </nexus-modal-footer>
+</nexus-modal>

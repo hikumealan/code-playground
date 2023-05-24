@@ -1,0 +1,126 @@
+<p id="mydesc">Sample Table using Nexus-table class</p>
+<table class="nexus-table" aria-describedby="mydesc">
+  <thead>
+    <tr>
+      <th id="col1">Column Header <nexus-icon src="./assets/icons/content/ic_sort_24px.svg"></nexus-icon></th>
+      <th id="col2">Column Header</th>
+      <th id="col3">Column Header</th>
+      <th id="col4">Column Header</th>
+      <th id="col5">Column Header</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Row Name</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+    </tr>
+    <tr>
+      <td>Row Name</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+    </tr>
+    <tr>
+      <td>Row Name</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<br />
+<br />
+
+<p id="mydesc">Nexus Table (without Pagination & Row Select)</p>
+
+<nexus-table id="table11"></nexus-table>
+
+<br />
+<br />
+<br />
+
+<p id="mydesc">Nexus Table (with max-height)</p>
+
+<nexus-table id="table2" pagination="true" page-size="5" max-height="200"></nexus-table>
+<br />
+<br />
+<br />
+
+
+<p id="mydesc">Nexus Table (with Pagination)</p>
+
+<nexus-table id="table3" pagination="true" page-size="5"></nexus-table>
+
+<br />
+<br />
+<br />
+
+<p id="mydesc">Nexus Table (with Pagination & Row Select)</p>
+
+<nexus-table id="table4" pagination="true" page-size="5" row-selection="true" page-size-label="Items Per Page:">
+</nexus-table>
+
+<br />
+<p id="displaySelectedRows">Number of Selected Rows 0</p>
+
+<br />
+<br />
+<br />
+
+<p id="mydesccustom">CustomNexus Table (Custom Header, Body and Footer)</p>
+<p id="mydesccustom">type="custom" will have slots for thead, tbody and tfoot where developer can pass custom templates and logic.</p>
+
+<nexus-table
+  type="custom"
+  attr-id="table5"
+  id="table5"
+  pagination="false"
+>
+  <nexus-pagination class="nexus-mt-2 nexus-mb-2 nexus-ml-2" current="1" max="3" id="pagination_custom" slot="tfoot"></nexus-pagination>
+</nexus-table>
+<br />
+<br />
+<br />
+
+<p id="mydesc">Custom Nexus Table (with default Header and Pagination and custom Body)</p>
+<p>For default Pagination to work with custom Body content please pass totalItems prop.</p>
+
+<nexus-table id="table6" attr-id="table6" pagination="true" page-size="5"></nexus-table>
+
+<br />
+<br />
+<br />
+
+<!-- Additional Styles -->
+<style>
+  .text-right {
+    text-align: right;
+  }
+
+  .tr-hidden {
+    display: none !important;
+  }
+
+  .tr-expandable nexus-icon {
+    width: 20px;
+    height: 20px;
+    position: relative !important;
+    top: 5px;
+  }
+
+  .cls-col-width {
+    width: 20%;
+    text-align: center;
+    font-style: italic;
+    color: #9c27b0;
+    font-weight: bold;
+  }
+</style>

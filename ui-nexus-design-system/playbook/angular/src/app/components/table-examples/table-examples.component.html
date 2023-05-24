@@ -1,0 +1,149 @@
+<p id="mydesc">Sample Table using Nexus-table class</p>
+<table class="nexus-table" aria-describedby="mydesc">
+  <thead>
+    <tr>
+      <th id="col1">Column Header <nexus-icon src="./assets/icons/content/ic_sort_24px.svg"></nexus-icon></th>
+      <th id="col2">Column Header</th>
+      <th id="col3">Column Header</th>
+      <th id="col4">Column Header</th>
+      <th id="col5">Column Header</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Row Name</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+    </tr>
+    <tr>
+      <td>Row Name</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+    </tr>
+    <tr>
+      <td>Row Name</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+      <td>000.000.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+<br />
+<br />
+
+<p id="mydesc">Nexus Table (without Pagination & Row Select)</p>
+
+<nexus-table [rows]="rowData" [columns]="columnDefs"></nexus-table>
+
+<br />
+<br />
+<br />
+
+<p id="mydesc">Nexus Table (with max-height)</p>
+
+<nexus-table [rows]="rowData" [columns]="columnDefs" [pagination]="true" [pageSize]="5" [maxHeight]="200"> </nexus-table>
+
+<br />
+<br />
+<br />
+
+<p id="mydesc">Nexus Table (with Pagination)</p>
+
+<nexus-table [rows]="rowData" [columns]="columnDefs" [pagination]="true" [pageSize]="5" (tableChangeEvent)="handleChangeEvent($event)"> </nexus-table>
+
+<br />
+<br />
+<br />
+
+<p id="mydesc">Nexus Table (with Pagination & Row Select)</p>
+
+<nexus-table
+  [rows]="rowData"
+  [columns]="columnDefs"
+  [pagination]="true"
+  [pageSize]="5"
+  [rowSelection]="true"
+  (rowSelect)="rowSelectHandler($event)"
+  [pageSizeLabel]="'Items Per Page:'"
+  [pageSizeOpt]="[5, 10, 25]"
+>
+</nexus-table>
+
+<br />
+<br />
+<br />
+
+<p>Number of Selected Rows {{ selectedRows?.length }}</p>
+<br />
+<br />
+<br />
+
+<p id="mydesccustom">CustomNexus Table (Custom Header, Body and Footer)</p>
+<p id="mydesccustom">type="custom" will have slots for thead, tbody and tfoot where developer can pass custom templates and logic.</p>
+
+
+<nexus-table
+  [pagination]="false"
+  type="custom"
+>
+  <tr slot="thead">
+    <th *ngFor="let colum of columnDefs">{{colum.label}}</th>
+  </tr>
+  <tbody slot="tbody" *ngIf="displayedRows.length">
+    <section *ngFor="let rows of displayedRows; let i=index">
+      <tr class="tr-expandable" (click)="isExpandedRow[i] = !isExpandedRow[i]" >
+        <td *ngFor="let key of columnList; let j = index">
+          <nexus-icon *ngIf="j===0 && !isExpandedRow[i]" src="./assets/icons/content/ic_add_24px.svg"></nexus-icon>
+          <nexus-icon *ngIf="j===0 && isExpandedRow[i]" src="./assets/icons/content/ic_remove_24px.svg"></nexus-icon>
+          {{rows[key]}}</td>
+      </tr>
+      <tr *ngIf="isExpandedRow[i]">
+        <td *ngFor="let key of columnList">{{rows[key]}}</td>
+      </tr>
+    </section>
+  </tbody>
+
+    <nexus-pagination class="nexus-mt-2 nexus-mb-2 nexus-ml-2" [current]="customCurrent" [max]="maxPagination" (changeEvent)="handlePaginationChange($event)" slot="tfoot"></nexus-pagination>
+</nexus-table>
+<br />
+<br />
+<br />
+
+<p id="mydesc">Custom Nexus Table (with default Header and Pagination and custom Body).</p>
+<p>For default Pagination to work with custom Body content please pass totalItems prop.</p>
+
+
+<nexus-table
+  type="custom"
+  [columns]="columnData"
+  [pagination]="true"
+  [pageSize]="5"
+  [totalItems]="rowData.length"
+  (tableChangeEvent)="handleCustomChangeEvent($event)"
+>
+  <tbody slot="tbody" *ngIf="displayedCustomRows.length">
+    <section *ngFor="let rows of displayedCustomRows; let i=index">
+      <tr class="tr-expandable" (click)="isExpandedCustomRow[i] = !isExpandedCustomRow[i]" >
+        <td *ngFor="let key of columnList; let j = index">
+          <nexus-icon *ngIf="j===0 && !isExpandedCustomRow[i]" src="./assets/icons/hardware/ic_keyboard_arrow_down_24px.svg"></nexus-icon>
+          <nexus-icon *ngIf="j===0 && isExpandedCustomRow[i]" src="./assets/icons/hardware/ic_keyboard_arrow_up_24px.svg"></nexus-icon>
+          {{rows[key]}}</td>
+      </tr>
+      <tr *ngIf="isExpandedCustomRow[i]">
+        <td *ngFor="let key of columnList">{{rows[key]}}</td>
+      </tr>
+    </section>
+  </tbody>
+</nexus-table>
+<br />
+<br />
+<br />
+<br />

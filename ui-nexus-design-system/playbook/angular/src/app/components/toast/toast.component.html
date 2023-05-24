@@ -1,0 +1,33 @@
+<p class="nexus-h5">Toast Default</p>
+<div class="nexus-rhythm-2">
+  <nexus-toast
+    [autoClose]="autoClose"
+    [closeable]="closeable"
+    [show]="show"
+    [variant]="variant"
+    data-testid="information-toast-message"
+    >Default message.</nexus-toast
+  >
+</div>
+
+<p class="nexus-h5">Toast Variants</p>
+
+<div class="nexus-rhythm-2">
+  <nexus-toast data-testid="information-toast-message">Information message.</nexus-toast>
+</div>
+
+<div class="nexus-rhythm-2">
+  <nexus-toast data-testid="success-toast-message" class="nexus-rhythm-2" variant="success"
+    >Success message.</nexus-toast
+  >
+</div>
+
+<div class="nexus-rhythm-2">
+  <nexus-toast data-testid="warning-toast-message" class="nexus-rhythm-2" variant="warning"
+    >Warning message.</nexus-toast
+  >
+</div>
+
+<div class="nexus-rhythm-2">
+  <nexus-toast data-testid="error-toast-message" class="nexus-rhythm-2" variant="error">Error message.</nexus-toast>
+</div>

@@ -1,0 +1,8 @@
+<nexus-accordion [open]="open" (toggleEvent)="open = !open" [size]="size" [align]="align">
+  <nexus-accordion-trigger [align]="align">
+    <h1 class="nexus-body">{{accordion.title}}</h1>
+  </nexus-accordion-trigger>
+  <nexus-accordion-content>
+    {{accordion.description}}
+  </nexus-accordion-content>
+</nexus-accordion>

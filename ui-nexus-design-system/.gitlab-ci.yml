@@ -1,0 +1,37 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  PLAYBOOK_USERS: "ic ey"
+  REALM: "Playbook Authentication"
+
+build:
+  stage: build
+  image: docker.ey-intuitive.com/gitlab-puppeteer
+  tags:
+    - docker
+  script:
+    - yarn setup
+    - yarn build
+    - yarn hook
+    - yarn build:playbook
+  artifacts:
+    expire_in: 12h
+    paths:
+      - target/
+
+deploy:
+  stage: deploy
+  image: docker.ey-intuitive.com/playbook-runner:latest
+  tags:
+    - playbook-deploy
+  environment:
+    name: $CI_COMMIT_REF_NAME
+  only:
+    - develop
+    - qa
+    - master
+  script:
+    - "/scripts/move_files.sh target \"/srv/playbooks/$CI_COMMIT_REF_NAME/$CI_PROJECT_PATH\""
+    - "/scripts/create_ht_files.sh \"/srv/playbooks/$CI_COMMIT_REF_NAME/$CI_PROJECT_PATH/target/www\" \"$REALM\" $PLAYBOOK_USERS"

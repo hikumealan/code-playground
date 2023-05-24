@@ -1,0 +1,48 @@
+{
+  "extends": "../../../packages/nexus-angular/projects/nexus-angular/tsconfig.lib.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@nexus/angular": [
+        "../../packages/nexus-angular/dist/nexus-angular"
+      ]
+    },
+    "lib": [
+      "DOM",
+      "ES2021.String"
+    ],
+    "typeRoots": [
+      "../node_modules/@types",
+      "../../../node_modules/@types",
+      "./typings.d.ts"
+    ],
+  },
+  "exclude": [
+    "../../../packages/nexus-angular/src/test.ts",
+    "../../../packages/nexus-angular/src/**/*.spec.ts",
+    "../../../packages/nexus-angular/projects/**",
+    "../src/app/components/**",
+    "../../stories/**/stencil.stories.tsx",
+    "../../stories/**/react.stories.tsx"
+  ],
+  "include": [
+    "../../../packages/nexus-angular/src/**/*",
+    "../../../packages/nexus-angular/projects/**/*",
+    "../../stories/**/*",
+    "../../stories/**/*.args.ts",
+    "../src/app/components/**/*.ts",
+    "../src/app/sb/components/**/*.ts",
+    "../../stories/pages/**/angular.stories.tsx"
+  ],
+  "files": [
+    "./typings.d.ts",
+    "../src/polyfills.ts"
+  ]
+}

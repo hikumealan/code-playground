@@ -1,0 +1,57 @@
+<div class="nexus-center-xs nexus-mt-2">
+    <div class="nexus-row">
+        <div class="nexus-col-xs-2">
+            <nexus-tooltip placement="bottom" [allowClick]="TooltipPosition.allowClick">
+                <nexus-tooltip-trigger>
+                    <button class="nexus-btn nexus-btn-large nexus-btn-link">
+                        {{TooltipPosition.bottomText}} <nexus-icon
+                        [src]="TooltipPosition.iconSrc"></nexus-icon>
+                        <span class="nexus-visually-hidden">{{TooltipPosition.tooltipTriggerContent}}</span>
+                    </button>
+                </nexus-tooltip-trigger>
+                <nexus-tooltip-content>{{TooltipPosition.tooltipContent}}</nexus-tooltip-content>
+            </nexus-tooltip>
+        </div>
+
+        <div class="nexus-col-xs-2">
+            <nexus-tooltip placement="top" [allowClick]="TooltipPosition.allowClick">
+                <nexus-tooltip-trigger>
+                    <button class="nexus-btn nexus-btn-large nexus-btn-primary">
+                        {{TooltipPosition.topText}} <nexus-icon
+                        [src]="TooltipPosition.iconSrc"></nexus-icon>
+                        <span class="nexus-visually-hidden">{{TooltipPosition.tooltipTriggerContent}}</span>
+                    </button>
+                </nexus-tooltip-trigger>
+                <nexus-tooltip-content>{{TooltipPosition.tooltipContent}}</nexus-tooltip-content>
+            </nexus-tooltip>
+        </div>
+    </div>
+    <div class="nexus-mt-2 nexus-mb-2"></div>
+    <div class="nexus-row">
+        <div class="nexus-col-xs-2">
+            <nexus-tooltip placement="left" [allowClick]="TooltipPosition.allowClick">
+                <nexus-tooltip-trigger>
+                    <button class="nexus-btn nexus-btn-large">
+                        {{TooltipPosition.leftText}} <nexus-icon
+                        [src]="TooltipPosition.iconSrc"></nexus-icon>
+                        <span class="nexus-visually-hidden">{{TooltipPosition.tooltipTriggerContent}}</span>
+                    </button>
+                </nexus-tooltip-trigger>
+                <nexus-tooltip-content>{{TooltipPosition.tooltipContent}}</nexus-tooltip-content>
+            </nexus-tooltip>
+        </div>
+
+        <div class="nexus-col-xs-2">
+            <nexus-tooltip placement="right" [allowClick]="TooltipPosition.allowClick">
+                <nexus-tooltip-trigger>
+                    <button class="nexus-btn nexus-btn-large nexus-btn-primary">
+                        {{TooltipPosition.rightText}} <nexus-icon
+                            [src]="TooltipPosition.iconSrc"></nexus-icon>
+                        <span class="nexus-visually-hidden">{{TooltipPosition.tooltipTriggerContent}}</span>
+                    </button>
+                </nexus-tooltip-trigger>
+                <nexus-tooltip-content>{{TooltipPosition.tooltipContent}}</nexus-tooltip-content>
+            </nexus-tooltip>
+        </div>
+    </div>
+</div>

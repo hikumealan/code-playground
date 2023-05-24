@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+$nexus-font-path: '~@nexus/core/dist/assets/fonts';
+
+@import '~@nexus/core/dist/styles';
+
+.text-right {
+  text-align: right;
+}
+
+.cls-col-width {
+  width: 20%;
+  text-align: center;
+  font-style: italic;
+  color: #9C27B0;
+  font-weight: bold;
+}

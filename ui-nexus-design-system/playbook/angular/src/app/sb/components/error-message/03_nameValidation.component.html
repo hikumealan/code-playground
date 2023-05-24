@@ -1,0 +1,13 @@
+<div>
+  <nexus-form-field [formGroup]="bioSection">
+    <p class="nexus-h6">{{ title }}</p>
+    <div>
+      <nexus-input type="text" formControlName="firstName" [placeholder]="[placeholder]" max-length="10"></nexus-input>
+      <div *ngIf="userFirstName.touched || userFirstName.dirty">
+        <nexus-error-message *ngIf="userFirstName.invalid"
+          ><nexus-chip error>{{ requiredText }}</nexus-chip>
+        </nexus-error-message>
+      </div>
+    </div>
+  </nexus-form-field>
+</div>

@@ -1,0 +1,51 @@
+{
+  "name": "test-automation",
+  "version": "0.0.1",
+  "description": "Nexus Design System - Test Automation",
+  "scripts": {
+    "cy:open":"cypress open --env allure=true",
+    "lint": "eslint ./cypress --ext ts,tsx",
+    "lint:fix": "eslint ./cypress --ext ts,tsx --fix",
+    "cy:run":"cypress run --env allure=true",
+    "allure:report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
+    "allure:clear_results": "node scripts/clearResults.js",
+    "allure:clear_report": "node scripts/clearResults.js",
+    "allure:history": "node scripts/history.js",
+    "pretest": "yarn allure:clear_results && yarn allure:clear_report",
+    "test": "yarn cy:run || yarn posttest",
+    "posttest": "yarn allure:report"
+  },
+  "keywords": [
+    "Cypress",
+    "Storybook",
+    "Nexus Design System",
+    "VisualRegression"
+  ],
+  "author": "EY Nexus",
+  "license": "ISC",
+  "private": true,
+  "eslintConfig": {
+    "extends": [
+      "plugin:cypress/recommended"
+    ]
+  },
+  "devDependencies": {
+    "@bahmutov/cy-grep":"1.4.2",
+    "cypress":"^12.3.0",
+    "cypress-iframe":"1.0.1",
+    "cypress-image-diff-js":"1.23.0",
+    "@storybook/testing-library": "^0.0.13",
+    "@storybook/testing-react":"1.3.0",
+    "@storybook/testing-angular":"0.0.12",
+    "@cypress/react":"7.0.2",
+    "@cypress/react18":"2.0.0",
+    "@shelex/cypress-allure-plugin":"2.35.2",
+    "allure-commandline": "2.21.0",
+    "chai-colors": "1.0.1"
+  },
+  "moduleDirectories": [
+    "<rootDir>/node_modules",
+    "node_modules",
+    "../node_modules"
+  ]
+}

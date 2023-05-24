@@ -1,0 +1,33 @@
+{{#extend 'default' layout="default"}}
+
+    {{#pageTitle}}Accessibility Report{{/pageTitle}}
+
+    {{#content 'body'}}
+
+        <h2>Components</h2>
+
+        <div class="playbook-accessibility-report">
+            {{#each component-accessibility}}
+                {{#if issues}}
+                    <div class="playbook-report-flagged">
+                        <h2 class="playbook-report-filename">{{ componentName }}</h2>
+                        <dl class="playbook-report-details">
+                            {{#each issues as |error log|}}
+                                <dt class="playbook-report-issue"><span class="playbook-report-issue-{{ error.type }}">{{ error.type }}</span> <b>{{ error.code }}</b></dt>
+                                <dd class="playbook-report-description">{{ error.message }}</dd>
+                                <dd class="playbook-report-position">{{ error.selector }}</dd>
+                                <dd class="playbook-report-element"><pre class="playbook-report-markup">{{ error.context }}</pre></dd>
+                            {{/each}}
+                        </dl>
+                    </div>
+                {{else}}
+                    <div class="playbook-report-passed">
+                        <h2 class="playbook-report-filename"><a href="{{ playbookUrl }}">{{ componentName }}</a></h2>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+
+    {{/content}}
+
+{{/extend}}

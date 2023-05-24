@@ -1,0 +1,23 @@
+<p class="nexus-h5">Disabled</p>
+
+<nexus-form-field>
+  <nexus-label>First name</nexus-label>
+  <nexus-input [disabled]="true" [formControl]="disabledValue" [value]="disabledValue.value"></nexus-input>
+
+</nexus-form-field>
+
+<p class="nexus-h5">With Message</p>
+
+<nexus-form-field>
+  <nexus-label>First name</nexus-label>
+  <nexus-input [formControl]="messageValue" [value]="messageValue.value"></nexus-input>
+  <nexus-message>Custom message</nexus-message>
+</nexus-form-field>
+
+<p class="nexus-h5">With Error</p>
+
+<nexus-form-field>
+  <nexus-label>First name</nexus-label>
+  <nexus-input [formControl]="errorValue" [value]="errorValue.value"></nexus-input>
+  <nexus-error-message>This is an error message</nexus-error-message>
+</nexus-form-field>

@@ -1,0 +1,15 @@
+<p class="nexus-h5">Checkbox configuration:</p>
+
+<nexus-checkbox data-testid="Check" ngDefaultControl [formControl]="checkedValue" class="nexus-rhythm-2">Check</nexus-checkbox>
+<nexus-checkbox data-testid="Indeterminate" ngDefaultControl [formControl]="indeterminateValue" class="nexus-rhythm-2">Indeterminate</nexus-checkbox>
+<nexus-checkbox data-testid="Disabled" ngDefaultControl [formControl]="disabledValue" class="nexus-rhythm-2">Disabled</nexus-checkbox>
+
+<p class="nexus-h5">Example:</p>
+
+<nexus-checkbox id="example"
+  [checked]="checkedValue.value"
+  [indeterminate]="indeterminateValue.value"
+  [disabled]="disabledValue.value"
+>
+  Example
+</nexus-checkbox>

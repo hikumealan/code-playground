@@ -1,0 +1,53 @@
+{{#extend 'default' layout="default"}}
+
+{{#pageTitle}}Theming{{/pageTitle}}
+
+{{#content 'body'}}
+
+<h2>Variables</h2>
+
+<p>The following CSS variables can be used for customizations across the Nexus component Library.</p>
+
+<p>In order to overwrite a variable add a new definition in the root.</p>
+
+<p>EX:</p>
+
+<pre><code class="lang-css">
+  :root {
+    --primary-accent: #FFF000;
+  }
+</code></pre>
+
+<br>
+<br>
+
+<div class="playbook-accessibility-report">
+  {{#each scssVariableDocs}}
+  <section>
+    <h3>{{ groupName }}</h3>
+
+    <table class="playbook-table playbook-table-component">
+      <thead class="playbook-table-head">
+        <tr class="playbook-table-row">
+          <th class="playbook-table-heading">Name</th>
+          <th class="playbook-table-heading">Value</th>
+          <th class="playbook-table-heading">Description</th>
+        </tr>
+      </thead>
+      <tbody class="playbook-table-body">
+        {{#each variables as |variable|}}
+        <tr class="playbook-table-row">
+          <td class="playbook-table-cell playbook-monospace-emphasis">{{variable.name}}</td>
+          <td class="playbook-table-cell playbook-monospace">{{variable.value}}</td>
+          <td class="playbook-table-cell playbook-monospace">{{variable.description}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </section>
+  {{/each}}
+</div>
+
+{{/content}}
+
+{{/extend}}

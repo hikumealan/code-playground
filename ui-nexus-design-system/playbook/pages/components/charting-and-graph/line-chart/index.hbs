@@ -1,0 +1,33 @@
+{{#template 'component'}}
+
+  {{#pageTitle}}Line Chart{{/pageTitle}}
+
+  <div class="playbook-component-tabs-container">
+    <input id="tab-1" type="radio" name="tabs" checked="checked"/>
+    <input id="tab-2" type="radio" name="tabs"/>
+    <input id="tab-3" type="radio" name="tabs"/>
+    <div class="tabs">
+      <label for="tab-1">HTML</label>
+      <label for="tab-2">Angular</label>
+      <label for="tab-3">React</label>
+    </div>
+    <div class="content">
+      <div class="tab">
+        {{ section 'components/charting-and-graph/line-chart/line-chart.stencil.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/charting-and-graph/line-chart/line-chart.angular.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/charting-and-graph/line-chart/line-chart.react.hbs' }}
+      </div>
+    </div>
+  </div>
+
+  <h2>Properties</h2>
+
+  <section class="playbook-component-properties">
+    {{{ md 'packages/nexus/src/components/nexus-charts/nexus-line-chart/readme.md'}}}
+  </section>
+
+{{/template}}

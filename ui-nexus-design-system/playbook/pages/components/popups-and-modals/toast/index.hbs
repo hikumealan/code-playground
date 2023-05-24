@@ -1,0 +1,59 @@
+
+{{#template 'component'}}
+
+  {{#pageTitle}}Toast{{/pageTitle}}
+
+  <div class="playbook-component-tabs-container">
+    <input id="tab-1" type="radio" name="tabs" checked="checked"/>
+    <input id="tab-2" type="radio" name="tabs"/>
+    <input id="tab-3" type="radio" name="tabs"/>
+    <div class="tabs">
+      <label for="tab-1">HTML</label>
+      <label for="tab-2">Angular</label>
+      <label for="tab-3">React</label>
+    </div>
+    <div class="content">
+      <div class="tab">
+        {{ section 'components/popups-and-modals/toast/toast.stencil.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/popups-and-modals/toast/toast.angular.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/popups-and-modals/toast/toast.react.hbs' }}
+      </div>
+    </div>
+  </div>
+
+  <h2>Properties</h2>
+
+  <section class="playbook-component-properties">
+    {{{ md 'packages/nexus/src/components/nexus-toast/readme.md'}}}
+  </section>
+
+  <h2>Examples</h2>
+
+  <div class="playbook-component-tabs-container">
+    <input id="tab-4" type="radio" name="tabs2" checked="checked"/>
+    <input id="tab-5" type="radio" name="tabs2"/>
+    <input id="tab-6" type="radio" name="tabs2"/>
+    <div class="tabs">
+      <label for="tab-4">HTML</label>
+      <label for="tab-5">Angular</label>
+      <label for="tab-6">React</label>
+    </div>
+    <div class="content">
+      <div class="tab">
+        {{ section 'components/popups-and-modals/toast/toast-examples.stencil.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/popups-and-modals/toast/toast-examples.angular.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/popups-and-modals/toast/toast-examples.react.hbs' }}
+      </div>
+    </div>
+  </div>
+
+{{/template}}
+

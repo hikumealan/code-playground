@@ -1,0 +1,153 @@
+<div class="row">
+  <div data-testid="acc-align-start" class="nexus-col-md-10">
+    <p class="nexus-h5">Set <code>align="start | center | end"</code> to align nexus accordion title to float in
+      "start | center | end". However the default accordion header aligns to left.</p>
+    <nexus-accordion [open]="open" (toggleEvent)="open = !open" size="md">
+      <nexus-accordion-trigger>
+        <h1 class="nexus-body">Accordion Title</h1>
+      </nexus-accordion-trigger>
+      <nexus-accordion-content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget aliquam justo, nec iaculis enim. Praesent at
+        cursus nisl, vel molestie sapien. Donec gravida metus sem, non iaculis nisl sodales at. Cras tristique magna
+        nisi,
+        nec imperdiet lectus aliquet imperdiet. Quisque at hendrerit felis. Orci varius natoque penatibus et magnis dis
+        parturient montes, nascetur ridiculus mus. Etiam vitae quam et lorem tincidunt feugiat. Sed id massa eu ex
+        bibendum
+        suscipit. Praesent urna est, vestibulum vitae porttitor sed, mattis id nisi. In eu semper augue. Sed viverra
+        finibus
+        pellentesque. Etiam non ultricies mauris. Nullam eu aliquet tellus.
+      </nexus-accordion-content>
+    </nexus-accordion>
+  </div>
+</div>
+<br />
+
+<div class="row">
+  <div data-testid="acc-align-center" class="nexus-col-md-10">
+    <nexus-accordion [open]="openExample2" (toggleEvent)="openExample2 = !openExample2" size="md">
+      <nexus-accordion-trigger align="center">
+        <h1 class="nexus-body">Accordion Title</h1>
+      </nexus-accordion-trigger>
+      <nexus-accordion-content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget aliquam justo, nec iaculis enim. Praesent at
+        cursus nisl, vel molestie sapien. Donec gravida metus sem, non iaculis nisl sodales at. Cras tristique magna
+        nisi,
+        nec imperdiet lectus aliquet imperdiet. Quisque at hendrerit felis. Orci varius natoque penatibus et magnis dis
+        parturient montes, nascetur ridiculus mus. Etiam vitae quam et lorem tincidunt feugiat. Sed id massa eu ex
+        bibendum
+        suscipit. Praesent urna est, vestibulum vitae porttitor sed, mattis id nisi. In eu semper augue. Sed viverra
+        finibus
+        pellentesque. Etiam non ultricies mauris. Nullam eu aliquet tellus.
+      </nexus-accordion-content>
+    </nexus-accordion>
+  </div>
+</div>
+<br />
+
+<div class="row">
+  <div data-testid="acc-align-end"  class="nexus-col-md-10">
+    <nexus-accordion [open]="openExample3" (toggleEvent)="openExample3 = !openExample3" size="md">
+      <nexus-accordion-trigger align="end">
+        <h1 class="nexus-body">Accordion Title</h1>
+      </nexus-accordion-trigger>
+      <nexus-accordion-content>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget aliquam justo, nec iaculis enim. Praesent at
+        cursus nisl, vel molestie sapien. Donec gravida metus sem, non iaculis nisl sodales at. Cras tristique magna
+        nisi,
+        nec imperdiet lectus aliquet imperdiet. Quisque at hendrerit felis. Orci varius natoque penatibus et magnis dis
+        parturient montes, nascetur ridiculus mus. Etiam vitae quam et lorem tincidunt feugiat. Sed id massa eu ex
+        bibendum
+        suscipit. Praesent urna est, vestibulum vitae porttitor sed, mattis id nisi. In eu semper augue. Sed viverra
+        finibus
+        pellentesque. Etiam non ultricies mauris. Nullam eu aliquet tellus.
+      </nexus-accordion-content>
+    </nexus-accordion>
+  </div>
+</div>
+<br />
+
+<div class="row">
+  <div class="nexus-col-md-10">
+    <p class="nexus-h5">Different size variants for accordion based on which the content is padded within the accordion.
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div data-testid="acc-size-xs" class="nexus-col-md-10">
+    <p class="nexus-h5">Accordion Size: <code>xs | sm | md | lg | xl </code>.</p>
+    <nexus-accordion [open]="openExampleXS" (toggleEvent)="openExampleXS = !openExampleXS" size="xs">
+      <nexus-accordion-trigger>
+        <h1 class="nexus-body">Accordion Title</h1>
+      </nexus-accordion-trigger>
+      <nexus-accordion-content>
+        <span>Ths accordion is an example for extremely <strong>mobile screen (xs) sized</strong> contents.</span>
+      </nexus-accordion-content>
+    </nexus-accordion>
+  </div>
+</div>
+<br />
+
+
+<div class="row">
+  <div data-testid="acc-size-sm" class="nexus-col-md-10">
+    <nexus-accordion [open]="openExampleS" (toggleEvent)="openExampleS = !openExampleS" size="sm">
+      <nexus-accordion-trigger>
+        <h1 class="nexus-body">Accordion Title</h1>
+      </nexus-accordion-trigger>
+      <nexus-accordion-content>
+        <span>Ths accordion is an example for extremely <strong>small sized</strong> contents.</span>
+      </nexus-accordion-content>
+    </nexus-accordion>
+  </div>
+</div>
+<br />
+
+<div class="row">
+  <div data-testid="acc-size-md" class="nexus-col-md-10">
+    <nexus-accordion [open]="openExampleM" (toggleEvent)="openExampleM = !openExampleM" size="md">
+      <nexus-accordion-trigger>
+        <h1 class="nexus-body">Accordion Title</h1>
+      </nexus-accordion-trigger>
+      <nexus-accordion-content>
+        <span>Ths accordion is an example for extremely <strong>medium sized</strong> contents.</span>
+      </nexus-accordion-content>
+    </nexus-accordion>
+  </div>
+</div>
+<br />
+
+<div class="row">
+  <div data-testid="acc-size-lg" class="nexus-col-md-10">
+    <nexus-accordion [open]="openExampleL" (toggleEvent)="openExampleL = !openExampleL" size="lg">
+      <nexus-accordion-trigger>
+        <h1 class="nexus-body">Accordion Title</h1>
+      </nexus-accordion-trigger>
+      <nexus-accordion-content>
+        <span>Ths accordion is an example for extremely <strong>large sized</strong> contents.</span>
+      </nexus-accordion-content>
+    </nexus-accordion>
+  </div>
+</div>
+<br />
+
+<div class="row">
+  <div data-testid="acc-size-xl" class="nexus-col-md-10">
+    <nexus-accordion [open]="openExampleXL" (toggleEvent)="openExampleXL = !openExampleXL" size="xl">
+      <nexus-accordion-trigger>
+        <h1 class="nexus-body">Accordion Title</h1>
+      </nexus-accordion-trigger>
+      <nexus-accordion-content>
+        <span>Ths accordion is an example for extremely <strong>extra large sized</strong> contents.</span>
+      </nexus-accordion-content>
+    </nexus-accordion>
+  </div>
+</div>
+<br />
+
+<div class="row">
+  <div class="nexus-col-md-10">
+    <p class="nexus-h5">Accordion Group.</p>
+    <app-accordion-group-examples></app-accordion-group-examples>
+  </div>
+</div>

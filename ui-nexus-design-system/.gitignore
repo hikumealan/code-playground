@@ -1,0 +1,81 @@
+# compiled output
+target
+dist
+build
+tmp
+temp
+/out-tsc
+/nexus/loader
+/nexus/coverage
+nexus/www/assets/images/index.js
+playbook/pages/resources/iconography.hbs
+playbook/stories/pages/**
+junit.xml
+www
+**/.nyc_output/**
+package-lock.json
+
+# Storybook Static
+playbook/stencil/storybook-static/**
+playbook/react/storybook-static/**
+playbook/angular/storybook-static/**
+.playbook/**
+sbstatic
+**/.jest-test-results.json
+
+# Only exists if Bazel was run
+/bazel-out
+
+# dependencies
+node_modules
+.yalc
+yalc.lock
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+packages/nexus/src/assets/images/index.js
+**/cache/**
+playbook/react/.nyc_output/**
+playbook/stories/args/**
+playbook/stories/props.d.ts
+playbook/stories/props.json
+**/testautomation/cypress-visual-report/**
+**/cypress-visual-screenshots/**
+testautomation/cypress/videos/**
+testautomation/cypress/screenshots/**
+testautomation/allure-report/**
+testautomation/allure-results/**
+# System Files
+.DS_Store
+Thumbs.db
+**/.env
+**/.env-example
+**/.env-example-prod

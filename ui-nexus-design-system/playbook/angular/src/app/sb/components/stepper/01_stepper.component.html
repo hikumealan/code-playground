@@ -1,0 +1,19 @@
+<div class="nexus-center-xs nexus-pt-3 nexus-pl-6">
+  <nexus-stepper [steppertype]="steppertype">
+    <nexus-stepper-item status="complete">
+      <button aria-label="step1" class="step-item-target">{{DefaultStepper.source}}</button>
+    </nexus-stepper-item>
+    <nexus-stepper-item status="active">
+      <button aria-current="step">{{DefaultStepper.dataExploration}}</button>
+    </nexus-stepper-item>
+    <nexus-stepper-item status="default">
+      <button aria-label="step3">{{DefaultStepper.featureSets}}</button>
+    </nexus-stepper-item>
+    <nexus-stepper-item status="warning">
+      <button aria-label="step4">{{DefaultStepper.training}}</button>
+    </nexus-stepper-item>
+    <nexus-stepper-item>
+      <button aria-label="step5">{{DefaultStepper.test}}</button>
+    </nexus-stepper-item>
+  </nexus-stepper>
+</div>

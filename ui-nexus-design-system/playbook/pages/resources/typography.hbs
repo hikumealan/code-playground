@@ -1,0 +1,133 @@
+{{#template 'default'}}
+
+    {{#pageTitle}}Typography{{/pageTitle}}
+
+    <h2>Import Fonts</h2>
+
+    Use the following variable to customize the Nexus Font Path
+
+    <pre><code class="lang-scss">
+    $nexus-font-path: 'node_modules/@nexus/core/dist/assets/fonts';
+    </code></pre>
+
+
+    <h2>Usage</h2>
+
+    {{#typography
+        name="Header 1"
+        selector=".nexus-h1 (font-size: 72px; font-weight: 300;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor
+        </div>
+
+    {{/typography}}
+
+    {{#typography
+        name="Header 2"
+        selector=".nexus-h2 (font-size: 48px; font-weight: 300;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Header 3"
+        selector=".nexus-h3 (font-size: 32px; font-weight: 300;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Header 4"
+        selector=".nexus-h4 (font-size: 24px; font-weight: 300;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Header 5"
+        selector=".nexus-h5 (font-size: 20px; font-weight: 300;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Header 6"
+        selector=".nexus-h6 (font-size: 18px; font-weight: 300;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Subtitle"
+        selector=".nexus-subtitle (font-size: 16px; font-weight: 400;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Subtitle Small"
+        selector=".nexus-subtitle-sm (font-size: 14px; font-weight: 400;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Body"
+        selector=".nexus-body (font-size: 16px; font-weight: 300;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dolor massa, ullamcorper a neque sed, lobortis laoreet justo. Nullam pretium rhoncus elit at faucibus. Cras vel lacinia justo. Sed aliquet varius ex, quis ullamcorper dolor ornare ut. Aliquam sed lorem sit amet augue tempus faucibus in id nulla.
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Body Small"
+        selector=".nexus-body-sm (font-size: 14px; font-weight: 300;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dolor massa, ullamcorper a neque sed, lobortis laoreet justo. Nullam pretium rhoncus elit at faucibus. Cras vel lacinia justo. Sed aliquet varius ex, quis ullamcorper dolor ornare ut. Aliquam sed lorem sit amet augue tempus faucibus in id nulla.
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Caption"
+        selector=".nexus-caption-copy (font-size: 12px; font-weight: 300;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dolor massa, ullamcorper a neque sed, lobortis laoreet justo.
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Data Text"
+        selector=".nexus-data (font-size: 12px; font-weight: 400;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum dolor
+        </div>
+    {{/typography}}
+
+    {{#typography
+        name="Overline"
+        selector=".nexus-overline (font-size: 10px; font-weight: 400;)"
+    }}
+        <div style="padding-top:1em;padding-bottom:1em;">
+            Lorem ipsum
+        </div>
+    {{/typography}}
+{{/template}}

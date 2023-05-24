@@ -1,0 +1,22 @@
+<div class="nexus-row">
+    <div class="nexus-col-xs-4 nexus-mt-2 neuxs-mb-1">
+        <nexus-toast data-testid="toast-info" [show]="toastVariants.show" [closeable]="toastVariants.closeable"
+            variant="info">{{toastVariants.info}}</nexus-toast>
+    </div>
+    <div class="nexus-col-xs-4 nexus-mt-2 neuxs-mb-1">
+        <nexus-toast data-testid="toast-error" [show]="toastVariants.show" [closeable]="toastVariants.closeable"
+            variant="error">{{toastVariants.error}}</nexus-toast>
+    </div>
+    <div class="nexus-col-xs-4 nexus-mt-2 neuxs-mb-1">
+        <nexus-toast data-testid="toast-success" [show]="toastVariants.show" [closeable]="toastVariants.closeable"
+            variant="success">{{toastVariants.success}}</nexus-toast>
+    </div>
+    <div class="nexus-col-xs-4 nexus-mt-2 neuxs-mb-1">
+        <nexus-toast data-testid="toast-warning" [show]="toastVariants.show" [closeable]="toastVariants.closeable"
+            variant="warning">{{toastVariants.warning}}</nexus-toast>
+    </div>
+    <div class="nexus-col-xs-4 nexus-mt-2 neuxs-mb-2">
+        <nexus-toast data-testid="toast-custom" [show]="toastVariants.show" [closeable]="toastVariants.closeable"
+            [iconSrc]="toastVariants.iconSrc" variant="custom">{{toastVariants.custom}}</nexus-toast>
+    </div>
+</div>

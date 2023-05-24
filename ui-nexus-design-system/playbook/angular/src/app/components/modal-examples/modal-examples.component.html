@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="nexus-col-md-10">
+    <p class="nexus-h5">Modal Fullscreen: <code> true | false </code>.</p>
+
+    <div class="nexus-center-xs nexus-pt-6">
+      <button class="nexus-btn-primary nexus-btn-large nexus-m-1" (click)="modal1 = true; fullscreen = true">
+        Full Screen - True
+      </button>
+      <button class="nexus-btn-primary nexus-btn-large nexus-m-1" (click)="modal1 = true; fullscreen = false">
+        Full Screen - False
+      </button>
+    </div>
+    <nexus-modal id="modalFullscreen" [show]="modal1" [fullscreen]="fullscreen">
+      <nexus-modal-header (closeEvent)="modal1 = false">
+        Header Content
+        <nexus-modal-header-subtitle>Placeholder</nexus-modal-header-subtitle>
+      </nexus-modal-header>
+      <nexus-modal-body>
+        <p>
+          From mobility to health care to future cities, traditional industry boundaries are being disrupted, as sectors
+          converge to adapt to technological and societal changes.
+        </p>
+        <p>
+          Navigating this fast-changing environment requires agility and fresh thinking. As we reinvent how we work,
+          live and play, EY is helping clients embrace industry disruption as an opportunity.
+        </p>
+      </nexus-modal-body>
+      <nexus-modal-footer>
+        <button (click)="modal1 = false; fullscreen = false" class="nexus-btn-primary">Confirm</button>
+        <button (click)="modal1 = false; fullscreen = false" class="nexus-btn">Cancel</button>
+      </nexus-modal-footer>
+    </nexus-modal>
+  </div>
+</div>
+<br />
+
+<div class="row">
+  <div class="nexus-col-md-10">
+    <p class="nexus-h5">Modal Size: <code> xs | sm | md | lg | xl | full </code>.</p>
+
+    <div class="nexus-center-xs nexus-pt-6">
+      <button class="nexus-btn-primary nexus-btn-large nexus-m-1" (click)="modal2 = true; size = ''">
+        Show modal - Default
+      </button>
+      <button class="nexus-btn-primary nexus-btn-large nexus-m-1" (click)="modal2 = true; size = 'xs'">
+        Show modal - xs
+      </button>
+      <button class="nexus-btn-primary nexus-btn-large nexus-m-1" (click)="modal2 = true; size = 'sm'">
+        Show modal - sm
+      </button>
+      <button class="nexus-btn-primary nexus-btn-large nexus-m-1" (click)="modal2 = true; size = 'md'">
+        Show modal - md
+      </button>
+      <button class="nexus-btn-primary nexus-btn-large nexus-m-1" (click)="modal2 = true; size = 'lg'">
+        Show modal - lg
+      </button>
+      <button class="nexus-btn-primary nexus-btn-large nexus-m-1" (click)="modal2 = true; size = 'xl'">
+        Show modal - xl
+      </button>
+      <button class="nexus-btn-primary nexus-btn-large nexus-m-1" (click)="modal2 = true; size = 'full'">
+        Show modal - full
+      </button>
+    </div>
+    <nexus-modal id="modal" [show]="modal2" [size]="size" [fullscreen]="false">
+      <nexus-modal-header (closeEvent)="modal2 = false">
+        Header Content
+        <nexus-modal-header-subtitle>Placeholder</nexus-modal-header-subtitle>
+      </nexus-modal-header>
+      <nexus-modal-body>
+        <p>
+          Current modal size is <strong>{{ size }}</strong>
+        </p>
+        <p>
+          From mobility to health care to future cities, traditional industry boundaries are being disrupted, as sectors
+          converge to adapt to technological and societal changes.
+        </p>
+        <p>
+          Navigating this fast-changing environment requires agility and fresh thinking. As we reinvent how we work,
+          live and play, EY is helping clients embrace industry disruption as an opportunity.
+        </p>
+      </nexus-modal-body>
+      <nexus-modal-footer>
+        <button (click)="modal2 = false" class="nexus-btn-primary">Confirm</button>
+        <button (click)="modal2 = false" class="nexus-btn">Cancel</button>
+      </nexus-modal-footer>
+    </nexus-modal>
+  </div>
+</div>
+<br />

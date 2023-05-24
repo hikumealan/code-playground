@@ -1,0 +1,18 @@
+{
+  "baseUrl": "",
+	"homePageHero": "playbook-hero.png",
+	"client": "EY",
+  "name": "Nexus",
+  "individualComponentPages": true,
+  "data": [
+    "/target/www/playbook/reports/component-accessibility.json",
+    "/target/www/playbook/assets/scssVariableDocs.json"
+  ],
+  "plugins": {
+    "html" : {
+      "input": "playbook/stencil/examples/",
+      "template": "playbook/stencil/index.html",
+      "dest": "packages/nexus/src/temp/"
+    }
+  }
+}

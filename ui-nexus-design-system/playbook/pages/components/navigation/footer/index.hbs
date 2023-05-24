@@ -1,0 +1,51 @@
+
+{{#template 'component'}}
+
+  {{#pageTitle}}Footer{{/pageTitle}}
+
+  <div class="playbook-component-tabs-container">
+    <input id="tab-1" type="radio" name="tabs" checked="checked"/>
+    <input id="tab-2" type="radio" name="tabs"/>
+    <input id="tab-3" type="radio" name="tabs"/>
+    <div class="tabs">
+      <label for="tab-1">HTML</label>
+      <label for="tab-2">Angular</label>
+      <label for="tab-3">React</label>
+    </div>
+    <div class="content">
+      <div class="tab">
+        {{ section 'components/navigation/footer/footer.stencil.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/navigation/footer/footer.angular.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/navigation/footer/footer.react.hbs' }}
+      </div>
+    </div>
+  </div>
+
+  <h2>Css helpers</h2>
+
+  {{#table styles="table-component" headings="Class, Description"}}
+
+      {{#tableRow}}
+          {{#tableCell styles='monospace-emphasis'}}.nexus-footer-fixed{{/tableCell}}
+          {{#tableCell styles='monospace'}}Makes the footer fixed to the bottom by adding, position: fixed; Note: User need to specify a margin bottom to the body inorder to account for the height of the footer.{{/tableCell}}
+      {{/tableRow}}
+
+      {{#tableRow}}
+          {{#tableCell styles='monospace-emphasis'}}.nexus-footer-sticky{{/tableCell}}
+          {{#tableCell styles='monospace'}}Makes the footer sticky to the bottom by adding, position: sticky;{{/tableCell}}
+      {{/tableRow}}
+
+  {{/table}}
+
+  <h2>Properties</h2>
+
+  <section class="playbook-component-properties">
+    {{{ md 'packages/nexus/src/components/nexus-footer/readme.md'}}}
+  </section>
+
+{{/template}}
+

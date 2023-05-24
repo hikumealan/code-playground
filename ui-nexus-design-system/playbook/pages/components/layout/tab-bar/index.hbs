@@ -1,0 +1,29 @@
+
+{{#template 'component'}}
+
+  {{#pageTitle}}Tab Bar{{/pageTitle}}
+
+  <div class="playbook-component-tabs-container">
+    <input id="tab-1" type="radio" name="tabs" checked="checked"/>
+    <input id="tab-2" type="radio" name="tabs"/>
+    <input id="tab-3" type="radio" name="tabs"/>
+    <div class="tabs">
+      <label for="tab-1">HTML</label>
+      <label for="tab-2">Angular</label>
+      <label for="tab-3">React</label>
+    </div>
+    <div class="content">
+      <div class="tab">
+        {{ section 'components/layout/tab-bar/tab-bar.stencil.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/layout/tab-bar/tab-bar.angular.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/layout/tab-bar/tab-bar.react.hbs' }}
+      </div>
+    </div>
+  </div>
+
+{{/template}}
+

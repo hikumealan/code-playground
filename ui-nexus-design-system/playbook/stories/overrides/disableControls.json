@@ -1,0 +1,14 @@
+{
+    "badge": ["overlap"],
+    "loader": ["fullscreen"],
+    "icon": ["alt", "content", "sizeLock", "type"],
+    "avatar": ["description"],
+    "checkbox": ["value"],
+    "file-upload": ["accept", "value"],
+    "input": ["autocomplete", "max", "min", "readonly", "required", "value"],
+    "radio": ["value", "required"],
+    "select": ["type", "delimiter", "value"],
+    "slider": ["value"],
+    "textarea": ["required", "value"],
+    "toggle": ["value"]
+}

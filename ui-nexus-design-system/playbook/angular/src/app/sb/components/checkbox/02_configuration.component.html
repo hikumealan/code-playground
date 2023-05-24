@@ -1,0 +1,26 @@
+<p class="nexus-h5">{{ text }}</p>
+
+<nexus-checkbox data-testid="Check" ngDefaultControl [formControl]="checkedValue" class="nexus-rhythm-2">{{
+  check
+}}</nexus-checkbox>
+<nexus-checkbox
+  data-testid="Indeterminate"
+  ngDefaultControl
+  [formControl]="indeterminateValue"
+  class="nexus-rhythm-2"
+  >{{ indeterminate }}</nexus-checkbox
+>
+<nexus-checkbox data-testid="Disabled" ngDefaultControl [formControl]="disabledValue" class="nexus-rhythm-2">{{
+  disabled
+}}</nexus-checkbox>
+
+<p class="nexus-h5">{{ exampleTitle }}</p>
+
+<nexus-checkbox
+  id="example"
+  [checked]="checkedValue.value"
+  [indeterminate]="indeterminateValue.value"
+  [disabled]="disabledValue.value"
+>
+  {{ example }}
+</nexus-checkbox>

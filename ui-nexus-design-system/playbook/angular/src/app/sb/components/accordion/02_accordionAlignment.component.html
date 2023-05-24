@@ -1,0 +1,40 @@
+<div>
+    <div data-testid="acc-align-start">
+        <nexus-accordion [open]="open" (toggleEvent)="open = !open" size="md">
+            <nexus-accordion-trigger>
+                <h1 class="nexus-body">Start aligned Accordion</h1>
+            </nexus-accordion-trigger>
+            <nexus-accordion-content>
+                Start property modifies the css style, aligning the header title to the left side.
+            </nexus-accordion-content>
+        </nexus-accordion>
+    </div>
+</div>
+<br />
+
+<div>
+    <div data-testid="acc-align-center">
+        <nexus-accordion [open]="openExample2" (toggleEvent)="openExample2 = !openExample2" size="md">
+            <nexus-accordion-trigger align="center">
+                <h1 class="nexus-body">Center aligned Accordion</h1>
+            </nexus-accordion-trigger>
+            <nexus-accordion-content>
+                Center property modifies the css style, aligning the header title to the center.
+            </nexus-accordion-content>
+        </nexus-accordion>
+    </div>
+</div>
+<br />
+
+<div>
+    <div data-testid="acc-align-end">
+        <nexus-accordion [open]="openExample3" (toggleEvent)="openExample3 = !openExample3" size="md">
+            <nexus-accordion-trigger align="end">
+                <h1 class="nexus-body">End aligned Accordion</h1>
+            </nexus-accordion-trigger>
+            <nexus-accordion-content>
+                End property modifies the css style, aligning the header title to the right side.
+            </nexus-accordion-content>
+        </nexus-accordion>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<nexus-tab-bar>
+    <span>
+        <button (click)="ChangeActive(i)" [ngClass]="option.isActive == true ? 'nexus-link nexus-active' : 'nexus-link'"
+            *ngFor="let option of tabOption; let i = index"><a>{{ option.title }}</a></button>
+    </span>
+</nexus-tab-bar>
+
+<div style="margin: 20px" *ngFor="let option of tabOption">
+    <div *ngIf="option.isActive" [innerHTML]="option.value"></div>
+</div>

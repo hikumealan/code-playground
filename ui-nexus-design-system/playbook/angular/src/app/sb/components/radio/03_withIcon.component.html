@@ -1,0 +1,20 @@
+<nexus-card>
+    <div class="nexus-center-xs">
+        <h4 class='nexus-h4'>{{withIcon.agreement}}</h4>
+        <div [innerHTML]="withIcon.details"></div>
+        <div class="nexus-row nexus-center-xs">
+            <nexus-radio data-testid="radio-btn-opt1" name="withIcon">
+                <nexus-icon src="./assets/icons/action/ic_done_24px.svg" size="md"
+                    style="position:relative; bottom:5px; color:#44AB46">
+                </nexus-icon>
+                <span style="position:relative; bottom:11px; font-size:16px">{{withIcon.accept}}</span>
+            </nexus-radio>
+            <nexus-radio data-testid="radio-btn-opt1" name="withIcon">
+                <nexus-icon src="./assets/icons/content/ic_clear_24px.svg" size="md"
+                    style="position:relative; bottom:5px; color: #DA3510">
+                </nexus-icon>
+                <span style="position:relative; bottom:11px; font-size:16px">{{withIcon.reject}}</span>
+            </nexus-radio>
+        </div>
+    </div>
+</nexus-card>

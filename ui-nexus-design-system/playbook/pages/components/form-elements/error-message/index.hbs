@@ -1,0 +1,30 @@
+{{#template 'component'}}
+
+{{#pageTitle}}Error Message{{/pageTitle}}
+
+<p>Element for showing an error message. Typically used when a form element is invalid. It's presence can also controls
+  the styling of other children in a Form Field.</p>
+
+<div class="playbook-component-tabs-container">
+  <input id="tab-1" type="radio" name="tabs" checked="checked" />
+  <input id="tab-2" type="radio" name="tabs" />
+  <input id="tab-3" type="radio" name="tabs" />
+  <div class="tabs">
+    <label for="tab-1">HTML</label>
+    <label for="tab-2">Angular</label>
+    <label for="tab-3">React</label>
+  </div>
+  <div class="content">
+    <div class="tab">
+      {{ section 'components/form-elements/error-message/error-message.stencil.hbs' }}
+    </div>
+    <div class="tab">
+      {{ section 'components/form-elements/error-message/error-message.angular.hbs' }}
+    </div>
+    <div class="tab">
+      {{ section 'components/form-elements/error-message/error-message.react.hbs' }}
+    </div>
+  </div>
+</div>
+
+{{/template}}

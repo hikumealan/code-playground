@@ -1,0 +1,51 @@
+<nexus-accordion [open]="open" (toggleEvent)="open = !open" [size]="size" [align]="align">
+  <nexus-accordion-trigger [align]="align">
+    <h1 class="nexus-body">{{ withFileUpload.name }}</h1>
+  </nexus-accordion-trigger>
+  <nexus-accordion-content>
+    <form (submit)="handleSubmit($event)">
+      <nexus-form-field>
+        <nexus-file-upload
+          [accept]="accept"
+          [attrId]="attrId"
+          [disabled]="disabled"
+          [multiple]="multiple"
+          [required]="required"
+          (change)="handleChange($event)"
+        >
+          <div [innerHTML]="withFileUpload.content"></div>
+        </nexus-file-upload>
+      </nexus-form-field>
+
+      <nexus-chip-group class="nexus-rhythm-4" *ngIf="queue.length">
+        <nexus-chip
+          *ngFor="let item of queue; trackBy: item?.name"
+          removable
+          success="{{ item.uploaded || false }}"
+          (click)="removeFile(item)"
+        >
+          {{ item.name }}
+        </nexus-chip>
+      </nexus-chip-group>
+
+      <nexus-chip-group class="nexus-rhythm-4" *ngIf="uploaded.length">
+        <nexus-chip
+          *ngFor="let item of uploaded; trackBy: item?.name"
+          removable
+          success="{{ item.uploaded || false }}"
+          (click)="removeUploadedFile(item)"
+        >
+          {{ item.name }}
+        </nexus-chip>
+      </nexus-chip-group>
+      <button type="submit" class="nexus-btn-primary">{{ withFileUpload.upload }}</button>
+      <nexus-tooltip [placement]="placement">
+        <nexus-tooltip-trigger>
+          <nexus-icon [src]="DefaultToolTip.helpIconSrc"></nexus-icon>
+          <span class="nexus-visually-hidden">{{ DefaultToolTip.tooltipTrigger }}</span>
+        </nexus-tooltip-trigger>
+        <nexus-tooltip-content>{{ DefaultToolTip.tooltipContent }}</nexus-tooltip-content>
+      </nexus-tooltip>
+    </form>
+  </nexus-accordion-content>
+</nexus-accordion>

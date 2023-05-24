@@ -1,0 +1,43 @@
+<section id='modal-with-term-of-use-example'>
+    <div class="nexus-center-xs nexus-pt-6">
+        <button id='accept-terms-of-use' class="nexus-btn nexus-btn-primary nexus-btn-large">Show Modal</button>
+    </div>
+    <nexus-modal id='terms-of-use-modal' fullscreen='false' show='false' size='md'>
+        <nexus-modal-header>
+            Nexus Design System - Term of use
+            <nexus-modal-header-subtitle>End user - Term of Us</nexus-modal-header-subtitle>
+        </nexus-modal-header>
+        <nexus-modal-body>
+            <h4 class='nexus-h4'>Agreement to Terms of Use</h4>
+            <p>These Terms and Conditions of Use (the "Terms of Use") apply to the Nexus web site located at
+                www.Nexus.com,
+                and all associated sites linked to www.Nexus.com by Nexus, its subsidiaries and affiliates, including
+                Nexus
+                sites around the world (collectively, the "Site"). The Site is the property of Nexus Inc. ("Nexus") and
+                its licensors.
+                <strong>BY USING THE SITE, YOU AGREE TO THESE TERMS OF USE; IF YOU DO NOT AGREE, DO NOT USE THE
+                    SITE.</strong>
+            </p>
+
+            <p>Nexus reserves the right, at its sole discretion, to change, modify, add or remove portions of these
+                Terms of Use,
+                at any time. It is your responsibility to check these Terms of Use periodically for changes. Your
+                continued use of
+                the Site following the posting of changes will mean that you accept and agree to the changes. As long as
+                you comply
+                with these Terms of Use, Nexus grants you a personal, non-exclusive, non-transferable, limited privilege
+                to enter
+                and use the Site.</p>
+
+            <nexus-checkbox id='accept-terms-and-conditions'>I Agree</nexus-checkbox>
+        </nexus-modal-body>
+        <nexus-modal-footer>
+            <button id='confirm-terms-f-use-modal' class='nexus-btn nexus-btn-primary'>Confirm</button>
+            <button id='cancel-terms-f-use-modal' class='nexus-btn'>Cancel</button>
+        </nexus-modal-footer>
+    </nexus-modal>
+
+    <div class="nexus-center-xs nexus-mt-4" id='terms-of-use-status'>
+        <nexus-notification variant='error'>Not accepted terms and conditions.</nexus-notification>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+{{#template 'component'}}
+
+{{#pageTitle}}Textarea{{/pageTitle}}
+
+<p>A `<textarea>` allow users to enter text into a UI. They typically appear in forms and dialogs.</p>
+
+<p>The `nexus-textarea` component is a wrapper for a native `textarea` html element.</p>
+
+<p>In order to use the `nexus-textarea` we first start with a `nexus-form-field`. This is the wrapper component for all text area elements.</p>
+
+<p>Inside the `nexus-form-field` we can then add the `nexus-label` component and the `nexus-textarea` components to complete our setup.</p>
+
+<div class="playbook-component-tabs-container">
+  <input id="tab-1" type="radio" name="tabs" checked="checked" />
+  <input id="tab-2" type="radio" name="tabs" />
+  <input id="tab-3" type="radio" name="tabs" />
+  <div class="tabs">
+    <label for="tab-1">HTML</label>
+    <label for="tab-2">Angular</label>
+    <label for="tab-3">React</label>
+  </div>
+  <div class="content">
+    <div class="tab">
+      {{ section 'components/form-elements/textarea/textarea.stencil.hbs' }}
+    </div>
+    <div class="tab">
+      {{ section 'components/form-elements/textarea/textarea.angular.hbs' }}
+    </div>
+    <div class="tab">
+      {{ section 'components/form-elements/textarea/textarea.react.hbs' }}
+    </div>
+  </div>
+</div>
+
+<h2>Properties</h2>
+
+<section class="playbook-component-properties">
+  {{{ md 'packages/nexus/src/components/nexus-textarea/readme.md'}}}
+</section>
+
+{{/template}}

@@ -1,0 +1,28 @@
+parameters:
+  - name: ProjectName
+    type: string
+    default: ''
+
+steps:
+  - bash: |
+      BRANCHNAME=$(echo ${BUILD_SOURCEBRANCH} | sed 's/refs\/heads\///g')
+      set -e
+      echo "Checking Sonar QG result for ${PROJECT_NAME} on branch ${BRANCHNAME} "
+      if [[ $BUILD_REASON ==  "PullRequest" ]]
+      then
+        echo "Triggered by PR"
+        PRstatus=$(curl -s -u $(SonarToken):   "https://sonarqube.ey.com/api/project_pull_requests/list?project=${PROJECT_NAME}" | jq -rc --arg pr $SYSTEM_PULLREQUEST_PULLREQUESTNUMBER '.pullRequests[] | select(.key == $pr) | .status.qualityGateStatus' )
+        PRAD=$(curl -s -u $(SonarToken):   "https://sonarqube.ey.com/api/project_pull_requests/list?project=${PROJECT_NAME}" | jq -rc --arg pr $SYSTEM_PULLREQUEST_PULLREQUESTNUMBER '.pullRequests[] | select(.key==$pr) | .analysisDate')
+        echo "Quality gate last run - $PRAD"
+        result=$PRstatus
+      else
+        echo "Triggered by CI/Manual"
+        SonarStatus=$(curl -s -u $(SonarToken):  "https://sonarqube.ey.com/api/qualitygates/project_status?projectKey=${PROJECT_NAME}&branch=${BRANCHNAME}" )
+        result=$(echo $SonarStatus | jq -rc '.projectStatus.status')
+      fi
+      [[ x$result == x"OK" ]] || ( echo "Quality gate failed" && exit 1 )
+      echo "Quality Gate Passed"
+    env:
+      PROJECT_NAME: ${{parameters.ProjectName}}
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+    displayName: 'Break Build on SonarScan failure'

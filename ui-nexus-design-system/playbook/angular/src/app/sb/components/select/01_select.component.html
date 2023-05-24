@@ -1,0 +1,10 @@
+<nexus-form-field>
+    <nexus-label>Select an option Native</nexus-label>
+    <nexus-select data-testid="select" ngDefaultControl [formControl]="reactiveValue" [value]="reactiveValue.value"
+        [delimiter]="delimiter" [disabled]="disabled" [multiple]="multiple" [required]="required" [type]="type" [placeholder]="placeholder">
+        <option disabled selected value>Please Select</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+    </nexus-select>
+</nexus-form-field>

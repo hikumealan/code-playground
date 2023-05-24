@@ -1,0 +1,10 @@
+
+    <nexus-form-field>
+        <nexus-label>Select an option Custom</nexus-label>
+        <nexus-select type="custom" value="{{ singleSelectValue }}" (triggerSelection)="handleSingleSelectData($event)"
+            (closeEvent)="handleCloseEvent($event)">
+            <nexus-option *ngFor="let element of selectOptions" value="{{ element.value }}"
+                selected="{{ element.isSelected }}" [disabled]="element.disabled">{{ element.value }}
+            </nexus-option>
+        </nexus-select>
+    </nexus-form-field>

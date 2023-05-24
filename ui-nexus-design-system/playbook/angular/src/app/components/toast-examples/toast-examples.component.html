@@ -1,0 +1,19 @@
+<p class="nexus-h5">Dynamic Toast</p>
+
+<button data-testid="btn-trigger-toast" class="nexus-btn-primary nexus-btn-large nexus-rhythm-4" (click)="show = true">Trigger toast</button>
+<nexus-toast data-testid="btn-trigger-toast-info" *ngIf="show" closeable="true" (closeEvent)="show = false">Information message.</nexus-toast>
+
+
+<div class="nexus-rhythm-2">
+    <nexus-toast data-testid="disappear-toast" class="nexus-rhythm-2" variant="custom" icon-src="./assets/icons/action/ic_3d_rotation_24px.svg"
+        auto-close=5000>Test
+        This message will disappear in 5 sec.</nexus-toast>
+</div>
+
+<div class="nexus-rhythm-2">
+    <nexus-toast data-testid="float-bottom-toast" class="nexus-rhythm-2" variant="info" position="bottom">Float at the bottom of the page.</nexus-toast>
+</div>
+
+<div class="nexus-rhythm-2">
+    <nexus-toast data-testid="float-top-toast" class="nexus-rhythm-2" variant="info" position="top">Float at the top of the page.</nexus-toast>
+</div>

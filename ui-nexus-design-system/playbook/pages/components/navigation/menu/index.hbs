@@ -1,0 +1,35 @@
+
+{{#template 'component'}}
+
+  {{#pageTitle}}Menu{{/pageTitle}}
+
+  <div class="playbook-component-tabs-container">
+    <input id="tab-1" type="radio" name="tabs" checked="checked"/>
+    <input id="tab-2" type="radio" name="tabs"/>
+    <input id="tab-3" type="radio" name="tabs"/>
+    <div class="tabs">
+      <label for="tab-1">HTML</label>
+      <label for="tab-2">Angular</label>
+      <label for="tab-3">React</label>
+    </div>
+    <div class="content">
+      <div class="tab">
+        {{ section 'components/navigation/menu/menu.stencil.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/navigation/menu/menu.angular.hbs' }}
+      </div>
+      <div class="tab">
+        {{ section 'components/navigation/menu/menu.react.hbs' }}
+      </div>
+    </div>
+  </div>
+
+  <h2>Properties</h2>
+
+  <section class="playbook-component-properties">
+    {{{ md 'packages/nexus/src/components/nexus-menu/readme.md'}}}
+  </section>
+
+{{/template}}
+

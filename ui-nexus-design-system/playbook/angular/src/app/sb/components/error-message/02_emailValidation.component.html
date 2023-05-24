@@ -1,0 +1,21 @@
+<div>
+  <nexus-form-field [formGroup]="userData">
+    <p class="nexus-h6">{{ title }}</p>
+
+    <div>
+      <nexus-input type="email" formControlName="primaryEmail" [placeholder]="[placeholder]"></nexus-input>
+
+      <div *ngIf="(primEmail.invalid && primEmail.touched) || primEmail.dirty">
+        <nexus-error-message *ngIf="primEmail.errors?.required">
+          <nexus-chip error>{{ requiredText }}</nexus-chip></nexus-error-message
+        >
+        <nexus-error-message *ngIf="primEmail.errors?.pattern" class="nexus-primary-text">
+          <nexus-chip error>{{ validText }}</nexus-chip>
+        </nexus-error-message>
+        <p *ngIf="primEmail.valid">
+          <nexus-chip success>{{ successText }}</nexus-chip>
+        </p>
+      </div>
+    </div>
+  </nexus-form-field>
+</div>

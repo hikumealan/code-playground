@@ -1,0 +1,13 @@
+<form id="frmUploadImage">
+  <nexus-form-field id="uploadImageFormField">
+    <nexus-file-upload id="fileupldIdImage" multiple=false disabled=false required=false >
+      <p><p>Drop image file with <code>png</code> format here or click to upload</p></p>
+    </nexus-file-upload>
+  </nexus-form-field>
+  <div class="nexus-rhythm-4">
+    <section id="queue"></section>
+    <section id="uploaded"></section>
+  </div>
+  <button type="submit" class="nexus-btn-primary">Upload</button>
+  <nexus-toast show="false" variant="error" position="bottom" auto-close="5000"></nexus-toast>
+</form>

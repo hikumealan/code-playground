@@ -1,0 +1,373 @@
+{{#template 'component'}}
+
+  {{#pageTitle}}CSS Helpers{{/pageTitle}}
+
+  The Nexus helper classes provide control over layout, spacing and visibility.
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/nexus.css">
+
+  <style>
+    p {
+      font-size: 16px;
+    }
+
+    .playbook-layout-component .playbook-main pre {
+      font-size: 12px;
+    }
+  </style>
+
+  <h2>Layout</h2>
+
+  {{#table styles="table-component" headings="Class, Description"}}
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-container{{/tableCell}}
+      {{#tableCell styles='monospace'}}Wrapper for containing layouts. Sets default padding and max-width.{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-theme-dark{{/tableCell}}
+      {{#tableCell styles='monospace'}}Applies a dark background with light text and components.{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-visually-hidden{{/tableCell}}
+      {{#tableCell styles='monospace'}}Hides content from the screen but leaves at available for screen readers.{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-hidden{{/tableCell}}
+      {{#tableCell styles='monospace'}}Hides content by setting display: none;{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-hidden-`<BREAKPOINT_NAME>`{{/tableCell}}
+      {{#tableCell styles='monospace'}}Hides content based on the Breakpoint's min-width to max-width range by setting display: none;{{/tableCell}}
+    {{/tableRow}}
+
+  {{/table}}
+
+
+    <h2>Spacing</h2>
+
+  {{#table styles="table-component" headings="Value, Measurement"}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}1{{/tableCell}}
+      {{#tableCell styles='monospace'}}8px{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}2{{/tableCell}}
+      {{#tableCell styles='monospace'}}16px{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}3{{/tableCell}}
+      {{#tableCell styles='monospace'}}24px{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}4{{/tableCell}}
+      {{#tableCell styles='monospace'}}32px{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}5{{/tableCell}}
+      {{#tableCell styles='monospace'}}64px{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}6{{/tableCell}}
+      {{#tableCell styles='monospace'}}80px{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}7{{/tableCell}}
+      {{#tableCell styles='monospace'}}104px{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}8{{/tableCell}}
+      {{#tableCell styles='monospace'}}120px{{/tableCell}}
+    {{/tableRow}}
+
+  {{/table}}
+
+    <h3>Padding and Margin</h3>
+
+  {{#table styles="table-component" headings="Class, Description"}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-p{t|r|b|l|x|y}-`<INCREMENT>`{{/tableCell}}
+      {{#tableCell}}Controls the padding space for a component. INCREMENT values are 1 - 8 and for values check spacing measurement table.<br>
+        `empty - top right bottom left`<br>
+        `x - left and right`<br>
+        `y - top and bottom`<br>
+        <br>
+        `t - top`<br>
+        `r - right`<br>
+        `b - bottom`<br>
+        `l - left`<br>
+      {{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-m{t|r|b|l|x|y}-`<INCREMENT>`{{/tableCell}}
+      {{#tableCell}}Controls the margin space for a component. INCREMENT values are 1 - 8 and for values check spacing measurement table.<br>
+        `empty - top right bottom left`<br>
+        `x - left and right`<br>
+        `y - top and bottom`<br>
+        <br>
+        `t - top`<br>
+        `r - right`<br>
+        `b - bottom`<br>
+        `l - left`<br>
+      {{/tableCell}}
+    {{/tableRow}}
+
+  {{/table}}
+
+    <h3>Rhythm and Padding</h3>
+
+  {{#table styles="table-component" headings="Class, Description"}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-rhythm-`<INCREMENT>`{{/tableCell}}
+      {{#tableCell styles='monospace'}}Controls the vertical space under a component. `INCREMENT` values are `1` - `20` and go in increments of 8px. {{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-rhythm-top-`<INCREMENT>`{{/tableCell}}
+      {{#tableCell styles='monospace'}}Controls the top space under a component. `INCREMENT` values are `1` - `20` and go in increments of 8px. {{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-rhythm-bottom-`<INCREMENT>`{{/tableCell}}
+      {{#tableCell styles='monospace'}}Controls the bottom space under a component. `INCREMENT` values are `1` - `20` and go in increments of 8px. {{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-padding-`<INCREMENT>`{{/tableCell}}
+      {{#tableCell styles='monospace'}}Controls the horizontal padding space for a component. `INCREMENT` values are `1` - `20` and go in increments of 8px. {{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-padding-left-`<INCREMENT>`{{/tableCell}}
+      {{#tableCell styles='monospace'}}Controls the padding left space for a component. `INCREMENT` values are `1` - `20` and go in increments of 8px. {{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-padding-right-`<INCREMENT>`{{/tableCell}}
+      {{#tableCell styles='monospace'}}Controls the padding right space for a component. `INCREMENT` values are `1` - `20` and go in increments of 8px. {{/tableCell}}
+    {{/tableRow}}
+
+  {{/table}}
+
+    <h2>Flex</h2>
+
+    NOTE: Avoid using these flex utility classes, if possible, because most of this functionality is already provided by the <a href="/resources/grid.html">Nexus Grid</a>
+
+  {{#table styles="table-component" headings="Class, Description"}}
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex{{/tableCell}}
+      {{#tableCell styles='monospace'}}Positions items horizontally in the same direction `flex-direction: row;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-reverse{{/tableCell}}
+      {{#tableCell styles='monospace'}}Positions items horizontally in the opposite direction `flex-direction: row-reverse;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-col{{/tableCell}}
+      {{#tableCell styles='monospace'}}Positions items vertically in the same direction  `flex-direction: column;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-col-reverse{{/tableCell}}
+      {{#tableCell styles='monospace'}}Positions items vertically in the opposite direction `flex-direction: column-reverse;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-1{{/tableCell}}
+      {{#tableCell styles='monospace'}}Allows an item to grow and shrink as needed, ignoring its initial size `flex: 1 1 0;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-auto{{/tableCell}}
+      {{#tableCell styles='monospace'}}Allows an item to grow and shrink, taking into account its initial size `flex: 1 1 auto;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-initial{{/tableCell}}
+      {{#tableCell styles='monospace'}}Allows an item to shrink but not grow, taking into account its initial size `flex: 0 1 auto;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-none{{/tableCell}}
+      {{#tableCell styles='monospace'}}Prevents an item from growing or shrinking `flex: none;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-grow{{/tableCell}}
+      {{#tableCell styles='monospace'}}Allows an item to grow to fill any available space `flex-grow: 1;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-grow-0{{/tableCell}}
+      {{#tableCell styles='monospace'}}Prevents an item from growing `flex-grow: 0;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-shrink{{/tableCell}}
+      {{#tableCell styles='monospace'}}Allows an item to shrink if needed `flex-shrink: 1;`{{/tableCell}}
+    {{/tableRow}}
+
+    {{#tableRow}}
+      {{#tableCell styles='monospace-emphasis'}}.nexus-flex-shrink-0{{/tableCell}}
+      {{#tableCell styles='monospace'}}Prevents an item from shrinking `flex-shrink: 0;`{{/tableCell}}
+    {{/tableRow}}
+
+  {{/table}}
+
+    <h2>Usage</h2>
+
+    <h3>Flex Direction</h3>
+
+    <h4>Row</h4>
+    <p>Use `nexus-flex-row` to position flex items horizontally in the same direction as text:</p>
+    <div class="playbook-flex nexus-flex-row">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+
+ {{{ md 'playbook/pages/resources/markdown/style0.md'}}}
+    <br>
+
+    <h4>Row Reversed</h4>
+    <p>Use `nexus-flex-row-reverse` to position flex items horizontally in the opposite direction:</p>
+    <div class="playbook-flex nexus-flex-row-reverse">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+
+ {{{ md 'playbook/pages/resources/markdown/style1.md'}}}
+    <br>
+
+    <h4>Column</h4>
+    <p>Use `nexus-flex-col` to position flex items vertically:</p>
+    <div class="playbook-flex nexus-flex-col">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style2.md'}}}
+    <br>
+
+    <h4>Column Reversed</h4>
+    <p>Use `nexus-flex-col-reverse` to position flex items vertically in the opposite direction:</p>
+    <div class="playbook-flex nexus-flex-col-reverse">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style3.md'}}}
+    <br>
+    <br>
+    <br>
+
+    <h3>Flex Grow and Shrink</h3>
+
+    <h4>Initial</h4>
+    <p>Use `nexus-flex-initial` to allow a flex item to shrink but not grow, taking into account its initial size:</p>
+    <div class="playbook-flex nexus-flex-row">
+      <div class="nexus-flex-initial">Short</div>
+      <div class="nexus-flex-initial">Medium length content</div>
+      <div class="nexus-flex-initial">Large amount of text (Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad labore ipsam, aut rem quo repellat esse tempore id, quidem)</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style4.md'}}}
+    <br>
+
+    <h4>Flex 1</h4>
+    <p>Use `nexus-flex-1` to allow a flex item to grow and shrink as needed, ignoring the initial size:</p>
+    <div class="playbook-flex nexus-flex-row">
+      <div class="nexus-flex-1">Short</div>
+      <div class="nexus-flex-1">Medium length content</div>
+      <div class="nexus-flex-1">Large amount of text (Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad labore ipsam, aut rem quo repellat esse tempore id, quidem)</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style5.md'}}}
+    <br>
+
+    <h4>Auto</h4>
+    <p>Use `nexus-flex-auto` to allow a flex item to grow and shrink, taking into account the initial size:</p>
+    <div class="playbook-flex nexus-flex-row">
+      <div class="nexus-flex-auto">Short</div>
+      <div class="nexus-flex-auto">Medium length content</div>
+      <div class="nexus-flex-auto">Large amount of text (Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad labore ipsam, aut rem quo repellat esse tempore id, quidem)</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style6.md'}}}
+     <br>
+
+    <h4>None</h4>
+    <p>Use `nexus-flex-none` to prevent a flex item from growing or shrinking:</p>
+    <div class="playbook-flex nexus-flex-row">
+      <div class="nexus-flex-1">Item that can grow or shrink as needed</div>
+      <div class="nexus-flex-none">Item that cannot grow or shrink</div>
+      <div class="nexus-flex-1">Item that can grow or shrink as needed</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style7.md'}}}
+    <br>
+    <br>
+    <br>
+
+    <h3>Flex Grow</h3>
+
+    <h4>Grow</h4>
+    <p>Use `nexus-flex-grow` to allow a flex item to grow to fill any available space:</p>
+    <div class="playbook-flex nexus-flex-row">
+      <div class="nexus-flex-none">Short</div>
+      <div class="nexus-flex-grow">Medium length content</div>
+      <div class="nexus-flex-none">Short</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style8.md'}}}
+    <br>
+
+    <h4>Don't Grow</h4>
+    <p>Use `nexus-flex-grow-0` to prevent a flex item from growing:</p>
+    <div class="playbook-flex nexus-flex-row">
+      <div class="nexus-flex-grow">Short</div>
+      <div class="nexus-flex-grow-0">Medium length content</div>
+      <div class="nexus-flex-grow">Short</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style9.md'}}}
+    <br>
+    <br>
+    <br>
+
+    <h3>Flex Shrink</h3>
+
+    <h4>Shrink</h4>
+    <p>Use `nexus-flex-shrink` to allow a flex item to shrink if needed:</p>
+    <div class="playbook-flex nexus-flex-row">
+      <div class="nexus-flex-grow">Large amount of text (Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad labore ipsam, aut rem quo repellat esse tempore id, quidem)</div>
+      <div class="nexus-flex-shrink">Medium length content</div>
+      <div class="nexus-flex-grow">Large amount of text (Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad labore ipsam, aut rem quo repellat esse tempore id, quidem)</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style10.md'}}}
+    <br>
+
+    <h4>Don't Shrink</h4>
+    <p>Use `nexus-flex-shrink-0` to prevent a flex item from shrinking:</p>
+    <div class="playbook-flex nexus-flex-row">
+      <div class="nexus-flex-1">Large amount of text (Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad labore ipsam, aut rem quo repellat esse tempore id, quidem)</div>
+      <div class="nexus-flex-shrink-0">Medium length content</div>
+      <div class="nexus-flex-1">Large amount of text (Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui ad labore ipsam, aut rem quo repellat esse tempore id, quidem)</div>
+    </div>
+ {{{ md 'playbook/pages/resources/markdown/style11.md'}}}
+    <br>
+    <br>
+    <br>
+
+{{/template}}

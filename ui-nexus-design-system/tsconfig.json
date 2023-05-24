@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "es2017",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "types": [
+      "jest"
+    ]
+  },
+  "include": [
+    "playbook/stencil/stories",
+    "packages/nexus/src",
+    "playbook/angular/src",
+    "types/jsx.d.ts"
+  ],
+  "exclude": [
+    "packages/nexus/dist",
+    "node_modules",
+    "**coverage**",
+    "**/specs/**"
+  ]
+}

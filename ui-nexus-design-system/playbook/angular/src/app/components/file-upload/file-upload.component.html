@@ -1,0 +1,38 @@
+<form (submit)="handleSubmit($event)">
+  <nexus-form-field>
+    <nexus-file-upload
+      [attrId]="attrId"
+      [disabled]="disabled"
+      [multiple]="multiple"
+      [required]="required"
+      (change)="handleChange($event)"
+    >
+      <p>Drop File here or click to upload</p>
+      <p>Max file size is 25MB</p>
+    </nexus-file-upload>
+  </nexus-form-field>
+
+  <nexus-chip-group class="nexus-rhythm-4" *ngIf="queue.length">
+    <nexus-chip
+      *ngFor="let item of queue; trackBy: item?.name"
+      removable
+      success="{{ item.uploaded || false }}"
+      (click)="removeFile(item)"
+    >
+      {{ item.name }}
+    </nexus-chip>
+  </nexus-chip-group>
+
+  <nexus-chip-group class="nexus-rhythm-4" *ngIf="uploaded.length">
+    <nexus-chip
+      *ngFor="let item of uploaded; trackBy: item?.name"
+      removable
+      success="{{ item.uploaded || false }}"
+      (click)="removeUploadedFile(item)"
+    >
+      {{ item.name }}
+    </nexus-chip>
+  </nexus-chip-group>
+
+  <button type="submit" class="nexus-btn-primary">Upload</button>
+</form>

@@ -1,0 +1,357 @@
+// stylelint-disable selector-no-qualifying-type
+// stylelint-disable no-duplicate-selectors
+
+@import '~@nexus/core/dist/styles/variables';
+
+.main {
+  margin-top: 12 * $rhythm;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  position: absolute;
+  bottom: auto;
+  left: 0;
+  width: 98.5vw;
+  margin-top: auto;
+}
+
+.banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2*$rhythm;
+  color: $grey-100;
+  background-color: $grey-700;
+  width: 98.5vw;
+}
+
+@media screen and (min-width: 0) and (max-width: 1400px) {
+  .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2*$rhythm;
+    color: $grey-100;
+    background-color: $grey-700;
+    width: 98.5vw;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: auto;
+    left: 0;
+    width: 98.5vw;
+    margin-top: auto;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 900px) {
+  .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2*$rhythm;
+    color: $grey-100;
+    background-color: $grey-700;
+    width: 98vw;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: auto;
+    left: 0;
+    width: 98vw;
+    margin-top: auto;
+  }
+}
+
+
+hr.underline {
+  border: 1px solid $orange-500;
+}
+
+a.link {
+  text-decoration: none;
+  color: $orange-500;
+  height: $rhythm;
+}
+
+.icon-colors {
+  color: $orange-500;
+}
+
+.icon-card-bg {
+  border: 1px solid $grey-100;
+  background: $grey-100;
+  display: flex;
+  justify-content: center;
+  margin: $rhythm 0;
+  padding: $rhythm * 3 0;
+  cursor: pointer;
+}
+
+.icon-details {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  text-transform: capitalize;
+}
+
+.view-icon-details {
+  margin: $rhythm 0;
+
+  .framework {
+    text-transform: uppercase;
+  }
+}
+
+.highlight-grid-bg {
+  color: #FAFAFA;
+  border: 1px solid #FAFAFA;
+  text-align: center;
+  padding: $rhythm *2;
+  background-color: $orange-500;
+}
+
+.flex-examples {
+  padding: 24px;
+  background-color: $grey-100;
+
+  .nexus-flex-row div,
+  .nexus-flex-row-reverse div,
+  .nexus-flex-col div,
+  .nexus-flex-col-reverse div {
+    background-color: $orange-500;
+    padding: 24px;
+    border: 2px solid $grey-100;
+    color: $grey-100;
+  }
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  color: #C3CEE3;
+  background: #263238;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1em;
+  line-height: 1.5em;
+  tab-size: 4;
+  tab-size: 4;
+  tab-size: 4;
+  hyphens: none;
+  hyphens: none;
+  hyphens: none;
+  hyphens: none;
+}
+
+code[class*='language-']::selection,
+pre[class*='language-']::selection,
+code[class*='language-'] ::selection,
+pre[class*='language-'] ::selection {
+  background: #363636;
+}
+
+code[class*='language-']::selection,
+pre[class*='language-']::selection,
+code[class*='language-'] ::selection,
+pre[class*='language-'] ::selection {
+  background: #363636;
+}
+
+:not(pre) > code[class*='language-'] {
+  white-space: normal;
+  border-radius: 0.2em;
+  padding: 0.1em;
+}
+
+pre[class*='language-'] {
+  overflow: auto;
+  position: relative;
+  margin: 0.5em 0;
+  padding: 1.25em 1em;
+}
+
+.language-css > code,
+.language-sass > code,
+.language-scss > code {
+  color: #FD9170;
+}
+
+[class*='language-'] .namespace {
+  opacity: 0.7;
+}
+
+.token.atrule {
+  color: #C792EA;
+}
+
+.token.attr-name {
+  color: #FFCB6B;
+}
+
+.token.attr-value {
+  color: #C3E88D;
+}
+
+.token.attribute {
+  color: #C3E88D;
+}
+
+.token.boolean {
+  color: #C792EA;
+}
+
+.token.builtin {
+  color: #FFCB6B;
+}
+
+.token.cdata {
+  color: #80CBC4;
+}
+
+.token.char {
+  color: #80CBC4;
+}
+
+.token.class {
+  color: #FFCB6B;
+}
+
+.token.class-name {
+  color: #F2FF00;
+}
+
+.token.color {
+  color: #F2FF00;
+}
+
+.token.comment {
+  color: #546E7A;
+}
+
+.token.constant {
+  color: #C792EA;
+}
+
+.token.deleted {
+  color: #F07178;
+}
+
+.token.doctype {
+  color: #546E7A;
+}
+
+.token.entity {
+  color: #F07178;
+}
+
+.token.function {
+  color: #C792EA;
+}
+
+.token.hexcode {
+  color: #F2FF00;
+}
+
+.token.id {
+  color: #C792EA;
+  font-weight: bold;
+}
+
+.token.important {
+  color: #C792EA;
+  font-weight: bold;
+}
+
+.token.inserted {
+  color: #80CBC4;
+}
+
+.token.keyword {
+  color: #C792EA;
+  font-style: italic;
+}
+
+.token.number {
+  color: #FD9170;
+}
+
+.token.operator {
+  color: #89DDFF;
+}
+
+.token.prolog {
+  color: #546E7A;
+}
+
+.token.property {
+  color: #80CBC4;
+}
+
+.token.pseudo-class {
+  color: #C3E88D;
+}
+
+.token.pseudo-element {
+  color: #C3E88D;
+}
+
+.token.punctuation {
+  color: #89DDFF;
+}
+
+.token.regex {
+  color: #F2FF00;
+}
+
+.token.selector {
+  color: #F07178;
+}
+
+.token.string {
+  color: #C3E88D;
+}
+
+.token.symbol {
+  color: #C792EA;
+}
+
+.token.tag {
+  color: #F07178;
+}
+
+.token.unit {
+  color: #F07178;
+}
+
+.token.url {
+  color: #FD9170;
+}
+
+.token.variable {
+  color: #F07178;
+}
+
+.warning-icon {
+  color: #FF8733;
+  position: relative;
+  top: 6px;
+}
+
+.sketch-ul {
+  list-style-type: disc;
+}
+
+.nexus-docs-list {
+  font-weight: 400;
+}

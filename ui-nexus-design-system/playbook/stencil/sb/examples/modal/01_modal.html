@@ -1,0 +1,25 @@
+<div>
+    <div class="nexus-center-xs nexus-pt-6">
+        <button id='display-modal' class="nexus-btn nexus-btn-primary nexus-btn-large">Show Modal</button>
+    </div>
+    <nexus-modal id='modaldef' fullscreen='false' show='false' size='md'>
+        <nexus-modal-header>
+            Nexus
+            <nexus-modal-header-subtitle>Welcome to Nexus</nexus-modal-header-subtitle>
+        </nexus-modal-header>
+        <nexus-modal-body>
+            <nexus-form-field>
+                <nexus-label data-testid="label-first-name">Username</nexus-label>
+                <nexus-input data-testid="input-text-box" placeholder='John Doe' value='' />
+                <nexus-label data-testid="label-first-name">Email Address</nexus-label>
+                <nexus-input data-testid="input-text-box" placeholder='john.doe@email.com' value='' />
+                <nexus-label data-testid="label-first-name">Password</nexus-label>
+                <nexus-input data-testid="input-text-box" type="password" value='' />
+            </nexus-form-field>
+        </nexus-modal-body>
+        <nexus-modal-footer>
+            <button id='confirm-modal' class='nexus-btn nexus-btn-primary'>Confirm</button>
+            <button id='cancel-modal' class='nexus-btn'>Cancel</button>
+        </nexus-modal-footer>
+    </nexus-modal>
+</div>

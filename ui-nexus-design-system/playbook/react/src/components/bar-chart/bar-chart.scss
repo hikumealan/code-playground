@@ -1,0 +1,45 @@
+div.control-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.control-container {
+  width: 25%;
+  float: left;
+  border-right: solid 1px #CCC;
+  padding: 0 20px;
+}
+
+.chart {
+  min-height: 450px;
+}
+
+.chart-inverse {
+  min-height: 450px;
+  background: #333;
+  padding-top: 5px;
+}
+
+.control-category {
+  border-bottom: solid 1px #CCC;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  padding-top: 16px;
+}
+
+page-title {
+
+  /* font-family: "Courier", serif; */
+  font-size: 18px;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #EEE;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.chart-container {
+  position: inherit;
+}

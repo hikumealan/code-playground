@@ -1,0 +1,62 @@
+@import '../../styles/variables';
+
+.nexus-tooltip {
+  display: inline-block;
+
+  &.nexus-tooltip-clicked {
+    .nexus-tooltip-trigger .nexus-tooltip-trigger-arrow {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .nexus-tooltip-trigger .nexus-tooltip-trigger-arrow {
+    border: $rhythm * 2 solid transparent;
+  }
+}
+
+.nexus-tooltip-bottom {
+  .nexus-tooltip-trigger .nexus-tooltip-trigger-arrow {
+    top: 100%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    margin-top: -$rhythm * 2;
+    border-bottom-color: var(--tooltip-bg-color);
+  }
+}
+
+.nexus-tooltip-top {
+  .nexus-tooltip-trigger .nexus-tooltip-trigger-arrow {
+    top: auto;
+    right: auto;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: -$rhythm;
+    border-top-color: var(--tooltip-bg-color);
+    transform: translateX(-50%);
+  }
+}
+
+.nexus-tooltip-right {
+  .nexus-tooltip-trigger .nexus-tooltip-trigger-arrow {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 80%;
+    border-top-color: var(--tooltip-bg-color);
+    transform: rotate(90deg);
+  }
+}
+
+.nexus-tooltip-left {
+  .nexus-tooltip-trigger .nexus-tooltip-trigger-arrow {
+    top: auto;
+    right: 80%;
+    bottom: auto;
+    left: auto;
+    border-top-color: var(--tooltip-bg-color);
+    transform: rotate(270deg);
+  }
+}
+

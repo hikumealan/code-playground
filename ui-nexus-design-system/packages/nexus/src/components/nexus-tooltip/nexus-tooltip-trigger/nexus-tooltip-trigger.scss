@@ -1,0 +1,37 @@
+@import '../../../styles/variables';
+
+.nexus-tooltip-trigger {
+  position: relative;
+  display: flex;
+
+  .nexus-icon-button {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    color: var(--tooltip-trigger-color);
+  }
+
+  .nexus-tooltip-trigger-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: 0;
+    width: 0;
+    margin-top: -6px;
+    border: solid transparent;
+    content: '';
+    pointer-events: none;
+    border-bottom-color: var(--tooltip-trigger-border-color);
+    border-width: $rhythm * 2;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:hover {
+    .nexus-tooltip-trigger-arrow {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

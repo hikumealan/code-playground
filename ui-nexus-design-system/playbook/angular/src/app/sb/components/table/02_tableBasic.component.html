@@ -1,0 +1,12 @@
+<table class="nexus-table">
+    <thead>
+        <tr>
+            <th *ngFor="let header of tHeadSection;">{{header}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of tData">
+            <td *ngFor="let value of row">{{value}}</td>
+        </tr>
+    </tbody>
+</table>

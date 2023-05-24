@@ -1,0 +1,29 @@
+<nexus-search data-testid="search-bar" [debounceInterval]="3000">
+  <nexus-input (input)="performFilter($event)" autocomplete="off" [placeholder]="filterTableData.placeholder" >
+      <nexus-icon data-testid="search-icon" [src]="filterTableData.searchIconSrc"></nexus-icon>
+    </nexus-input>
+    <nexus-search-list>
+      <nexus-search-list-item *ngFor="let item of filteredItem" (click)="setFilteredItemOnClickHandler(item)">
+        <button>{{ item }}</button>
+      </nexus-search-list-item>
+    </nexus-search-list>
+  </nexus-search>
+
+  <table class="nexus-table">
+    <thead>
+      <tr>
+        <th *ngFor="let cols of columnDefs">{{cols.label}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tableContent of filteredRowData">
+        <td>{{tableContent.make}}</td>
+        <td>{{tableContent.model}}</td>
+        <td>{{tableContent.year}}</td>
+        <td>{{tableContent.price}}</td>
+        <td>{{tableContent.owner}}</td>
+        <td>{{tableContent.location}}</td>
+      </tr>
+    </tbody>
+  </table>
+

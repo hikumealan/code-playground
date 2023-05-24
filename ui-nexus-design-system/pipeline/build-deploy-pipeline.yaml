@@ -1,0 +1,258 @@
+trigger:
+  - master
+  - develop
+  - release/*
+
+pool:
+  vmImage: ubuntu-latest
+
+parameters:
+  - name: PushPackageManually
+    type: boolean
+    default: false
+  - name: whitesourceScan
+    type: boolean
+    default: false
+    displayName: whitesource scan
+
+variables:
+  - name: feedName
+    value: 'Nexus-dev'
+  - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+      - name: feedName
+        value: 'Nexus'
+  - name: webAppServiceName
+    value: 'apsdfsoom5wap0a'
+  - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+      - name: webAppServiceName
+        value: 'apsefsoom5wap02'
+  - name: keyvault-name
+    value: INSDFSOOM5AKV01
+  - name: secrets-keys
+    value: >
+      COMMON-CI-WS-APIKEY
+      COMMON-CI-WS-USERKEY
+      SonarToken
+
+resources:
+  pipelines:
+    - pipeline: triggerScan
+      source: triggerScan
+      trigger: true
+      branch: develop
+
+steps:
+  - template: download-secrets-AKV.yml
+    parameters:
+      keyVault: $(keyvault-name)
+      downloadSecrets: $(secrets-keys)
+
+  - ${{ if or(eq(variables['Build.Reason'],'ResourceTrigger'),eq(parameters.whitesourceScan, true))}}:
+      - bash: |
+          echo "Downloading Agent"
+          curl -LJO https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar
+          echo "Running scan"
+          java -jar wss-unified-agent.jar -c wss-unified-agent.config -apikey $apiKey -userkey $userKey
+        workingDirectory: $(Build.SourcesDirectory)
+        env:
+          apiKey: $(COMMON-CI-WS-APIKEY)
+          userKey: $(COMMON-CI-WS-USERKEY)
+        displayName: 'WhitesourceScan'
+
+  - ${{ if and(ne(variables['Build.Reason'],'ResourceTrigger'), eq(parameters.whitesourceScan,false))}}:
+      - task: NodeTool@0
+        displayName: use node 16.13.0
+        inputs:
+          versionSpec: '16.13.0'
+
+      - script: npm i -g npm@8.1.0
+        displayName: npm install 8.1.0
+        workingDirectory: $(Build.SourcesDirectory)
+
+      - script: yarn install
+        displayName: Install
+        workingDirectory: $(Build.SourcesDirectory)
+
+      - script: yarn build
+        displayName: Build
+        workingDirectory: $(Build.SourcesDirectory)
+        env:
+          HOSTNAME: $(webAppServiceName)
+
+      - script: yarn lint
+        displayName: Lint
+        workingDirectory: $(Build.SourcesDirectory)
+        env:
+          HOSTNAME: $(webAppServiceName)
+
+      - script: yarn test
+        displayName: Test
+        workingDirectory: $(Build.SourcesDirectory)
+        env:
+          HOSTNAME: $(webAppServiceName)
+
+      - script: yarn test:pa11y:ci
+        displayName: Accessibility
+        workingDirectory: $(Build.SourcesDirectory)
+        env:
+          HOSTNAME: $(webAppServiceName)
+
+      - script: yarn build:playbook
+        displayName: Build Playbook
+        workingDirectory: $(Build.SourcesDirectory)
+        env:
+          HOSTNAME: $(webAppServiceName)
+
+      - script: yarn build:sb
+        displayName: Build Storybook
+        workingDirectory: $(Build.SourcesDirectory)
+        env:
+          HOSTNAME: $(webAppServiceName)
+
+      - task: PublishTestResults@2
+        displayName: 'Publish Test Results'
+        inputs:
+          testResultsFormat: 'JUnit'
+          testResultsFiles: '**/junit.xml'
+          mergeTestResults: true
+          failTaskOnFailedTests: true
+          testRunTitle: 'Publish Test Results'
+
+      - task: PublishCodeCoverageResults@1
+        displayName: 'Publish Code Coverage'
+        inputs:
+          codeCoverageTool: Cobertura
+          summaryFileLocation: '**/cobertura-coverage.xml'
+          failIfCoverageEmpty: true
+
+      - task: SonarQubePrepare@5
+        displayName: 'Prepare analysis on SonarQube'
+        inputs:
+          SonarQube: 'SonarQube-Prod'
+          scannerMode: CLI
+          configMode: manual
+          cliProjectKey: 'ui-nexus-design-system'
+          cliProjectName: 'ui-nexus-design-system'
+          extraProperties: |
+            sonar.projectBaseDir=$(Build.SourcesDirectory)
+            sonar.exclusions=**/*.spec.ts,**/*.e2e.tsx,**/nexus-table.tsx,**/*.spec.tsx,**/*.html,packages/nexus-angular/projects/nexus-angular/src/test.ts,bin/**,playbook/react/**,playbook/angular/**,playbook/stencil/**,.storybook/**,stories/**,playbook/**/stories/**,playbook/**/.storybook/**,playbook/**/sb/**,lib/**,**/nexus-charts/**,packages/nexus-angular/projects/nexus-angular/src/lib/directives/proxies.ts
+            sonar.coverage.exclusions=**/*.spec.ts,**/*.e2e.tsx,**/*.spec.tsx,bin/**,lib/**,packages/nexus-angular/**,packages/nexus-react/**,playbook/**,**/angular-output-target-fix.ts,.storybook/**,stories/**,**/.storybook/**,**/stories/**, packages/nexus/src/utils/index.ts,**/nexus-charts/**,testautomation/**
+            sonar.javascript.lcov.reportPaths=target/www/playbook/lcov.info
+            sonar.language=typescript
+
+      - task: SonarSource.sonarqube.6D01813A-9589-4B15-8491-8164AEB38055.SonarQubeAnalyze@4
+        displayName: 'Run Code Analysis'
+
+      - task: SonarQubePublish@5
+        displayName: 'Publish Quality Gate Result'
+
+      - template: build_breaker.yaml
+        parameters:
+          ProjectName: 'ui-nexus-design-system'
+
+      - task: ArchiveFiles@2
+        displayName: 'Zip Playbook'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        inputs:
+          rootFolderOrFile: '$(Build.SourcesDirectory)/target/www/playbook'
+          includeRootFolder: false
+          archiveType: 'zip'
+          archiveFile: '$(Build.ArtifactStagingDirectory)/playbook.zip'
+
+      - task: ArchiveFiles@2
+        displayName: 'Zip Storybook from develop'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        inputs:
+          rootFolderOrFile: '$(Build.SourcesDirectory)/.playbook'
+          includeRootFolder: false
+          archiveType: 'zip'
+          archiveFile: '$(Build.ArtifactStagingDirectory)/.playbook.zip'
+
+      - task: ArchiveFiles@2
+        displayName: 'Zip Storybook from master'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        inputs:
+          rootFolderOrFile: '$(Build.SourcesDirectory)/.playbook'
+          includeRootFolder: false
+          archiveType: 'zip'
+          archiveFile: '$(Build.ArtifactStagingDirectory)/.playbook.zip'
+
+      - task: PythonScript@0
+        displayName: Get Version
+        name: getPackVersion
+        inputs:
+          scriptSource: 'inline'
+          script: |
+            import json
+            pjson = open('./package.json')
+            data = json.load(pjson)
+            packageVersion = data['version']
+            print("$(Build.SourceBranch)")
+            if "$(Build.SourceBranch)" == "refs/heads/master":
+              print("##vso[task.setvariable variable=packVersion;isOutput=true]" + packageVersion)
+            else:
+              print("##vso[task.setvariable variable=packVersion;isOutput=true]" + packageVersion+"-"+ "$(build.buildnumber)")
+
+      - ${{ if or(eq(variables['Build.Reason'], 'IndividualCI'), eq( parameters.PushPackageManually, true ))}}:
+          - template: push-promote.yaml
+            parameters:
+              WorkingDir: 'packages/nexus'
+              PackageName: '@nexus/core'
+          - template: push-promote.yaml
+            parameters:
+              WorkingDir: 'packages/nexus-react/dist'
+              PackageName: '@nexus/react'
+          - template: push-promote.yaml
+            parameters:
+              WorkingDir: 'packages/nexus-angular/dist/nexus-angular'
+              PackageName: '@nexus/angular'
+
+      - task: AzureWebApp@1
+        displayName: 'Deploy Playbook'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        inputs:
+          azureSubscription: 'OMNI_Non_Prod_Development'
+          appType: 'webAppLinux'
+          appName: 'APSDFSOOM5WAP06'
+          package: '$(Build.ArtifactStagingDirectory)/playbook.zip'
+          runtimeStack: 'STATICSITE|1.0'
+
+      #- task: AzureCLI@2
+      #  displayName: 'Deploy Storybook from develop'
+      #  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+      #  inputs:
+      #    azureSubscription: 'OMNI_Non_Prod_Development'
+      #    scriptType: pscore
+      #    scriptLocation: inlineScript
+      #    inlineScript: |
+      #      az webapp deploy --resource-group INSDFSOOM5RSG01 --name $(webAppServiceName) --src-path $(Build.ArtifactStagingDirectory)/.playbook.zip --type=zip  --clean=false
+       
+      - task: AzureWebApp@1
+        displayName: 'Deploy Storybook from develop'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+        inputs:
+          azureSubscription: 'OMNI_Non_Prod_Development'
+          appType: 'webAppLinux'
+          appName: '$(webAppServiceName)'
+          package: '$(Build.ArtifactStagingDirectory)/.playbook.zip'
+          runtimeStack: 'STATICSITE|1.0'       
+
+#      - task: AzureCLI@2
+#        displayName: 'Deploy Storybook from master'
+#        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+#        inputs:
+#          azureSubscription: 'OMNI_Non_Prod_Development'
+#          scriptType: pscore
+#          scriptLocation: inlineScript
+#          inlineScript: |
+#            az webapp deploy --resource-group APSEFSOOM5RSG01 --name $(webAppServiceName) --src-path $(Build.ArtifactStagingDirectory)/.playbook.zip --type=zip  --clean=false
+      
+      - task: AzureWebApp@1
+        displayName: 'Deploy Storybook from master'
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        inputs:
+          azureSubscription: 'OMNI_Non_Prod_Development'
+          appType: 'webAppLinux'
+          appName: 'APSEFSOOM5WAP02'
+          package: '$(Build.ArtifactStagingDirectory)/.playbook.zip'
+          runtimeStack: 'STATICSITE|1.0'

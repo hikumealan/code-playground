@@ -1,0 +1,13 @@
+<div class="nexus-row nexus-center-xs">
+    <div class="nexus-col-xs-3">
+        <nexus-label>{{text}}</nexus-label>
+    </div>
+    <div class="nexus-col-xs-3">
+        <nexus-slider data-testid="slider" max="10" min="0" [disabled]="disabled" (input)="onKey($event)">
+        </nexus-slider>
+    </div>
+    <div class="nexus-col-xs-3">
+        <p id="userScore">If you have {{values}} years of experience, you are
+            {{variable}}.</p>
+    </div>
+</div>

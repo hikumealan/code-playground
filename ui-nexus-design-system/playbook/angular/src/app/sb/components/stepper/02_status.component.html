@@ -1,0 +1,19 @@
+<div class="nexus-center-xs nexus-pt-3 nexus-pl-6">
+    <nexus-stepper>
+        <nexus-stepper-item status="complete">
+            <button aria-label="step1">{{StepperStatus.createJourney}}</button>
+        </nexus-stepper-item>
+        <nexus-stepper-item status="complete">
+            <button aria-current="step">{{StepperStatus.addJourneyStep}}</button>
+        </nexus-stepper-item>
+        <nexus-stepper-item status="active">
+            <a aria-label="step3">{{StepperStatus.linkToJourneyStep}}</a>
+        </nexus-stepper-item>
+        <nexus-stepper-item status="error">
+            <button aria-label="step4">{{StepperStatus.bindActionsToActivity}}</button>
+        </nexus-stepper-item>
+        <nexus-stepper-item status="default">
+            <button aria-label="step5">{{StepperStatus.activate}}</button>
+        </nexus-stepper-item>
+    </nexus-stepper>
+</div>

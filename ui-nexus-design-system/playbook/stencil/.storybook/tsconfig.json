@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "jsx": "react-jsx",
+      "outDir": "../storybook-static",
+    },
+    "exclude": [
+      "config.js"
+    ]
+}

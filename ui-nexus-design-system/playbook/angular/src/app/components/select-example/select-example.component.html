@@ -1,0 +1,60 @@
+<p class="nexus-h5">Custom Content</p>
+
+<p class="nexus-h6">Select</p>
+
+<div class="nexus-row">
+  <div class="nexus-col-md-2">
+    <nexus-form-field>
+      <nexus-label>Select an option Native</nexus-label>
+      <nexus-select value="">
+        <option value="" disabled selected>Please Select</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </nexus-select>
+    </nexus-form-field>
+  </div>
+  <div class="nexus-col-md-2">
+    <nexus-form-field>
+      <nexus-label>Select an option Custom</nexus-label>
+      <nexus-select
+        type="custom"
+        value="{{ singleSelectValue }}"
+        (triggerSelection)="handleSingleSelectData($event)"
+        (closeEvent)="handleCloseEvent($event)"
+      >
+        <nexus-option
+          *ngFor="let element of selectOptions"
+          value="{{ element.value }}"
+          selected="{{ element.isSelected }}"
+          [disabled]="element.disabled"
+          >{{ element.value }}
+        </nexus-option>
+      </nexus-select>
+    </nexus-form-field>
+  </div>
+  <div class="nexus-col-md-2">
+    <nexus-form-field>
+      <nexus-label>Select an option MultiSelect</nexus-label>
+      <nexus-select
+        type="custom"
+        value="{{ multiSelectValue }}"
+        delimiter="::"
+        (triggerSelection)="handleMultiSelectData($event)"
+        multiple
+        (closeEvent)="handleCloseEvent($event)"
+      >
+        <nexus-option (click)="selectOrDeSelectAllOptions($event)">
+          <nexus-checkbox>Select All</nexus-checkbox>
+        </nexus-option>
+        <nexus-option
+          *ngFor="let element of multiSelectOption"
+          value="{{ element.value }}"
+          selected="{{ element.isSelected }}"
+        >
+          <nexus-checkbox checked="{{ element.isSelected }}">{{ element.value }}</nexus-checkbox>
+        </nexus-option>
+      </nexus-select>
+    </nexus-form-field>
+  </div>
+</div>

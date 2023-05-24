@@ -1,0 +1,13 @@
+<form onsubmit="handleSubmit(event)">
+  <nexus-form-field>
+    <nexus-file-upload multiple onchange="handleChange(event)" id="fileupldId">
+      <p>Drop File here or click to upload</p>
+      <p>Max file size is 25MB</p>
+    </nexus-file-upload>
+  </nexus-form-field>
+
+  <section id="queue" class="nexus-rhythm-4"></section>
+  <section id="uploaded" class="nexus-rhythm-4"></section>
+
+  <button type="submit" class="nexus-btn-primary">Upload</button>
+</form>

@@ -1,0 +1,91 @@
+{{#template 'component'}}
+
+{{#pageTitle}}Form Field{{/pageTitle}}
+
+<div class="playbook-component-tabs-container">
+  <input id="tab-1" type="radio" name="tabs" checked="checked" />
+  <input id="tab-2" type="radio" name="tabs" />
+  <input id="tab-3" type="radio" name="tabs" />
+  <div class="tabs">
+    <label for="tab-1">HTML</label>
+    <label for="tab-2">Angular</label>
+    <label for="tab-3">React</label>
+  </div>
+  <div class="content">
+    <div class="tab">
+      {{ section 'components/form-elements/form-field/form-field.stencil.hbs' }}
+    </div>
+    <div class="tab">
+      {{ section 'components/form-elements/form-field/form-field.angular.hbs' }}
+    </div>
+    <div class="tab">
+      {{ section 'components/form-elements/form-field/form-field.react.hbs' }}
+    </div>
+  </div>
+</div>
+
+<h2>Children</h2>
+
+{{#table styles="table-component" headings="Name, Description"}}
+  {{#tableRow}}
+    {{#tableCell styles='monospace-emphasis'}}nexus-error-message{{/tableCell}}
+    {{#tableCell styles='monospace'}}Component for showing an error message when a form element is invalid. It's presence also controls the styling of other children.{{/tableCell}}
+  {{/tableRow}}
+
+  {{#tableRow}}
+    {{#tableCell styles='monospace-emphasis'}}nexus-input{{/tableCell}}
+    {{#tableCell styles='monospace'}}Wrapper for a native `input type="text` html element.{{/tableCell}}
+  {{/tableRow}}
+
+  {{#tableRow}}
+    {{#tableCell styles='monospace-emphasis'}}nexus-label{{/tableCell}}
+    {{#tableCell styles='monospace'}}Wrapper for a native `label` html element.{{/tableCell}}
+  {{/tableRow}}
+
+  {{#tableRow}}
+    {{#tableCell styles='monospace-emphasis'}}nexus-message{{/tableCell}}
+    {{#tableCell styles='monospace'}}Component for showing informational text for a form element.{{/tableCell}}
+  {{/tableRow}}
+
+  {{#tableRow}}
+    {{#tableCell styles='monospace-emphasis'}}nexus-radio{{/tableCell}}
+  {{#tableCell styles='monospace'}}Wrapper for a native `input type="radio"` html element. For more see: <a
+    href="/playbook/components/radio/index.html">NexusRadio</a>{{/tableCell}}
+  {{/tableRow}}
+
+  {{#tableRow}}
+    {{#tableCell styles='monospace-emphasis'}}nexus-radio-group{{/tableCell}}
+    {{#tableCell styles='monospace'}}Wrapper for the `nexus-radio` component.{{/tableCell}}
+  {{/tableRow}}
+
+  {{#tableRow}}
+    {{#tableCell styles='monospace-emphasis'}}nexus-text-area{{/tableCell}}
+    {{#tableCell styles='monospace'}}Wrapper for a native `textarea` html element.{{/tableCell}}
+  {{/tableRow}}
+{{/table}}
+
+<h2>Examples</h2>
+
+<div class="playbook-component-tabs-container">
+  <input id="tab-4" type="radio" name="tabs2" checked="checked" />
+  <input id="tab-5" type="radio" name="tabs2" />
+  <input id="tab-6" type="radio" name="tabs2" />
+  <div class="tabs">
+    <label for="tab-4">HTML</label>
+    <label for="tab-5">Angular</label>
+    <label for="tab-6">React</label>
+  </div>
+  <div class="content">
+    <div class="tab">
+      {{ section 'components/form-elements/form-field/form-field-examples.stencil.hbs' }}
+    </div>
+    <div class="tab">
+      {{ section 'components/form-elements/form-field/form-field-examples.angular.hbs' }}
+    </div>
+    <div class="tab">
+      {{ section 'components/form-elements/form-field/form-field-examples.react.hbs' }}
+    </div>
+  </div>
+</div>
+
+{{/template}}

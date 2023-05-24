@@ -1,0 +1,159 @@
+@font-face {
+  font-family: 'interstate';
+  src: url('./assets/fonts/interstate-bold-webfont.eot');
+  src: url('./assets/fonts/interstate-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/interstate-bold-webfont.woff2') format('woff2'),
+    url('./assets/fonts/interstate-bold-webfont.woff') format('woff'),
+    url('./assets/fonts/interstate-bold-webfont.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'interstate';
+  src: url('./assets/fonts/interstate-regular-webfont.eot');
+  src: url('./assets/fonts/interstate-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/interstate-regular-webfont.woff2') format('woff2'),
+    url('./assets/fonts/interstate-regular-webfont.woff') format('woff'),
+    url('./assets/fonts/interstate-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'interstate';
+  src: url('./assets/fonts/interstate-light-webfont.eot');
+  src: url('./assets/fonts/interstate-light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/interstate-light-webfont.woff') format('woff'),
+    url('./assets/fonts/interstate-light-webfont.woff2') format('woff2');
+  font-weight: light;
+  font-style: normal;
+}
+
+#storybook-preview-wrapper {
+  background: white;
+}
+
+.sb-framework-select {
+  width: 100%;
+  color: black;
+  border: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 10px 10px 15px;
+  background-color: white;
+  cursor: pointer;
+  outline: 1px solid;
+  border-right: 10px solid transparent;
+}
+
+.sb-framework-select option {
+  background-color: #636569;
+  color: #fff;
+  border-bottom: white;
+  padding-top: 15px 5px;
+}
+.sb-version-select {
+  width: 100%;
+  color: black;
+  border: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 10px 10px 10px 15px;
+  background-color: white;
+  cursor: pointer;
+  outline: 1px solid;
+  border-right: 10px solid transparent;
+}
+
+.sb-version-select option {
+  background-color: whitesmoke;
+  color: black;
+  border-bottom: white;
+  padding: 5%;
+}
+
+.sidebar-container .sidebar-item {
+  padding-bottom: 8px;
+  padding-top: 8px;
+}
+
+.sidebar-container .os-viewport .os-content .sidebar-item[data-selected='true'] {
+  background: white;
+  color: black;
+  position: relative;
+}
+
+.sidebar-container .os-viewport .os-content .sidebar-item[data-selected='true']:before {
+  border-left: 4px solid orange;
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.sidebar-container .sidebar-item[data-selected='true']:hover {
+  background: #ff8733;
+}
+
+.sb-download-btn {
+  background: #1a1a24;
+  border: 1px solid #fff;
+  color: #fff;
+  display: inline-block;
+  padding: 1em;
+  text-align: center;
+  width: 100%;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sb-download-btn svg {
+  margin-top: -4px;
+}
+
+.download-button-text {
+  display: inline-block;
+  margin: 0;
+}
+
+svg.sidebar-svg-icon path {
+  fill: #717e90 !important;
+  visibility: hidden;
+}
+.sidebar-item > svg {
+  visibility: hidden;
+}
+.sidebar-item > span {
+  visibility: hidden;
+}
+.search-field > code {
+  visibility: hidden;
+}
+.sidebar-header > div > button {
+  box-shadow: none;
+}
+.sidebar-header > div > button:hover {
+  box-shadow: none;
+}
+
+.sidebar-header > div > button:focus {
+  background: none;
+}
+
+.sidebar-header > div > button:active {
+  background: none;
+}
+#storybook-explorer-searchfield {
+  border-radius: 0px;
+}
+
+.sto-ohbggj > button:hover {
+  background: #484a4c;
+}
+
+.os-scrollbar-handle {
+  margin: 7px;
+}

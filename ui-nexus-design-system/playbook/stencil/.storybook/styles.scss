@@ -1,0 +1,16 @@
+$nexus-font-path: '../../../packages/nexus/src/assets/fonts';
+
+@import '../../../packages/nexus/src/styles.scss';
+@import '../../../.storybook/styles.scss';
+
+.text-right {
+  text-align: right;
+}
+
+.cls-col-width {
+  width: 20%;
+  text-align: center;
+  font-style: italic;
+  color: #9c27b0;
+  font-weight: bold;
+}

@@ -1,0 +1,33 @@
+<p class="nexus-h5">Disabled</p>
+
+<section class="nexus-rhythm-5">
+  <div *ngFor="let option of radioGroup1">
+    <nexus-radio
+      name="group3"
+      ngDefaultControl
+      [value]="option.value"
+      [checked]="radioValue1.value === option.value"
+      [formControl]="radioValue1"
+      disabled
+    >
+      {{ option.name }}
+    </nexus-radio>
+  </div>
+</section>
+
+<p class="nexus-h5">Disabled - selected</p>
+
+<section class="nexus-rhythm-5">
+  <div *ngFor="let option of radioGroup2">
+    <nexus-radio
+      name="group2"
+      ngDefaultControl
+      [value]="option.value"
+      [checked]="radioValue2.value === option.value"
+      [formControl]="radioValue2"
+      disabled
+    >
+      {{ option.name }}
+    </nexus-radio>
+  </div>
+</section>

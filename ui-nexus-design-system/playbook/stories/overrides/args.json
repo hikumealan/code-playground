@@ -1,0 +1,162 @@
+{
+  "accordion": {
+    "align": "'start'"
+  },
+  "badge": {
+    "label": "'Sample Text'"
+  },
+  "chip": {
+    "text": "'Chip Text'"
+  },
+  "icon": {
+    "size": "lg",
+    "src": "'./assets/icons/action/ic_3d_rotation_24px.svg'"
+  },
+  "dropdown": {
+    "width": "180",
+    "height": "150",
+    "placement": "'right'"
+  },
+  "pagination": {
+    "current": "3",
+    "max": "5"
+  },
+  "progress-bar": {
+    "value": "50"
+  },
+  "avatar": {
+    "avatarSize": "'md'"
+  },
+  "error-message": {
+    "message": "'Please enter a first name.'"
+  },
+  "search": {
+    "debounceInterval": "3000"
+  },
+  "loader": {
+    "show": "true"
+  },
+  "slider": {
+    "disabled": "false",
+    "max": "100",
+    "min": "0",
+    "required": "false"
+  },
+  "form-field": {
+    "showErrors": "false",
+    "showMessages": "false"
+  },
+  "input": {
+    "autocomplete": "'off'",
+    "disabled": "false",
+    "maxLength": "'10'",
+    "minLength": "''",
+    "readonly": "false",
+    "required": "false",
+    "type": "'text'"
+  },
+  "pin-entry": {
+    "length": "3"
+  },
+  "radio": {
+    "checked": "false",
+    "disabled": "false",
+    "name": "''",
+    "required": "false"
+  },
+  "select": {
+    "disabled": "false",
+    "multiple": "false",
+    "required": "false"
+  },
+  "textarea": {
+    "disabled": "false",
+    "maxLength": "''",
+    "minLength": "''",
+    "cols": "100",
+    "rows": "3",
+    "required": "false"
+  },
+  "toggle": {
+    "disabled": "false",
+    "required": "false",
+    "toggled": "false",
+    "labelActive": "''",
+    "labelInactive": "''"
+  },
+  "card": {
+    "clickable": "false"
+  },
+  "table": {
+    "currentPage": "1",
+    "maxHeight": "null",
+    "pagination": "'true'",
+    "pageSize": "'5'",
+    "pageSizeLabel": "'Items Per Page'",
+    "rowSelection": "'false'",
+    "type": "'basic'",
+    "sortAscIcon": "'./assets/icons/navigation/ic_arrow_upward_24px.svg'",
+    "sortDefaultIcon": "'./assets/icons/content/ic_sort_24px.svg'",
+    "sortDescIcon": "'./assets/icons/navigation/ic_arrow_downward_24px.svg'"
+  },
+  "modal": {
+    "size": "'sm'"
+  },
+  "stacked-bar-chart": {
+    "axisTickFontSize": 10,
+    "barStrokeWidth": 1,
+    "canvasWidth": 500,
+    "canvasHeight": 500,
+    "legendFontSize": 12,
+    "legendWidth": 125,
+    "linearMetric": "users",
+    "linearTickFormat": "localestring",
+    "marginLeft": "35",
+    "ordinalMetric": "year",
+    "seriesMetric": "technology",
+    "xLabel": "Year",
+    "xTickSize": 2,
+    "yLabel": "Users in thousands",
+    "yTickSize": 2
+  },
+  "bar-chart": {
+    "axisTickFontSize": 10,
+    "barStrokeWidth": 1,
+    "canvasHeight": 500,
+    "canvasWidth": 500,
+    "legendFontSize": 12,
+    "legendMetric": "name",
+    "linearMetric": "value",
+    "legendWidth": 125,
+    "maxBarWidth": 75,
+    "linearTickFormat": "raw",
+    "ordinalMetric": "ticker",
+    "xTickSize": 2,
+    "yTickSize": 2
+  },
+  "line-chart": {
+    "axisTickFontSize": 10,
+    "canvasHeight": 500,
+    "canvasWidth": 500,
+    "colorScheme": "category10",
+    "interpolation": "linear",
+    "legendMetric": "label",
+    "legendWidth": 125,
+    "legendFontSize": 12,
+    "strokeWidth": 1,
+    "xTickFormat": "M/D/YY",
+    "xTickSize": 2,
+    "yTickFormat": "raw",
+    "yTickSize": 2,
+    "yMetric": "y",
+    "xMetric": "x"
+  },
+  "pie-chart": {
+    "canvasHeight": 500,
+    "canvasWidth": 500,
+    "legendFontSize": 12,
+    "legendWidth": 125,
+    "strokeWidth": 1,
+    "valueFormat": "raw"
+  }
+}

@@ -1,0 +1,18 @@
+<div class="nexus-row">
+    <div class="nexus-col-xs-6 nexus-col-sm-6 nexus-col-md-6 nexus-col-lg-6 nexus-col-xl-6">
+        <nexus-card>
+            <nexus-card-body>
+                <nexus-card-body-image>
+                    <img [src]="bodyWithImage.bgImage" alt="Alt Text" />
+                </nexus-card-body-image>
+                <p class="nexus-caption-copy nexus-rhythm-4">{{bodyWithImage.caption}}</p>
+                <h2 class="nexus-h5">{{bodyWithImage.subTitle}}</h2>
+                <p>{{bodyWithImage.detail}}</p>
+            </nexus-card-body>
+            <nexus-card-footer>
+                <button class="nexus-btn-primary nexus-btn-medium">{{bodyWithImage.moreInfo}}</button>
+                <button class="nexus-link">{{bodyWithImage.dismiss}}</button>
+            </nexus-card-footer>
+        </nexus-card>
+    </div>
+</div>

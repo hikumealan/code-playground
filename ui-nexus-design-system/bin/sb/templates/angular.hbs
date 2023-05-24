@@ -1,0 +1,111 @@
+import React from 'react';
+import { Meta, moduleMetadata, Story } from "@storybook/angular";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NexusAngularModule } from '@nexus/angular';
+{{#if isArgsJsonPresent}}
+import args from './args.json'
+{{/if}}
+{{#if isControlsJson}}
+import controls from './controls.json'
+{{/if}}
+{{#if isEventPresent}}
+import notes from '!!raw-loader!./event.mdx';
+{{/if}}
+import { Subtitle, Description, Primary, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import BasePageLayout from '../../../common/component/layout/layout';
+import ContentSwitcher from '../../../common/component/contentSwitcher/contentSwitcher';
+{{#each docs}}
+import {{docsImportName}} from '{{docsImportPath}}';
+{{/each}}
+{{#each data}}
+import {{dataImportName}} from '{{dataImportPath}}';
+{{/each}}
+{{#each exampleImports}}
+import {{exampleImportName}} from '{{exampleImportPath}}';
+import {{tsSrcImportName}} from '{{tsSrcImportPath}}';
+{{/each}}
+{{#each htmlSrcImports}}
+import {{htmlSrcImportName}} from '{{htmlSrcImportPath}}';
+{{/each}}
+
+export default {
+    title: 'Component/{{category}}/{{pageTitle}}',
+{{#if isControlsJson}}    
+    argTypes: { ...controls },
+{{/if}}
+    parameters: {
+      docs: {
+        page: () => (
+          <BasePageLayout bannerHeader='{{pageTitle}}'>
+            <Subtitle />
+            <ContentSwitcher
+              category='{{category}}'
+              component='{{component}}'
+              primaryFW='angular'/>
+            <div className='nexus-pt-4 nexus-body-sm'  {{{dangerouslySetInnerHTML}}}/>
+            <div style=\{{"zoom":0.90}}>
+                <Primary />
+            </div>
+            <ArgsTable story={PRIMARY_STORY} />
+{{#if isEventPresent}}            
+            <Description markdown={notes} />
+{{/if}}
+            <div style=\{{"zoom":0.90}}>
+                <Stories title="{{pageTitle}} Usages"/>
+            </div>
+          </BasePageLayout>
+        ),
+      },
+      jest: 'nexus-{{component}}.spec.ts',
+      decorators: [
+          moduleMetadata({
+              declarations: [
+{{#each declarations}}
+              {{exampleName}},
+{{/each}}
+              ],
+              imports: [CommonModule, NexusAngularModule, FormsModule, ReactiveFormsModule],
+          }),
+      ]
+    },
+  } as Meta;
+
+{{#each bindings}}
+{{#if showArgs}}
+export const {{templateName}}: Story = (args) => ({
+    props: args,
+    component: {{exampleName}},
+});
+{{else}}
+export const {{templateName}}: Story = () => ({
+    component: {{exampleName}},
+});
+{{/if}}
+{{#if isArgsJsonPresent}}
+{{templateName}}.args = { ...args }
+{{/if}}
+
+{{templateName}}.parameters = {
+design: {
+    type: 'figma',
+    url: ''
+},
+docs: {
+    {{{docsImport}}}
+    source: {
+code:`
+/* constant.ts */
+{{{dataImportName}}}
+/* {{exampleName}}.ts */
+{{{tsSrcImportName}}}
+/* {{exampleName}}.html */
+{{{htmlSrcImportName}}}
+`,
+language: 'typescript',
+type: 'auto'
+    }
+}
+}
+{{templateName}}.storyName = ' {{name}}'
+{{/each}}

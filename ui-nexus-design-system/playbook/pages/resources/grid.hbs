@@ -1,0 +1,647 @@
+{{#template 'component'}}
+
+    {{#pageTitle}}Grid{{/pageTitle}}
+
+    The Nexus grid consists of variable columns depending on breakpoint. It has 4 columns on small screens, 8 columns on medium size screens and 12 columns on large screens.
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/nexus.css">
+
+    <style>
+      p {
+        font-size: 16px;
+      }
+
+      .playbook-layout-component .playbook-main pre {
+        font-size: 12px;
+      }
+    </style>
+
+    <h2>Grid Breakpoints</h2>
+
+    {{#table styles="table-component" headings="Size, Min Width, Columns, Gutters"}}
+      {{#tableRow}}
+        {{#tableCell styles='monospace-emphasis'}}2xs{{/tableCell}}
+        {{#tableCell styles='monospace'}}0{{/tableCell}}
+        {{#tableCell styles='monospace'}}4{{/tableCell}}
+        {{#tableCell styles='monospace'}}16px{{/tableCell}}
+      {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}xs{{/tableCell}}
+            {{#tableCell styles='monospace'}}320px{{/tableCell}}
+            {{#tableCell styles='monospace'}}4{{/tableCell}}
+            {{#tableCell styles='monospace'}}16px{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}sm{{/tableCell}}
+            {{#tableCell styles='monospace'}}576px{{/tableCell}}
+            {{#tableCell styles='monospace'}}4{{/tableCell}}
+            {{#tableCell styles='monospace'}}16px{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}md{{/tableCell}}
+            {{#tableCell styles='monospace'}}768px{{/tableCell}}
+            {{#tableCell styles='monospace'}}8{{/tableCell}}
+            {{#tableCell styles='monospace'}}24px{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}lg{{/tableCell}}
+            {{#tableCell styles='monospace'}}1024px{{/tableCell}}
+            {{#tableCell styles='monospace'}}12{{/tableCell}}
+            {{#tableCell styles='monospace'}}24px{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}xl{{/tableCell}}
+            {{#tableCell styles='monospace'}}1280px{{/tableCell}}
+            {{#tableCell styles='monospace'}}12{{/tableCell}}
+            {{#tableCell styles='monospace'}}24px{{/tableCell}}
+        {{/tableRow}}
+
+      {{#tableRow}}
+        {{#tableCell styles='monospace-emphasis'}}2xl{{/tableCell}}
+        {{#tableCell styles='monospace'}}1440px{{/tableCell}}
+        {{#tableCell styles='monospace'}}12{{/tableCell}}
+        {{#tableCell styles='monospace'}}24px{{/tableCell}}
+      {{/tableRow}}
+    {{/table}}
+
+    <h2>Customize Breakpoints</h2>
+
+    Use the following variable to customize the Nexus Grid Layouts and Breakpoints
+
+    <pre><code class="lang-scss">
+    $nexus-grid-prefix: 'nexus-';
+
+    $nexus-grid-breakpoints: (
+      double-extra-small: (
+        name: '2xs',
+        columns: 4,
+        gutter: 16px,
+        min-width: 0,
+        max-width: 319px
+      ),
+      extra-small: (
+        name: 'xs',
+        columns: 4,
+        gutter: 16px,
+        min-width: 320px,
+        max-width: 575px
+      ),
+      small: (
+        name: 'sm',
+        columns: 4,
+        gutter: 16px,
+        min-width: 576px,
+        max-width: 767px
+      ),
+      medium: (
+        name: 'md',
+        columns: 8,
+        gutter: 24px,
+        min-width: 768px,
+        max-width: 1023px
+      ),
+      large: (
+        name: 'lg',
+        columns: 12,
+        gutter: 24px,
+        min-width: 1024px,
+        max-width: 1279px
+      ),
+      extra-large: (
+        name: 'xl',
+        columns: 12,
+        gutter: 24px,
+        min-width: 1280px,
+        max-width: 1439px
+      ),
+      double-extra-large: (
+        name: '2xl',
+        columns: 12,
+        gutter: 24px,
+        min-width: 1440px
+      )
+    );
+    </code></pre>
+
+    <h2>Usage</h2>
+
+    <h3>HTML Usage</h3>
+
+    The first element you need is a row:
+    
+    {{{ md 'playbook/pages/resources/markdown/grid0.md'}}}
+
+    Next, you fill this row with the columns:
+
+
+    {{{ md 'playbook/pages/resources/markdown/grid1.md'}}}
+
+    Result:
+
+    <div class="playbook-grid">
+        <div class="nexus-row">
+            <div class="nexus-col-xs-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-1">
+                <div>1 of 4</div>
+            </div>
+        </div>
+    </div>
+
+    <h4>CSS Classes</h4>
+
+    {{#table styles="table-component" headings="Class, Description"}}
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-row{{/tableCell}}
+            {{#tableCell styles='monospace'}}Required: The wrapper for all other grid classes{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-no-gutter{{/tableCell}}
+            {{#tableCell styles='monospace'}}Removes the gutters from all nested columns. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-col-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Automatically sets the width of the columns based on number of items.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-col-`<BREAKPOINT_NAME>`-`<NUMBER_OF_COLUMNS>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Creates a column inside a row based on the `BREAKPOINT_NAME` and `NUMBER_OF_COLUMNS` defined.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-col-`<BREAKPOINT_NAME>`-offset-`<NUMBER_OF_COLUMNS>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Offests a column.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-start-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Horizontally align items to the start.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-center-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Horizontally align items to the center.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-end-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Horizontally align items to the end.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-top-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Vertically align items to the top. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-middle-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Vertically align items to the middle. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-bottom-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Vertically align items to the bottom. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-around-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Distribute space around nested columns. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-between-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Distribute space between nested columns. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-first-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Reorders the selected column as the first column.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-last-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Reorders the selected column as the last column.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-hidden{{/tableCell}}
+            {{#tableCell styles='monospace'}}Hides content by setting display: none;{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-hidden-`<BREAKPOINT_NAME>`{{/tableCell}}
+            {{#tableCell styles='monospace'}}Hides content based on the Breakpoint's min-width to max-width range by setting display: none;{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}nexus-reverse{{/tableCell}}
+            {{#tableCell styles='monospace'}}Reverses the order of all nested columns. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+    {{/table}}
+
+
+
+    <h3>Mixins</h3>
+
+    {{#table styles="table-component" headings="Mixin, Description"}}
+            {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}row(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Creates the grids row wrapper.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}col-gutter($gutter: 0){{/tableCell}}
+            {{#tableCell styles='monospace'}}Sets the columns gutters.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}col($ratios:1, $gutter: 0){{/tableCell}}
+            {{#tableCell styles='monospace'}}Creates a column based on the ratios and gutters passed in. Example: `col(1/4, 10px)`{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}offset($ratios:1){{/tableCell}}
+            {{#tableCell styles='monospace'}}Offests a column.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}start(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Horizontally align items to the start. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}center(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Horizontally align items to the center. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}end(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Horizontally align items to the end. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}top(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Vertically align items to the top. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}middle(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Vertically align items to the middle. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}bottom(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Vertically align items to the bottom. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}around(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Distribute space around nested columns. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}between(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Distribute space between nested columns. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}first(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Reorders the selected column as the first column.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}last(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Reorders the selected column as the last column.{{/tableCell}}
+        {{/tableRow}}
+
+        {{#tableRow}}
+            {{#tableCell styles='monospace-emphasis'}}row-reverse(){{/tableCell}}
+            {{#tableCell styles='monospace'}}Reverses the order of all nested columns. (`.nexus-row` modifier){{/tableCell}}
+        {{/tableRow}}
+    {{/table}}
+
+
+    <h2>Examples</h2>
+
+    <h3>Extra Small Grid</h3>
+
+    <div class="playbook-grid">
+        <div class="nexus-row">
+            <div class="nexus-col-xs-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-1">
+                <div>1 of 4</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-3">
+                <div>3 of 4</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-2">
+                <div>2 of 4</div>
+            </div>
+            <div class="nexus-col-xs-2">
+                <div>2 of 4</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4">
+                <div>4 of 4</div>
+            </div>
+        </div>
+    </div>
+
+ {{{ md 'playbook/pages/resources/markdown/grid2.md'}}}
+    <br>
+    <br>
+    <br>
+
+
+    <h3>Small Grid</h3>
+
+    <div class="playbook-grid">
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-sm-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-sm-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-sm-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-sm-1">
+                <div>1 of 4</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-sm-1">
+                <div>1 of 4</div>
+            </div>
+            <div class="nexus-col-sm-3">
+                <div>3 of 4</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-sm-2">
+                <div>2 of 4</div>
+            </div>
+            <div class="nexus-col-sm-2">
+                <div>2 of 4</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-sm-4">
+                <div>4 of 4</div>
+            </div>
+        </div>
+    </div>
+
+ {{{ md 'playbook/pages/resources/markdown/grid3.md'}}}
+
+    <br>
+    <br>
+    <br>
+
+    <h3>Medium Grid</h3>
+
+    <div class="playbook-grid">
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-md-1">
+                <div>1 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-1">
+                <div>1 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-1">
+                <div>1 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-1">
+                <div>1 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-1">
+                <div>1 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-1">
+                <div>1 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-1">
+                <div>1 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-1">
+                <div>1 of 8</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-md-1">
+                <div>1 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-7">
+                <div>7 of 8</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-md-3">
+                <div>3 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-5">
+                <div>5 of 8</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-md-4">
+                <div>4 of 8</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-md-4">
+                <div>4 of 8</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-md-8">
+                <div>8 of 8</div>
+            </div>
+        </div>
+    </div>
+
+{{{ md 'playbook/pages/resources/markdown/grid4.md'}}}
+    
+    <br>
+    <br>
+    <br>
+
+    <h3>Large Grid</h3>
+
+    <div class="playbook-grid">
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-lg-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-11">
+                <div>11 of 12</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-lg-3">
+                <div>3 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-9">
+                <div>9 of 12</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-lg-6">
+                <div>6 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-lg-6">
+                <div>6 of 12</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-lg-12">
+                <div>12 of 12</div>
+            </div>
+        </div>
+    </div>
+
+{{{ md 'playbook/pages/resources/markdown/grid5.md'}}}
+
+    <h3>Extra Large Grid</h3>
+
+    <div class="playbook-grid">
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-xl-1">
+                <div>1 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-11">
+                <div>11 of 12</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-xl-3">
+                <div>3 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-9">
+                <div>9 of 12</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-xl-6">
+                <div>6 of 12</div>
+            </div>
+            <div class="nexus-col-xs-4 nexus-col-xl-6">
+                <div>6 of 12</div>
+            </div>
+        </div>
+        <div class="nexus-row">
+            <div class="nexus-col-xs-4 nexus-col-xl-12">
+                <div>12 of 12</div>
+            </div>
+        </div>
+    </div>
+
+{{{ md 'playbook/pages/resources/markdown/grid6.md'}}}
+   
+{{/template}}

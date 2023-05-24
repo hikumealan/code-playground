@@ -1,0 +1,35 @@
+parameters:
+  - name: PackageName
+    type: string
+    default: ""
+  - name: WorkingDir
+    type: string
+    default: ""
+
+steps:
+- ${{ if ne(variables['Build.SourceBranch'], 'refs/heads/master')}}:          
+  - task: CmdLine@2
+    displayName: 'Update ${{parameters.PackageName}} version'
+    inputs:
+      script: npm version $(getPackVersion.packVersion)
+      workingDirectory: $(Build.SourcesDirectory)/${{parameters.WorkingDir}}
+
+- task: Npm@1
+  displayName: 'Publish ${{parameters.PackageName}}'
+  continueOnError: true
+  inputs:
+    workingDir: $(Build.SourcesDirectory)/${{parameters.WorkingDir}}
+    command: publish
+    publishRegistry: useFeed
+    publishFeed: Nexus for Banking/$(feedName)
+
+- ${{ if or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release'))}}:
+  - bash: |
+      result=$(curl -u :$SYSTEM_ACCESSTOKEN --request PATCH "https://pkgs.dev.azure.com/fso-to/Nexus%20for%20Banking/_apis/packaging/feeds/$(feedName)/npm/${PACKAGE_NAME}/versions/$(getPackVersion.packVersion)?api-version=5.1-preview.1" \
+      --header 'Content-Type: application/json' \
+      --data-raw '{"views": { "op":"add", "path": "/views/-", "value": "release" }}')
+      echo "$result"
+    env:
+      PACKAGE_NAME: "${{parameters.PackageName}}"
+      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+    displayName: 'Promote to release view'

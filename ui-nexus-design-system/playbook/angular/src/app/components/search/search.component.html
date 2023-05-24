@@ -1,0 +1,10 @@
+<nexus-search data-testid="search-bar">
+  <nexus-input (keyup)="performFilter($event)" autocomplete="off" placeholder="Search">
+    <nexus-icon data-testid="search-icon" src="./assets/icons/action/ic_search_24px.svg"></nexus-icon>
+  </nexus-input>
+  <nexus-search-list>
+    <nexus-search-list-item *ngFor="let item of filteredItem">
+      <button>{{ item }}</button>
+    </nexus-search-list-item>
+  </nexus-search-list>
+</nexus-search>

@@ -1,0 +1,11 @@
+<nexus-accordion-group>
+  <nexus-accordion *ngFor="let props of accordionGroupData; let idx=index" [open]="props.isOpen"
+    (toggleEvent)="checkForOpenDrawerStatus(idx)" size="md">
+    <nexus-accordion-trigger>
+      <h1 class="nexus-body">{{props.title}}</h1>
+    </nexus-accordion-trigger>
+    <nexus-accordion-content>
+      {{props.info}}
+    </nexus-accordion-content>
+  </nexus-accordion>
+</nexus-accordion-group>

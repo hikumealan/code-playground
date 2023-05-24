@@ -1,0 +1,26 @@
+<div class="nexus-row nexus-body">
+    <div class="nexus-col-xs-4">
+        <div class="nexus-center-xs nexus-mt-3">
+            <button class="nexus-btn nexus-btn-medium nexus-btn-primary nexus-overline">
+                <nexus-icon [src]="tabbedInfo.micIconSrc" size="md"></nexus-icon>
+                {{tabbedInfo.on}}
+            </button>
+            <button class="nexus-btn nexus-btn-medium nexus-overline">
+                <nexus-icon [src]="tabbedInfo.micOffIconSrc" size="md"></nexus-icon>
+                {{tabbedInfo.off}}
+            </button>
+        </div>
+    </div>
+    <div class="nexus-col-xs-4">
+        <div class="nexus-center-xs nexus-mt-2">
+            <button class="nexus-btn nexus-btn-medium nexus-overline btn-success">
+                <nexus-icon [src]="tabbedInfo.showIconSrc" size="md"></nexus-icon>
+                {{tabbedInfo.show}}
+            </button>
+            <button class="nexus-btn nexus-btn-medium nexus-btn-warn nexus-overline">
+                <nexus-icon [src]="tabbedInfo.hideIconSrc" size="md"></nexus-icon>
+                {{tabbedInfo.hide}}
+            </button>
+        </div>
+    </div>
+</div>

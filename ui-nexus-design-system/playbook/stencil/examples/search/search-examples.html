@@ -1,0 +1,25 @@
+<nexus-search>
+    <nexus-input oninput="PerformFilter()" autocomplete="off">
+       <nexus-icon onclick="RefreshTable()"  src="./assets/icons/action/ic_search_24px.svg"></nexus-icon>
+    </nexus-input>
+    <nexus-search-list onclick="RefreshTable()" id="nxSearchList">
+    </nexus-search-list>
+  </nexus-search>
+  <br/>
+  <nexus-table id="tblNexus"></nexus-table>
+  <!-- Additional Styles -->
+  <style>
+    .text-right {
+      text-align: right;
+      font-weight: normal;
+  
+    }
+    .cls-col-width {
+      width: 20%;
+      text-align: center;
+      font-style: italic;
+      font-weight: bold;
+      text-align: right;
+  }
+  </style>
+  
