@@ -5,13 +5,15 @@
   "main": "generate.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "node generate"
+    "generate": "node generate",
+    "serve": "http-server .www/ -p 8080 -c-1 -d --cors "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@stencil/core": "^3.2.1",
-    "ejs": "^3.1.9"
+    "ejs": "^3.1.9",
+    "http-server": "^14.1.1"
   }
 }

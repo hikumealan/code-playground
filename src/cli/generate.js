@@ -7,6 +7,10 @@ const path = require('path');
 const ejs = require('ejs');
 // const stencil = require('@stencil/cli');
 
+const toPascalCase = (str) => {
+  return str.split('-').reduce((res, part) => res + part[0].toUpperCase() + part.slice(1), '');
+};
+
 // remove the first two arguments
 process.env.args = [...process.argv.slice(2)];
 process.env.argv = process.argv;
