@@ -3,11 +3,97 @@
 <head>
   <meta charset='UTF-8'>
   <title>Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ejs/3.1.9/ejs.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/ejs@3.1.9/ejs.min.js"></script>
-  <script src="https://unpkg.com/ejs@3.1.9/ejs.min.js"></script>
+  <!-- <script src="https://unpkg.com/ejs@3.1.9/ejs.min.js"></script> -->
+  <script>
+    let show = false;
+    const toggle = () => {
+        show = !show;
+        if (show) {
+            document.getElementById("content").innerHTML = ejs.render(`
+<table border="1" cellspacing="0">
+    <thead>
+    <tr>
+        <th colspan="100">EJS Looping</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for (let i = 0; i <= 99999; i++) { %>
+        <% if (i % 100 === 0) { %>
+        <tr>
+        <% } %>
+            <td style="text-align: center;">
+                <p style="background-color: lightgray;"><%=i%></p>
+                <h1 style="background-color: lightblue;">&#<%=i%>;</h1>
+            </td>
+        <% if (i % 100 === 99) { %>
+        </tr>
+        <% } %>
+    <% }; %>
+    </tbody>
+</table>
+`
+            );
+        } else {
+            document.getElementById("content").innerHTML = '';
+        }
+    }
+  </script>
 </head>
 <body>
-  <p>Hello World</p>
+    <div style="background-color: lightgray;">
+  <button onclick="toggle();"><h1>Toggle HTML Entities</h1></button>
+    </div>
+  <template id="repeated">
+    <% const arr = new Array(8365) %>
+    <h1><%= arr.length %></h1>
+    <table>
+        <tr>
+            <td>
+                <ul>
+                    <% for (let i = 0; i < 9999; i++) { %>
+                    <li><b><%=i%></b>: &#<%=i%>;</li>
+                    <% }; %>
+                </ul>
+            </td>
+        </tr>
+    </table>
+  </template>
+  <template id="repeated-template">
+    <% const arr = new Array(8365) %>
+    <h1><%= arr.length %></h1>
+    <table>
+      <thead>
+        <tr>
+          <th>EJS Looping</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i = 0; i < 9999; i++) { %>
+          <tr>
+            <th><%=i%></th>
+            <td>&#<%=i%>;</td>
+          </tr>
+        <% }; %>
+      </tbody>
+    </table>
+  </template>
+  <div id="content"></div>
+
+  <template id="table-template">
+    <table>
+        <tbody>
+            <% for(var i = 1; i < 10; i++) { %>
+            <tr>
+                <th style="border: solid 1px;"><%= i %></th>
+                <td style="border: solid 1px;">&#<%= i %>;</td>
+            </tr>
+            <%  } %>
+        </tbody>
+    </table>
+  </template>
   <template id="template">
     <% for (let name of names) { %>
       <div><%= name%></div>
@@ -20,18 +106,246 @@
         <li><%=list[i].name%></li>
       <% } %>
     </ul>
-    <%- include('partials/list', {list: people}); %>
   </template>
-  <div id="render"></div>
-  <div id="people"></div>
+  <div id="table" style="background-color: lightslategrey;"></div>
+  <div id="output" style="background-color: lightcoral;"></div>
+  <div id="render" style="background-color: lightgreen;"></div>
+  <div id="renderFile" style="background-color: lightblue;"></div>
+  <!-- <%- include('partials/list', {list: people}); %> -->
   <script>
+    const HTML = {
+        parse: (txt) => {
+            return txt
+                .replace(/\&lt;/g, "<")
+                .replace(/\&gt;/g, ">")
+                .replace(/\&amp;/g, "&")
+                .replace(/\&quot;/g, "\"")
+                .replace(/\&apos;/g, "'");
+        }
+    };
+    // console.log('#repeated');
+    // console.log(document.querySelector('#repeated').innerHTML);
+    // console.log('#repeated-template');
+    // console.log(document.querySelector('#repeated-template').innerHTML);
+    // // Get the content of the template
+    // const templateContent = HTML.parse(document.querySelector('#repeated').innerHTML);
+    // // console.log(templateContent);
+    // // Compile the EJS template into a function
+    // const compiledTemplate = ejs.compile(templateContent);
+    // // console.log(compiledTemplate);
+    // // Render the template
+    // const renderedHTML = compiledTemplate();
+    // // console.log(renderedHTML);
+    // // Insert the rendered HTML into the page
+    // const contentDiv = document.getElementById('content');
+    // contentDiv.innerHTML = renderedHTML;
+
     const people = ["corey", "noah", "alex", "dan"];
-    const result = document.getElementById("people");
-    const html = ejs.render('<%= people.join(", "); %>', {people: people});
-    result.innerHTML = html;
-    const tmp = document.getElementById("template").innerHTML.replace(/\&lt;/g, "<").replace(/\&gt;/g, ">");
-    console.log(tmp);
-    document.getElementById("render").innerHTML = ejs.render(tmp, {names: ["corey", "noah", "alex", "dan"], people: people, list: [{name:"corey"},{name:"noah"},{name:"alex"},{name:"dan"}]});
+    const list = [{name:"corey"},{name:"noah"},{name:"alex"},{name:"dan"}];
+    const data = {names: ["corey", "noah", "alex", "dan"], people: people, list: list};
+    const options = {
+        // delimiter: '?', 
+        // openDelimiter: '<%', 
+        // closeDelimiter: '%>', 
+        // openTag: '<%', 
+        // closeTag: '%>', 
+        // strict: true, 
+        // rmWhitespace: true, 
+        // debug: true, 
+        // compileDebug: true, 
+        // client: true, 
+        // _with: true, 
+        // localsName: 'locals', 
+        // rmWhitespace: true, 
+        // escape: true, 
+        // outputFunctionName: 'echo', 
+        // async: true, 
+        // context: {name: "corey"}, 
+        // cache: true, 
+        // filename: "index.html", 
+        // root: "src/cli/.www", 
+        // views: ["src/cli/.www/partials"], 
+        // delimiter: '?', 
+        // openDelimiter: '<%', 
+        // closeDelimiter: '%>', 
+        // openTag: '<%', 
+        // closeTag: '%>', 
+        // strict: true, 
+        // rmWhitespace: true, 
+        // debug: true, 
+        // compileDebug: true, 
+        // client: true, 
+        // _with: true, 
+        // localsName: 'locals', 
+        // rmWhitespace: true, 
+        // escape: true, 
+        // outputFunctionName: 'echo', 
+        // async: true, 
+        // context: {name: "corey"}, 
+        // cache: true, 
+        // filename: "index.html", 
+        // root: "src/cli/.www", 
+        // views: ["src/cli/.www/partials"]
+    };
+    const table = ejs.compile(document.getElementById("table-template").innerHTML.replace(/\&lt;/g, "<").replace(/\&gt;/g, ">"), options);
+    document.getElementById("table").innerHTML = table();
+    
+    document.getElementById("output").innerHTML = ejs.render("<%= people.join(', '); %>", {people: people});
+    const tmp = document.getElementById("template").innerHTML;
+    const temp = tmp.replace(/\&lt;/g, "<").replace(/\&gt;/g, ">");
+    
+    // => Rendered HTML string
+    const template = ejs.compile(temp, options);
+    template(data);
+
+    // => Rendered HTML string
+    document.getElementById("render").innerHTML = ejs.render(temp, data, options);
+
+    const replaceEntities = (str) => {
+        return str
+            .replace(/\&nbsp;/g, " ")
+            .replace(/\&#160;/g, " ")
+            .replace(/\&lt;/g, "<")
+            .replace(/\&#60;/g, "<")
+            .replace(/\&gt;/g, ">")
+            .replace(/\&#62;/g, ">")
+            .replace(/\&amp;/g, "&")
+            .replace(/\&#38;/g, "&")
+            .replace(/\&quot;/g, "\"")
+            .replace(/\&#34;/g, "\"")
+            .replace(/\&apos;/g, "'")
+            .replace(/\&#39;/g, "'")
+            .replace(/\&cent;/g, "¢")
+            .replace(/\&#162;/g, "¢")
+            .replace(/\&pound;/g, "£")
+            .replace(/\&#163;/g, "£")
+            .replace(/\&yen;/g, "¥")
+            .replace(/\&#165;/g, "¥")
+            .replace(/\&euro;/g, "€")
+            .replace(/\&#8364;/g, "€")
+            .replace(/\&copy;/g, "©")
+            .replace(/\&#169;/g, "©")
+            .replace(/\&reg;/g, "®")
+            .replace(/\&#174;/g, "®")
+            
+            .replace(/\&trade;/g, "™")
+            .replace(/\&deg;/g, "°")
+            .replace(/\&plusmn;/g, "±")
+            .replace(/\&sup2;/g, "²")
+            .replace(/\&sup3;/g, "³")
+            .replace(/\&micro;/g, "µ")
+            .replace(/\&para;/g, "¶")
+            .replace(/\&middot;/g, "·")
+            .replace(/\&cedil;/g, "¸")
+            .replace(/\&ordm;/g, "º")
+            .replace(/\&raquo;/g, "»")
+            .replace(/\&frac14;/g, "¼")
+            .replace(/\&frac12;/g, "½")
+            .replace(/\&frac34;/g, "¾")
+            .replace(/\&iquest;/g, "¿")
+            .replace(/\&times;/g, "×")
+            .replace(/\&divide;/g, "÷")
+            .replace(/\&Agrave;/g, "À")
+            .replace(/\&Aacute;/g, "Á")
+            .replace(/\&Acirc;/g, "Â")
+            .replace(/\&Atilde;/g, "Ã")
+            .replace(/\&Auml;/g, "Ä")
+            .replace(/\&Aring;/g, "Å")
+            .replace(/\&AElig;/g, "Æ")
+            .replace(/\&Ccedil;/g, "Ç")
+            .replace(/\&Egrave;/g, "È")
+            .replace(/\&Eacute;/g, "É")
+            .replace(/\&Ecirc;/g, "Ê")
+            .replace(/\&Euml;/g, "Ë")
+            .replace(/\&Igrave;/g, "Ì")
+            .replace(/\&Iacute;/g, "Í")
+            .replace(/\&Icirc;/g, "Î")
+            .replace(/\&Iuml;/g, "Ï")
+            .replace(/\&ETH;/g, "Ð")
+            .replace(/\&Ntilde;/g, "Ñ")
+            .replace(/\&Ograve;/g, "Ò")
+            .replace(/\&Oacute;/g, "Ó")
+            .replace(/\&Ocirc;/g, "Ô")
+            .replace(/\&Otilde;/g, "Õ")
+            .replace(/\&Ouml;/g, "Ö")
+            .replace(/\&Oslash;/g, "Ø")
+            .replace(/\&Ugrave;/g, "Ù")
+            .replace(/\&Uacute;/g, "Ú")
+            .replace(/\&Ucirc;/g, "Û")
+            .replace(/\&Uuml;/g, "Ü")
+            .replace(/\&Yacute;/g, "Ý")
+            .replace(/\&THORN;/g, "Þ")
+            .replace(/\&szlig;/g, "ß")
+            .replace(/\&agrave;/g, "à")
+            .replace(/\&aacute;/g, "á")
+            .replace(/\&acirc;/g, "â")
+            .replace(/\&atilde;/g, "ã")
+            .replace(/\&auml;/g, "ä")
+            .replace(/\&aring;/g, "å")
+            .replace(/\&aelig;/g, "æ")
+            .replace(/\&ccedil;/g, "ç")
+            .replace(/\&egrave;/g, "è")
+            .replace(/\&eacute;/g, "é")
+            .replace(/\&ecirc;/g, "ê")
+            .replace(/\&euml;/g, "ë")
+            .replace(/\&igrave;/g, "ì")
+            .replace(/\&iacute;/g, "í")
+            .replace(/\&icirc;/g, "î")
+            .replace(/\&iuml;/g, "ï")
+            .replace(/\&eth;/g, "ð")
+            .replace(/\&ntilde;/g, "ñ")
+            .replace(/\&ograve;/g, "ò")
+            .replace(/\&oacute;/g, "ó")
+            .replace(/\&ocirc;/g, "ô")
+            .replace(/\&otilde;/g, "õ")
+            .replace(/\&ouml;/g, "ö")
+            .replace(/\&oslash;/g, "ø")
+            .replace(/\&ugrave;/g, "ù")
+            .replace(/\&uacute;/g, "ú")
+            .replace(/\&ucirc;/g, "û")
+            .replace(/\&uuml;/g, "ü")
+            .replace(/\&yacute;/g, "ý")
+            .replace(/\&thorn;/g, "þ")
+            .replace(/\&yuml;/g, "ÿ");
+
+    };
+    const renderFile = (file, data, options) => {
+        /*
+        CLIENT SIDE
+        // => Rendered HTML string
+        fetch(file).then(async (content) => {
+            const template = await content.text();
+
+            console.log("*************************************************************************************************");
+            console.log("template");
+            console.log(template);
+            console.log("*************************************************************************************************");
+
+            document.getElementById("renderFile").innerHTML = ejs.render(template, data, options); 
+        });
+        */
+        /*
+        SERVER SIDE
+        // str => Rendered HTML string
+        // ejs.renderFile(file, data, options, function(error, content){
+        //     if (error) {
+        //         console.error(error);
+        //     }
+        //     document.getElementById("renderFile").innerHTML = content;
+        // });
+        */
+        // const tmp = ejs.compile(template, options);
+        // return tmp(data);
+        // const tmp = new ejs({ text: `<% include(partialName) %>` });
+        // return tmp.render(data);
+    };
+    
+    const partial = renderFile("partials/list.ejs", data);
+    console.log("*************************************************************************************************");
+    console.log("partial");
+    console.log(partial);
+    console.log("*************************************************************************************************");
+
   </script>
 </body>
 </html>

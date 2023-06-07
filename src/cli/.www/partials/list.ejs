@@ -1,13 +1,33 @@
+<p><%= new Date() %></p>
+<p><%= new Date().toLocaleDateString("en-US") %></p>
+<p><%= new Date().toLocaleDateString("en-GB") %></p>
+<p><%= new Date().toDateString() %></p>
+<p><%= new Date().toISOString() %></p>
+<p><%= new Date().toJSON() %></p>
+<p><%= new Date().toLocaleDateString() %></p>
+<p><%= new Date().toLocaleString() %></p>
+<p><%= new Date().toLocaleTimeString() %></p>
+<p><%= new Date().toString() %></p>
+<p><%= new Date().toTimeString() %></p>
+<p><%= new Date().toUTCString() %></p>
+<h1><%= list.length %></h1>
+<%= people %>
+<br/>
+<ul>
+    <% people.forEach(function(person) { %>
+    <li><%= person %></li>
+    <% }); %>
+</ul>
 <% if (list.length) { %>
 <ul>
     <% list.forEach(function(item) { %>
-    <li><%= item %></li>
+    <li><%= JSON.stringify(item) %></li>
     <% }); %>
 </ul>
 <br/>
 <ol>
     <% for(let i = 0; i < list.length; i++) { %>
-    <li><%= list[i] %></li>
+    <li><%= list[i].name %></li>
     <% } %>
 </ol>
 <% } %>
