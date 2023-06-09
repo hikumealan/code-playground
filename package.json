@@ -1,0 +1,21 @@
+{
+  "name": "code-playground",
+  "version": "1.0.0",
+  "description": "Test lab and dumping ground for coding experiments",
+  "main": "index.js",
+  "scripts": {
+    "gen": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hikumealan/code-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hikumealan/code-playground/issues"
+  },
+  "homepage": "https://github.com/hikumealan/code-playground#readme"
+}
