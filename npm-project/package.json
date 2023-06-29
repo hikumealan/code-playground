@@ -1,0 +1,20 @@
+{
+  "name": "npm-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "config": {
+    "project": "test-proj"
+  },
+  "scripts": {
+    "start": "npm run stencil:init",
+    "prestencil:init": "node -e \"console.log(process.env);require('readline').createInterface({input:process.stdin, output:process.stdout}).question('\\nPress any key to continue.', (res) => {process.exit();})\"",
+    "stencil:init": "npx -y create-stencil component $npm_package_config_project",
+    "poststencil:init": "npm run stencil:gen",
+    "stencil:gen": "cd $npm_package_config_project && npx -y @stencil/core generate test-comp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
